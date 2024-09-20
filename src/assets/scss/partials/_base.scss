@@ -1,0 +1,24 @@
+$fonts: (
+  'Regular': (weight: $font-weight-regular, style: normal),
+  'Medium': (weight: $font-weight-regular, style: normal),
+  'Bold': (weight: $font-weight-semibold, style: normal)
+);
+
+@each $name, $properties in $fonts {
+  @font-face {
+    font-family: 'Alegreya Sans';
+    src: url('@/assets/fonts/alegreya/AlegreyaSans-#{$name}.ttf');
+    font-weight: map-get($properties, weight);
+    font-style: map-get($properties, style);
+    font-display: swap;
+  }
+}
+
+// Make type normal across browsers
+html, body {
+  color: $color-neutral-black;
+  font-size: ms(0);
+  font-family: $font-family-base;
+  font-weight: $font-weight-regular;
+  line-height: $font-lineheight-base;
+}

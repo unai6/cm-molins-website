@@ -1,0 +1,10 @@
+@use 'sass:list';
+@use 'sass:math';
+
+@function ms($scale) {
+
+  $base: map-get($modularscale, base);
+  $ratio: map-get($modularscale, ratio);
+
+  @return $base * pow($ratio, $scale);
+}

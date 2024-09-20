@@ -1,0 +1,33 @@
+// Responsiveness and media breakpoints
+// --------------------
+
+@mixin breakpoint($name) {
+  $breakpoints: (
+    'md': $md-breakpoint,
+    'lg': $lg-breakpoint,
+    'xl': $xl-breakpoint,
+    'xxl': $xxl-breakpoint,
+  ) !default;
+
+  $breakpoint: map-get($breakpoints, $name);
+
+  @if $breakpoint {
+    @media (min-width: ($breakpoint)) { @content; }
+  }
+
+  @else {
+    @warn "breakpoint mixin supports: md, lg, xl, xxl";
+  }
+}
+
+@mixin bounce-animation($name, $startPosition) {
+  animation-duration: $transition-duration-slowest;
+  animation-iteration-count: 1;
+  animation-name: $name;
+  animation-timing-function: linear;
+
+  @keyframes #{$name} {
+    0%  { transform: translateX($startPosition); }
+    60% { transform: translateX(0); }
+  }
+}
