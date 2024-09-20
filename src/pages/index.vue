@@ -1,8 +1,8 @@
 <script setup>
-const { locale, fallbackLocale } = useI18n()
+const { locale, defaultLocale } = useI18n()
 const { path } = useRoute()
 
-const contentPath = locale.value === fallbackLocale.value ? `/${locale.value}${path}` : path
+const contentPath = locale.value === defaultLocale ? `/${locale.value}${path}` : path
 </script>
 
 <template>

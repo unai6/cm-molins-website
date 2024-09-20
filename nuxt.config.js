@@ -90,7 +90,7 @@ export default defineNuxtConfig({
   },
   strategy: 'prefix_except_default',
   customRoutes: 'config',
-    pages: i18nPages,
+  pages: i18nPages,
   vueI18n: './src/lang/i18n.config.js',
 },
 
