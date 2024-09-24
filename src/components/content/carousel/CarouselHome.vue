@@ -1,7 +1,7 @@
 <script setup>
 import { reactive, onUnmounted } from 'vue'
 
-import BaseCarousel from '@/components/base/BaseCarousel.vue';
+import BaseCarousel from '@/components/content/base/BaseCarousel.vue'
 
 const state = reactive({
   activeImage: 1,
@@ -25,14 +25,16 @@ onUnmounted(() => {
 
 <template>
   <BaseCarousel v-model="state.activeImage" class="carousel-home" :items-length="4">
-    <template v-for="(_, idx) in 4" :key="idx" #[getTemplateIdx(state.activeImage)] >
-      <img
-        :src="`/images/carousel-home-${state.activeImage}.jpg`"
-        :alt="`carousel-image-${state.activeImage}`"
-        class="carousel-home__image"
-      />
+    <template #[getTemplateIdx(state.activeImage)]>
+      <div class="carousel-home__image-wrapper">
+        <img
+          :src="`/images/carousel-home-${state.activeImage}.jpg`"
+          :alt="`carousel-image-${state.activeImage}`"
+          class="carousel-home__image"
+        />
+      </div>
       <div class="carousel-home__quotes">
-
+        <p v-html="$t(`carouselHome.message.item${state.activeImage}`)" />
       </div>
     </template>
   </BaseCarousel>
@@ -42,34 +44,62 @@ onUnmounted(() => {
 <style lang="scss">
 .carousel-home {
   position: relative;
-  height: 100dvh;
-  width: 100%;
+
+  @include breakpoint(lg) {
+    height: calc(100dvh - 96px - 48px);
+  }
+
+  &__image-wrapper {
+    height: calc(100dvh - 208px);
+    overflow: hidden;
+
+    @include breakpoint(lg) {
+      height: calc(100dvh - 96px - $spacer*5);
+    }
+  }
 
   &__image {
     width: 100%;
-    height: calc(100dvh - 96px - $spacer*3);
+    height: 100%;
+    animation: scaleIn 3s linear;
     object-fit: cover;
-    // animation: scaleIn 3s linear;
-  }
-
-  @keyframes scaleIn {
-    from {
-      transform: scale(1.5);
-    }
-    to {
-      transform: scale(1);
-    }
   }
 
   &__quotes {
     position: absolute;
-    bottom: -$spacer*1.5;
-    left: 100px;
-    height: 360px;
+    bottom: -24px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: z-number(dropdown);
     width: 352px;
-    background-color: $color-primary;
-    z-index: z-number(overbase);
-    opacity: 0.6;
+    height: 360px;
+    padding: $spacer-double;
+    font-size: ms(2);
+    line-height: $font-lineheight-long;
+    color: $color-neutral-white;
+    animation: fadeIn 1s linear;
+
+    & span {
+      font-size: ms(1);
+    }
+
+    @include breakpoint(lg) {
+      bottom: -32px;
+      left: 155px;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      background-color: $color-primary;
+      height: 100%;
+      width: 100%;
+      opacity: 0.6;
+      z-index: z-number(underbase);
+    }
   }
 }
 </style>

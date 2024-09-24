@@ -1,5 +1,5 @@
 <script setup>
-import BaseIcon from '@/components/base/BaseIcon.vue'
+import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
 const modelValue = defineModel({ type: Number, required: true })
 
@@ -19,6 +19,8 @@ const props = defineProps({
   },
 })
 
+const slots = useSlots()
+
 function handleButtonNavigation (direction) {
   if (direction === 'left' && modelValue.value === 1) {
     modelValue.value = props.itemsLength
@@ -36,7 +38,7 @@ function handleButtonNavigation (direction) {
 
 <template>
   <div class="base-carousel">
-    <div class="base-carousel__item" v-for="name in Object.keys($slots)" :key="name">
+    <div class="base-carousel__item" v-for="name in Object.keys(slots)" :key="name">
       <slot :name="name" />
       <div class="base-carousel__nav">
         <BaseIcon
@@ -64,7 +66,10 @@ function handleButtonNavigation (direction) {
 <style lang="scss">
 .base-carousel {
   width: 100%;
-  overflow-y: hidden;
+
+  @include breakpoint(lg) {
+    overflow-y: hidden;
+  }
 
   &__item {
     position: relative;
@@ -89,14 +94,14 @@ function handleButtonNavigation (direction) {
     border-radius: $border-radius-circular;
     border: $border-weight-thin solid $color-neutral-white;
     margin: 0 $spacer;
-    padding: $spacer;
+    padding: $spacer*0.75;
     cursor: pointer;
   }
 
   &__dots {
     position: absolute;
     left: 50%;
-    bottom: $spacer;
+    bottom: -80px;
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
@@ -106,17 +111,20 @@ function handleButtonNavigation (direction) {
     height: fit-content;
     width: 100%;
     cursor: pointer;
+
+    @include breakpoint(lg) {
+      bottom: $spacer;
+    }
   }
 
   &__dot {
-    height: 8px;
-    width: 8px;
+    width: 16px;
+    height: 16px;
     border-radius: $border-radius-circular;
-    border: $border-weight-hairline solid $color-neutral-white;
+    border: $border-weight-hairline solid $color-neutral-dark;
 
     @include breakpoint(lg) {
-      height: 16px;
-      width: 16px;
+      border: $border-weight-hairline solid $color-neutral-white;
     }
 
     &--active {

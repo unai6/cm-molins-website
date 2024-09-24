@@ -50,6 +50,7 @@ export default defineNuxtConfig({
             @import "@/assets/scss/partials/functions";
             @import "@/assets/scss/partials/_helpers.scss";
             @import "@/assets/scss/partials/_transitions.scss";
+            @import "@/assets/scss/partials/_animations.scss";
           `,
         },
       },

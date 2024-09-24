@@ -21,7 +21,7 @@ const sizes = {
 }
 
 const pixelSize = computed(() => sizes[props.size] || sizes.medium)
-const CurrentIconComponent = computed(() => defineAsyncComponent(() => import(`../../assets/icons/${props.icon}.svg`)))
+const CurrentIconComponent = computed(() => defineAsyncComponent(() => import(`../../../assets/icons/${props.icon}.svg`)))
 </script>
 
 <template>

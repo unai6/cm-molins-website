@@ -1,14 +1,19 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import { onClickOutside } from '@vueuse/core'
+import { onClickOutside, useBreakpoints } from '@vueuse/core'
 
 import AppLocaleSwitcher from '@/components/content/AppLocaleSwitcher.vue'
-import BaseIcon from '@/components/base/BaseIcon.vue'
+import AppBurger from '@/components/content/AppBurger.vue'
+import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
-const { t } = useI18n()
+import config from '@/config'
+
+const breakpoints = useBreakpoints(config.breakpoints)
 
 const state = reactive({
   visibleDropdown: null,
+  isMenuVisible: false,
+  isMobile: breakpoints.smaller('lg'),
 })
 
 const appHeaderRef = ref(null)
@@ -32,33 +37,38 @@ function openDropdown (id) {
 
 <template>
   <div ref="appHeaderRef" class="app-header">
-    <p class="app-header__title mobile-only">CARTERA DE<br> INVERSIONES&nbsp;<span>C.M.</span></p>
-    <div class="app-header__block">
-      <p class="app-header__dropdown-title" @click="openDropdown('aboutUs')">
-        ¿Quiénes somos?&nbsp;
-        <BaseIcon icon="chevron-down"/>
-      </p>
-      <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'aboutUs' }">
-        <NuxtLink to="/" v-for="(link, idx) in whoWeAreLinks" :key="idx">
-          {{ $t(`appHeader.label.${link}`) }}
-        </NuxtLink>
-      </div>
+    <div class="app-header__mobile-menu mobile-only">
+      <p class="app-header__title">CARTERA DE<br>INVERSIONES&nbsp;<span>C.M.</span></p>
+      <AppBurger v-model="state.isMenuVisible" mobile-only />
     </div>
-    <div class="app-header__block">
-      <p class="app-header__dropdown-title" @click="openDropdown('whatWeDo')">
-        ¿Qué hacemos?&nbsp;
-        <BaseIcon icon="chevron-down"/>
+    <template v-if="state.isMenuVisible || !state.isMobile">
+      <div class="app-header__block">
+        <p class="app-header__dropdown-title" @click="openDropdown('aboutUs')">
+          ¿Quiénes somos?&nbsp;
+          <BaseIcon icon="chevron-down"/>
         </p>
-      <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'whatWeDo' }">
-        <NuxtLink to="/"  v-for="(link, idx) in whatWeDoLinks" :key="idx">
-          {{ $t(`appHeader.label.${link}`) }}
-        </NuxtLink>
+        <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'aboutUs' }">
+          <NuxtLink to="/" v-for="(link, idx) in whoWeAreLinks" :key="idx">
+            {{ $t(`appHeader.label.${link}`) }}
+          </NuxtLink>
+        </div>
       </div>
-    </div>
-    <p class="app-header__title desktop-only">CARTERA DE INVERSIONES&nbsp;<span>C.M.</span></p>
-    <NuxtLink class="app-header__link">Empresas participadas</NuxtLink>
-    <NuxtLink class="app-header__link">Contacto</NuxtLink>
-    <AppLocaleSwitcher />
+      <div class="app-header__block">
+        <p class="app-header__dropdown-title" @click="openDropdown('whatWeDo')">
+          ¿Qué hacemos?&nbsp;
+          <BaseIcon icon="chevron-down"/>
+          </p>
+        <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'whatWeDo' }">
+          <NuxtLink to="/"  v-for="(link, idx) in whatWeDoLinks" :key="idx">
+            {{ $t(`appHeader.label.${link}`) }}
+          </NuxtLink>
+        </div>
+      </div>
+      <p class="app-header__title desktop-only">CARTERA DE INVERSIONES&nbsp;<span>C.M.</span></p>
+      <NuxtLink class="app-header__link">Empresas participadas</NuxtLink>
+      <NuxtLink class="app-header__link">Contacto</NuxtLink>
+      <AppLocaleSwitcher class="app-header__locale-switcher" />
+    </template>
   </div>
 </template>
 
@@ -70,6 +80,7 @@ function openDropdown (id) {
   gap: $spacer*1.5;
   justify-content: space-evenly;
   padding: $spacer*1.5;
+  padding-bottom: $spacer;
   background-color: $color-neutral-medium;
   text-transform: uppercase;
   font-family: $font-family-highlight;
@@ -82,6 +93,13 @@ function openDropdown (id) {
     padding: unset;
     height: 96px;
     background-color: $color-neutral-white;
+  }
+
+  &__mobile-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
 
   &__block {
@@ -111,6 +129,7 @@ function openDropdown (id) {
         position: absolute;
         cursor: pointer;
         width: 240px;
+        padding-left: $spacer;
         line-height: $font-lineheight-long;
         background-color: $color-neutral-white;
       }
@@ -129,6 +148,8 @@ function openDropdown (id) {
   }
 
   &__title {
+    display: flex;
+    align-items: baseline;
     font-family: Cinzel, serif;
     font-size: ms(1);
     line-height: $font-lineheight-long;
@@ -143,6 +164,14 @@ function openDropdown (id) {
       font-family: Arial, Helvetica, sans-serif;
       font-weight: $font-weight-bold;
       font-size: 21px; // Force this font-size as per design request.
+    }
+  }
+
+  &__locale-switcher {
+    margin-top: $spacer;
+
+    @include breakpoint(lg) {
+      margin-top: unset;
     }
   }
 }

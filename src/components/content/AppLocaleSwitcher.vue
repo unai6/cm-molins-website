@@ -1,16 +1,5 @@
 <script setup>
-import { reactive, ref, computed } from 'vue'
-import { onClickOutside, useBreakpoints } from '@vueuse/core'
-
-import config from '@/config'
-
 const { locale: currentLocale, locales, setLocale } = useI18n()
-const breakpoints = useBreakpoints(config.breakpoints)
-
-const state = reactive({
-  isMobile: breakpoints.smaller('lg'),
-})
-
 </script>
 
 <template>
@@ -33,7 +22,6 @@ const state = reactive({
   gap: $spacer;
   border-radius: $border-radius-sm;
   width: fit-content;
-  margin-top: $spacer;
   font-size: ms(0);
   font-weight: $font-weight-semibold;
   font-family: $font-family-highlight;
