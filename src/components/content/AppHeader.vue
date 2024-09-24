@@ -32,13 +32,14 @@ function openDropdown (id) {
 
 <template>
   <div ref="appHeaderRef" class="app-header">
+    <p class="app-header__title mobile-only">CARTERA DE<br> INVERSIONES&nbsp;<span>C.M.</span></p>
     <div class="app-header__block">
       <p class="app-header__dropdown-title" @click="openDropdown('aboutUs')">
         ¿Quiénes somos?&nbsp;
         <BaseIcon icon="chevron-down"/>
       </p>
       <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'aboutUs' }">
-        <NuxtLink v-for="(link, idx) in whoWeAreLinks" :key="idx">
+        <NuxtLink to="/" v-for="(link, idx) in whoWeAreLinks" :key="idx">
           {{ $t(`appHeader.label.${link}`) }}
         </NuxtLink>
       </div>
@@ -54,7 +55,7 @@ function openDropdown (id) {
         </NuxtLink>
       </div>
     </div>
-    <div class="app-header__title">CARTERA DE INVERSIONES&nbsp;<span>C.M.</span></div>
+    <p class="app-header__title desktop-only">CARTERA DE INVERSIONES&nbsp;<span>C.M.</span></p>
     <NuxtLink class="app-header__link">Empresas participadas</NuxtLink>
     <NuxtLink class="app-header__link">Contacto</NuxtLink>
     <AppLocaleSwitcher />
@@ -64,12 +65,24 @@ function openDropdown (id) {
 <style lang="scss">
 .app-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: $spacer*1.5;
   justify-content: space-evenly;
+  padding: $spacer*1.5;
+  background-color: $color-neutral-medium;
   text-transform: uppercase;
   font-family: $font-family-highlight;
   font-weight: $font-weight-regular;
-  height: 96px;
+
+  @include breakpoint(lg) {
+    flex-direction: row;
+    align-items: center;
+    gap: unset;
+    padding: unset;
+    height: 96px;
+    background-color: $color-neutral-white;
+  }
 
   &__block {
     position: relative;
@@ -84,25 +97,43 @@ function openDropdown (id) {
     z-index: z-number(dropdown);
 
     &--visible {
-      position: absolute;
-      cursor: pointer;
       display: flex;
       flex-direction: column;
+      gap: $spacer;
       padding: $spacer;
       padding-left: $spacer-half;
-      width: 240px;
-      background-color: $color-neutral-white;
+      padding-bottom: 0;
       font-size: ms(0);
       line-height: $font-lineheight-long;
       color: $color-opacities-darkest;
+
+      @include breakpoint(lg) {
+        position: absolute;
+        cursor: pointer;
+        width: 240px;
+        line-height: $font-lineheight-long;
+        background-color: $color-neutral-white;
+      }
+
+      & > .router-link-active {
+        border-bottom: $border-weight-hairline solid $color-neutral-black;
+        padding-bottom: $spacer*0.75;
+        color: $color-neutral-black;
+        text-decoration: none;
+      }
     }
   }
 
   &__title {
     font-family: Cinzel, serif;
-    font-weight: $font-weight-light;
     font-size: ms(1);
+    line-height: $font-lineheight-long;
+    font-weight: $font-weight-light;
     color: $color-opacities-darkest;
+
+    @include breakpoint(lg) {
+      line-height: $font-lineheight-base;
+    }
 
     & > span {
       font-family: Arial, Helvetica, sans-serif;

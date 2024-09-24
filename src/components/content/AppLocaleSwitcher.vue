@@ -32,12 +32,16 @@ const state = reactive({
   display: flex;
   gap: $spacer;
   border-radius: $border-radius-sm;
-  border: $border-weight-hairline solid $color-primary;
   width: fit-content;
-  padding: $spacer*0.75 $spacer-double;
+  margin-top: $spacer;
   font-size: ms(0);
   font-weight: $font-weight-semibold;
   font-family: $font-family-highlight;
+
+  @include breakpoint(lg) {
+    border: $border-weight-hairline solid $color-primary;
+    padding: $spacer*0.75 $spacer-double;
+  }
 
   &__locale {
     cursor: pointer;
