@@ -10,9 +10,9 @@ const state = reactive({
 
 const authors = ['', 'HARVEY MACKAY', 'MARK TWAIN', 'CHRIS GROSSER']
 
-state.interval = setInterval(() => {
-  state.activeImage = state.activeImage >= authors.length - 1 ? 1 : state.activeImage + 1
-}, 6000)
+// state.interval = setInterval(() => {
+//   state.activeImage = state.activeImage >= authors.length - 1 ? 1 : state.activeImage + 1
+// }, 6000)
 
 function getTemplateIdx (idx) {
   return `item-${idx}`
@@ -24,13 +24,16 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <BaseCarousel v-model="state.activeImage" class="carousel-home" :items-length="authors.length">
-    <template v-for="(_, idx) in authors" :key="idx" #[getTemplateIdx(state.activeImage)] >
+  <BaseCarousel v-model="state.activeImage" class="carousel-home" :items-length="4">
+    <template v-for="(_, idx) in 4" :key="idx" #[getTemplateIdx(state.activeImage)] >
       <img
         :src="`/images/carousel-home-${state.activeImage}.jpg`"
         :alt="`carousel-image-${state.activeImage}`"
         class="carousel-home__image"
       />
+      <div class="carousel-home__quotes">
+
+      </div>
     </template>
   </BaseCarousel>
 </template>
@@ -39,14 +42,14 @@ onUnmounted(() => {
 <style lang="scss">
 .carousel-home {
   position: relative;
-  height: calc(100dvh - 96px - $spacer*3);
+  height: 100dvh;
   width: 100%;
 
   &__image {
     width: 100%;
-    height: 100%;
+    height: calc(100dvh - 96px - $spacer*3);
     object-fit: cover;
-    animation: scaleIn 3s linear;
+    // animation: scaleIn 3s linear;
   }
 
   @keyframes scaleIn {
@@ -56,6 +59,17 @@ onUnmounted(() => {
     to {
       transform: scale(1);
     }
+  }
+
+  &__quotes {
+    position: absolute;
+    bottom: -$spacer*1.5;
+    left: 100px;
+    height: 360px;
+    width: 352px;
+    background-color: $color-primary;
+    z-index: z-number(overbase);
+    opacity: 0.6;
   }
 }
 </style>

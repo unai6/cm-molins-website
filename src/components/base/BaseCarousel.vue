@@ -1,4 +1,6 @@
 <script setup>
+import BaseIcon from '@/components/base/BaseIcon.vue'
+
 const modelValue = defineModel({ type: Number, required: true })
 
 const props = defineProps({
@@ -11,13 +13,41 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  isButtonNavCircular: {
+    type: Boolean,
+    default: true,
+  },
 })
+
+function handleButtonNavigation (direction) {
+  if (direction === 'left' && modelValue.value === 1) {
+    modelValue.value = props.itemsLength
+    return
+  }
+
+  if (direction === 'right' && modelValue.value === props.itemsLength) {
+    modelValue.value = 1
+    return
+  }
+
+  modelValue.value = direction === 'left' ? modelValue.value - 1 : modelValue.value + 1
+}
 </script>
 
 <template>
   <div class="base-carousel">
     <div class="base-carousel__item" v-for="name in Object.keys($slots)" :key="name">
       <slot :name="name" />
+      <div class="base-carousel__nav">
+        <BaseIcon
+          v-for="direction in ['left', 'right']"
+          :key="direction"
+          :icon="`arrow-${direction}`"
+          size="large"
+          class="base-carousel__nav-button"
+          @click="handleButtonNavigation(direction)"
+        />
+      </div>
       <div class="base-carousel__dots">
         <div
           v-for="item in props.itemsLength"
@@ -38,7 +68,29 @@ const props = defineProps({
 
   &__item {
     position: relative;
-    height: 100%;
+  }
+
+  &__nav {
+    display: none;
+
+    @include breakpoint(lg) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__nav-button {
+    color: $color-neutral-white;
+    border-radius: $border-radius-circular;
+    border: $border-weight-thin solid $color-neutral-white;
+    margin: 0 $spacer;
+    padding: $spacer;
+    cursor: pointer;
   }
 
   &__dots {
