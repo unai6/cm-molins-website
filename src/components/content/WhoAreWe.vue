@@ -1,5 +1,6 @@
-<script setup></script>
-
+<script setup>
+import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
+</script>
 
 <template>
   <div class="who-are-we">
@@ -15,11 +16,18 @@
         <ContentSlot :use="$slots.text" unwrap="p"/>
       </p>
     </div>
+    <WhoAreWeGridImages />
   </div>
 </template>
 
 <style lang="scss">
 .who-are-we {
+  display: flex;
+  flex-direction: column;
+  gap: $spacer*3;
+  padding: $spacer*1.5;
+  padding-top: $spacer*7;
+
   @include breakpoint(lg) {
     padding-top: $spacer*4;
     padding-inline: $spacer*9.6785;
@@ -40,20 +48,20 @@
     font-size: ms(1);
   }
 
-  &__content {
-    padding-top: $spacer*3;
-  }
-
   &__float {
-    float: left;
-    width: 30%;
-    padding: 0 $spacer-double;
-    padding-left: 0;
     color: $color-primary;
     font-size: ms(1);
-    line-height: 2.5rem;
     font-family: $font-family-base;
-    text-wrap: pretty;
+    display: inline-block;
+
+    @include breakpoint(lg) {
+      float: left;
+      padding: 0 $spacer-double;
+      padding-left: 0;
+      width: 30%;
+      line-height: 2.5rem;
+      text-wrap: pretty;
+    }
   }
 
   &__text {
