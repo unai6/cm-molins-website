@@ -33,8 +33,10 @@ function openDropdown (id) {
 <template>
   <div ref="appHeaderRef" class="app-header">
     <div class="app-header__block">
-      <p class="app-header__dropdown-title" @click="openDropdown('aboutUs')">¿Quiénes somos?&nbsp;
-          <BaseIcon icon="chevron-down" size="small" /></p>
+      <p class="app-header__dropdown-title" @click="openDropdown('aboutUs')">
+        ¿Quiénes somos?&nbsp;
+        <BaseIcon icon="chevron-down"/>
+      </p>
       <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'aboutUs' }">
         <NuxtLink v-for="(link, idx) in whoWeAreLinks" :key="idx">
           {{ $t(`appHeader.label.${link}`) }}
@@ -42,8 +44,10 @@ function openDropdown (id) {
       </div>
     </div>
     <div class="app-header__block">
-      <p class="app-header__dropdown-title" @click="openDropdown('whatWeDo')">¿Qué hacemos?&nbsp;
-          <BaseIcon icon="chevron-down" size="small" /></p>
+      <p class="app-header__dropdown-title" @click="openDropdown('whatWeDo')">
+        ¿Qué hacemos?&nbsp;
+        <BaseIcon icon="chevron-down"/>
+        </p>
       <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'whatWeDo' }">
         <NuxtLink v-for="(link, idx) in whatWeDoLinks" :key="idx">
           {{ $t(`appHeader.label.${link}`) }}
@@ -77,6 +81,7 @@ function openDropdown (id) {
 
   &__dropdown {
     display: none;
+    z-index: z-number(dropdown);
 
     &--visible {
       position: absolute;

@@ -72,3 +72,10 @@ $z-index: (
   base: 0,
   underbase: -1,
 );
+
+// Transitions
+$transition-duration-fastest: 0.1s;
+$transition-duration-fast: 0.2s;
+$transition-duration-medium: 0.3s;
+$transition-duration-slow: 0.4s;
+$transition-duration-slowest: 0.5s;

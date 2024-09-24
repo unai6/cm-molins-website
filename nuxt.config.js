@@ -38,7 +38,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-
   srcDir: 'src/',
   ssr: false,
   vite: {
@@ -50,6 +49,7 @@ export default defineNuxtConfig({
             @import "@/assets/scss/partials/_mixins.scss";
             @import "@/assets/scss/partials/functions";
             @import "@/assets/scss/partials/_helpers.scss";
+            @import "@/assets/scss/partials/_transitions.scss";
           `,
         },
       },

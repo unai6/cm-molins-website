@@ -14,15 +14,20 @@ const props = defineProps({
 })
 
 const sizes = {
-  small: '8px',
-  medium: '16px',
-  large: '24px',
-  largest: '32px',
+  small: 8,
+  medium: 16,
+  large: 24,
+  largest: 32,
 }
 
-const currentIcon = computed(() => defineAsyncComponent(() => import(`../../assets/icons/${props.icon}.svg`)))
+const pixelSize = computed(() => sizes[props.size] || sizes.medium)
+const CurrentIconComponent = computed(() => defineAsyncComponent(() => import(`../../assets/icons/${props.icon}.svg`)))
 </script>
 
 <template>
-  <component :is="currentIcon" />
+  <component
+    :is="CurrentIconComponent"
+    :height="pixelSize"
+    :width="pixelSize"
+  />
 </template>
