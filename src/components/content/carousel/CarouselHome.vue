@@ -11,7 +11,7 @@ const state = reactive({
 const authors = ['', 'HARVEY MACKAY', 'MARK TWAIN', 'CHRIS GROSSER']
 
 state.interval = setInterval(() => {
-  state.activeImage = state.activeImage === authors.length - 1 ? 1 : state.activeImage + 1
+  state.activeImage = state.activeImage >= authors.length - 1 ? 1 : state.activeImage + 1
 }, 6000)
 
 function getTemplateIdx (idx) {
@@ -24,7 +24,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <BaseCarousel class="carousel-home">
+  <BaseCarousel v-model="state.activeImage" class="carousel-home" :items-length="authors.length">
     <template v-for="(_, idx) in authors" :key="idx" #[getTemplateIdx(state.activeImage)] >
       <img
         :src="`/images/carousel-home-${state.activeImage}.jpg`"
@@ -45,17 +45,16 @@ onUnmounted(() => {
   &__image {
     width: 100%;
     height: 100%;
-    animation: scaleIn 3s ease-in-out;
+    object-fit: cover;
+    animation: scaleIn 3s linear;
   }
 
   @keyframes scaleIn {
     from {
       transform: scale(1.5);
-      opacity: 0;
     }
     to {
       transform: scale(1);
-      opacity: 1;
     }
   }
 }

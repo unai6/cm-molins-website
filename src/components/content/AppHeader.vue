@@ -50,7 +50,7 @@ function openDropdown (id) {
         <BaseIcon icon="chevron-down"/>
         </p>
       <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'whatWeDo' }">
-        <NuxtLink v-for="(link, idx) in whatWeDoLinks" :key="idx">
+        <NuxtLink to="/"  v-for="(link, idx) in whatWeDoLinks" :key="idx">
           {{ $t(`appHeader.label.${link}`) }}
         </NuxtLink>
       </div>
@@ -100,7 +100,7 @@ function openDropdown (id) {
       display: flex;
       flex-direction: column;
       gap: $spacer;
-      padding: $spacer;
+      padding: $spacer-double $spacer $spacer 0;
       padding-left: $spacer-half;
       padding-bottom: 0;
       font-size: ms(0);
@@ -120,6 +120,10 @@ function openDropdown (id) {
         padding-bottom: $spacer*0.75;
         color: $color-neutral-black;
         text-decoration: none;
+
+        @include breakpoint(lg) {
+          border-bottom: unset;
+        }
       }
     }
   }
