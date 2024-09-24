@@ -42,6 +42,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
     box-sizing: border-box;
     width: 100%;
     padding: $spacer*1.5;
+    padding-bottom: 0;
     color: $color-primary;
     font-size: ms(3);
 
@@ -55,8 +56,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
   }
 
   &__content {
-    padding: $spacer*1.5;
-    padding-bottom: 0;
+    padding: 0 $spacer*1.5;
   }
 
   &__float {

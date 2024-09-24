@@ -93,11 +93,11 @@ onUnmounted(() => {
     &::after {
       position: absolute;
       content: '';
+      z-index: z-number(underbase);
       background-color: $color-primary;
       height: 100%;
       width: 100%;
       opacity: 0.6;
-      z-index: z-number(underbase);
     }
   }
 }

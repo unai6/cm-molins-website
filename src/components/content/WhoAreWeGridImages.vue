@@ -18,7 +18,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="who-are-we-grid-images hidde-mobile">
+  <div class="who-are-we-grid-images hidden-mobile">
     <div class="who-are-we-grid-images__item who-are-we-grid-images__item--1" />
     <div class="who-are-we-grid-images__item who-are-we-grid-images__item--2" />
     <div class="who-are-we-grid-images__item who-are-we-grid-images__item--3" />
@@ -46,12 +46,16 @@ onUnmounted(() => {
 
   &__item {
     width: 100%;
+    height: 300px;
     background-size: cover;
+    animation: fadeIn 1s linear;
 
     @include breakpoint(lg) {
       width: unset;
+      height: unset;
       background-clip: border-box;
       background-repeat: no-repeat;
+      animation: unset;
     }
 
     &--1 {
