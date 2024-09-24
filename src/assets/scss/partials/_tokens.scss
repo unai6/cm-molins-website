@@ -31,7 +31,7 @@ $border-weight-heavy: 8px;
 // Font Family
 $font-size-base: 16px;
 $font-family-base: Georgia,"Times New Roman",Times,serif;
-$font-family-heading: "Alegreya Sans","sans-serif";
+$font-family-highlight: "Alegreya Sans","sans-serif";
 
 // Basic modular scale definition:
 // https://www.modularscale.com/?14&px&1.225
@@ -60,3 +60,15 @@ $md-breakpoint: 768px;
 $lg-breakpoint: 1024px;
 $xl-breakpoint: 1366px;
 $xxl-breakpoint: 2560px;
+
+$z-index: (
+  overall: 999,
+  popup: 91,
+  modal: 90,
+  header: 80,
+  underheader: 79,
+  dropdown: 10,
+  overbase: 1,
+  base: 0,
+  underbase: -1,
+);

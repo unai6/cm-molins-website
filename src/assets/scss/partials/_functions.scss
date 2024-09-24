@@ -8,3 +8,7 @@
 
   @return $base * pow($ratio, $scale);
 }
+
+@function z-number($element, $delta: 0) {
+  @return map-get($z-index, $element) + $delta;
+}

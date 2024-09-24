@@ -2,5 +2,8 @@
   "appHeader.label.aboutUs": "¿Quiénes somos?",
   "appHeader.label.us": "Nosotros",
   "appHeader.label.vision": "Visión y misión",
-  "appHeader.label.corporateValues": "Valores corporativos"
+  "appHeader.label.corporateValues": "Valores corporativos",
+  "appHeader.label.whatWeDo": "¿Qué hacemos?",
+  "appHeader.label.governmentOrgans": "Órganos de gobierno",
+  "appHeader.label.socialResponsability": "Responsabilidad social corp."
 }

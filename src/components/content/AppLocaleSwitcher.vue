@@ -30,14 +30,14 @@ const state = reactive({
 <style lang="scss">
 .app-locale-switcher {
   display: flex;
-  gap: $spacer-half;
+  gap: $spacer;
   border-radius: $border-radius-sm;
   border: $border-weight-hairline solid $color-primary;
   width: fit-content;
-  padding: $spacer-half $spacer-double;
+  padding: $spacer*0.75 $spacer-double;
   font-size: ms(0);
   font-weight: $font-weight-semibold;
-  font-family: $font-family-heading;
+  font-family: $font-family-highlight;
 
   &__locale {
     cursor: pointer;

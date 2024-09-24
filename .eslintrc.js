@@ -37,17 +37,9 @@ module.exports = {
           // Vue imports.
           { pattern: 'vue', group: 'builtin' },
           { pattern: 'pinia', group: 'builtin' },
-          { pattern: 'vue-router', group: 'builtin' },
-          { pattern: 'vue-i18n', group: 'builtin' },
           { pattern: '@vueuse/core', group: 'builtin' },
           // Components.
-          { pattern: '@dogfy/components/**', group: 'internal' },
           { pattern: '@/components/**', group: 'internal' },
-          // Dogfy libraries.
-          { pattern: '@/config', group: 'parent' },
-          { pattern: '@dogfy/lib/**', group: 'parent' },
-          { pattern: '@dogfy/services/**', group: 'parent' },
-          { pattern: '@/lib/**', group: 'parent' },
         ],
         pathGroupsExcludedImportTypes: ['builtin', 'internal', 'parent'],
       },

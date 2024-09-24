@@ -1,3 +1,6 @@
+// Import cinzel as we only use one
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+
 $fonts: (
   'Light': (weight: $font-weight-light, style: normal),
   'Regular': (weight: $font-weight-regular, style: normal),
