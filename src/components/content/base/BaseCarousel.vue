@@ -93,7 +93,7 @@ function handleButtonNavigation (direction) {
     color: $color-neutral-white;
     border-radius: $border-radius-circular;
     border: $border-weight-thin solid $color-neutral-white;
-    margin: 0 $spacer;
+    margin: 0 $spacer-double;
     padding: $spacer*0.75;
     cursor: pointer;
   }

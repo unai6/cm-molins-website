@@ -6,7 +6,7 @@ title: CM.Molins Family Office Web
 ::
 ::who-are-we
 #title
-  ## QUIÉNES SOMOS?
+  ## ¿QUIÉNES SOMOS?
 #subtitle
   [CARTERA DE INVERSIONES C.M. S.A, FAMILY OFFICE]{.who-are-we__subtitle}
 #float

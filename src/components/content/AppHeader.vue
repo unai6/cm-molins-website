@@ -74,13 +74,19 @@ function openDropdown (id) {
 
 <style lang="scss">
 .app-header {
+  z-index: z-number(header);
+  position: fixed;
+  left: 0;
+  top: 0;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   gap: $spacer*1.5;
   justify-content: space-evenly;
+  box-sizing: border-box;
   padding: $spacer*1.5;
   padding-bottom: $spacer;
+  width: 100%;
   background-color: $color-neutral-medium;
   text-transform: uppercase;
   font-family: $font-family-highlight;
@@ -89,7 +95,7 @@ function openDropdown (id) {
   @include breakpoint(lg) {
     flex-direction: row;
     align-items: center;
-    gap: unset;
+    gap: $spacer-half;
     padding: unset;
     height: 96px;
     background-color: $color-neutral-white;

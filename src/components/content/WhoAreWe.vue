@@ -24,11 +24,11 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
 .who-are-we {
   display: flex;
   flex-direction: column;
-  gap: $spacer*3;
-  padding: $spacer*1.5;
-  padding-top: $spacer*7;
+  gap: $spacer-double;
+  padding-top: $spacer*8;
 
   @include breakpoint(lg) {
+    gap: $spacer*3;
     padding-top: $spacer*4;
     padding-inline: $spacer*9.6785;
   }
@@ -36,16 +36,27 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
   &__title {
     display: flex;
     flex-direction: column;
-    gap: $spacer-double;
+    gap: $spacer*1.5;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     width: 100%;
+    padding: $spacer*1.5;
     color: $color-primary;
     font-size: ms(3);
+
+    @include breakpoint(lg) {
+      gap: $spacer-double;
+    }
   }
 
   &__subtitle {
     font-size: ms(1);
+  }
+
+  &__content {
+    padding: $spacer*1.5;
+    padding-bottom: 0;
   }
 
   &__float {

@@ -8,8 +8,6 @@ const state = reactive({
   interval: null,
 })
 
-const authors = ['', 'HARVEY MACKAY', 'MARK TWAIN', 'CHRIS GROSSER']
-
 // state.interval = setInterval(() => {
 //   state.activeImage = state.activeImage >= authors.length - 1 ? 1 : state.activeImage + 1
 // }, 6000)
@@ -46,7 +44,8 @@ onUnmounted(() => {
   position: relative;
 
   @include breakpoint(lg) {
-    height: calc(100dvh - 96px - 48px);
+    height: calc(100dvh - 64px);
+    overflow: visible;
   }
 
   &__image-wrapper {
@@ -54,7 +53,7 @@ onUnmounted(() => {
     overflow: hidden;
 
     @include breakpoint(lg) {
-      height: calc(100dvh - 96px - $spacer*5);
+      height: calc(100dvh - 64px);
     }
   }
 
