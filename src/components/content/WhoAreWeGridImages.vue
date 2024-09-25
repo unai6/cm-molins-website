@@ -12,6 +12,17 @@ function getTemplateIdx (idx) {
   return `item-${idx}`
 }
 
+const carouselDotsConfig = {
+  position: {
+    left: '50%',
+    bottom: '0',
+    lg: {
+      bottom: '16px'
+    },
+  },
+  size: '16px',
+}
+
 onUnmounted(() => {
   clearInterval(state.interval)
 })
@@ -28,7 +39,12 @@ onUnmounted(() => {
     <div class="who-are-we-grid-images__item who-are-we-grid-images__item--7" />
     <div class="who-are-we-grid-images__item who-are-we-grid-images__item--8" />
   </div>
-  <BaseCarousel v-model="state.activeImage" :items-length="8" class="who-are-we-grid-images hidden-desktop">
+  <BaseCarousel
+    v-model="state.activeImage"
+    :items-length="8"
+    :dots-config="carouselDotsConfig"
+    class="who-are-we-grid-images hidden-desktop"
+  >
     <template #[getTemplateIdx(state.activeImage)]>
       <div class="who-are-we-grid-images__item" :class="` who-are-we-grid-images__item--${state.activeImage}`" />
     </template>

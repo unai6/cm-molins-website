@@ -119,7 +119,7 @@ const { borderColor, backgroundColor, size, position = {} } = props.dotsConfig
     cursor: pointer;
 
     @include breakpoint(lg) {
-      bottom: v-bind('position.lg.bottom');
+      bottom: v-bind('position.lg?.bottom');
     }
   }
 
