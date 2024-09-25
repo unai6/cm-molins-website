@@ -39,8 +39,8 @@ onUnmounted(() => {
 .who-are-we-grid-images {
   @include breakpoint(lg) {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1.25fr 1.25fr 1.5fr 2fr;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 1fr 1fr 1.5fr;
     gap: $spacer*0.75;
   }
 
@@ -90,7 +90,7 @@ onUnmounted(() => {
       background-position: center;
 
       @include breakpoint(lg) {
-        grid-area: 3 / 2 / 4 / 5;
+        grid-area: 3 / 2 / 4 / 10;
       }
     }
 
@@ -111,7 +111,7 @@ onUnmounted(() => {
       background-image: url('https://res.cloudinary.com/webmolins/image/upload/v1618327396/fotos%20carousel%20home/entrada_casa_wqsazb.webp');
 
       @include breakpoint(lg) {
-        grid-area: 3 / 5 / 4 / -1;
+        grid-area: 3 / 10 / 4 / -1;
       }
     }
 
@@ -120,8 +120,8 @@ onUnmounted(() => {
 
       @include breakpoint(lg) {
         background-position: center;
-        grid-area: 4 / 1 / -1 / 3;
-        aspect-ratio: 16 / 9;
+        grid-area: 4 / 1 / -1 / 5;
+        height: 300px;
       }
     }
 
@@ -130,7 +130,8 @@ onUnmounted(() => {
 
       @include breakpoint(lg) {
         background-position: center;
-        grid-area: 4 / 3 / 4 / -1;
+        grid-area: 4 / 5 / 4 / -1;
+        height: 300px;
       }
     }
   }

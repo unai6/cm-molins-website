@@ -57,6 +57,10 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
 
   &__content {
     padding: 0 $spacer*1.5;
+
+    @include breakpoint(lg) {
+      padding: unset;
+    }
   }
 
   &__float {

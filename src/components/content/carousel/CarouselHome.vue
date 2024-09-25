@@ -12,6 +12,17 @@ const state = reactive({
 //   state.activeImage = state.activeImage >= authors.length - 1 ? 1 : state.activeImage + 1
 // }, 6000)
 
+const carouselDotsConfig = {
+  position: {
+    left: '50%',
+    bottom: '-80px',
+    lg: {
+      bottom: '16px'
+    },
+  },
+  size: '16px',
+}
+
 function getTemplateIdx (idx) {
   return `item-${idx}`
 }
@@ -22,7 +33,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <BaseCarousel v-model="state.activeImage" class="carousel-home" :items-length="4">
+  <BaseCarousel
+    v-model="state.activeImage"
+    :dots-config="carouselDotsConfig"
+    class="carousel-home" :items-length="4"
+  >
     <template #[getTemplateIdx(state.activeImage)]>
       <div class="carousel-home__image-wrapper">
         <img

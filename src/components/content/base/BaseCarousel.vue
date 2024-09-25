@@ -17,6 +17,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  dotsConfig: {
+    type: Object,
+    default: () => ({}),
+  },
 })
 
 const slots = useSlots()
@@ -34,6 +38,8 @@ function handleButtonNavigation (direction) {
 
   modelValue.value = direction === 'left' ? modelValue.value - 1 : modelValue.value + 1
 }
+
+const { borderColor, backgroundColor, size, position = {} } = props.dotsConfig
 </script>
 
 <template>
@@ -100,26 +106,26 @@ function handleButtonNavigation (direction) {
 
   &__dots {
     position: absolute;
-    left: 50%;
-    bottom: -80px;
+    z-index: z-number(overbase);
+    left: v-bind('position.left');
+    bottom: v-bind('position.bottom');
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     gap: $spacer-half;
     justify-content: center;
-    z-index: z-number(overbase);
-    height: fit-content;
     width: 100%;
+    height: fit-content;
     cursor: pointer;
 
     @include breakpoint(lg) {
-      bottom: $spacer;
+      bottom: v-bind('position.lg.bottom');
     }
   }
 
   &__dot {
-    width: 16px;
-    height: 16px;
+    width: v-bind(size);
+    height: v-bind(size);
     border-radius: $border-radius-circular;
     border: $border-weight-hairline solid $color-neutral-dark;
 
