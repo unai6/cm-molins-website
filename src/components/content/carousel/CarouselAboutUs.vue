@@ -92,7 +92,7 @@ onUnmounted(() => {
     font-size: ms(1);
 
     @include breakpoint(lg) {
-      font-size: ms(4);
+      font-size: ms(3);
     }
   }
 

@@ -28,4 +28,6 @@ Somos un grupo familiar cuyo objetivo es la creación de valor a través de una 
 ::
 
 ::corporative-values
+#title
+  ## VALORES CORPORATIVOS
 ::

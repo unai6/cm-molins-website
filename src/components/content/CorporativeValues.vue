@@ -6,37 +6,37 @@ const corporativeValuesItems = [
   {
     icon: '',
     title: 'Excelencia',
-    description: '',
+    description: 'Esfuerzo, perseverancia en el trabajo realizado con un claro enfoque a la excelencia.',
     backgroundColor: '#014CB1',
   },
   {
     icon: '',
     title: 'Adaptabilidad',
-    description: '',
+    description: 'Adaptar la organización a las circunstancias de cada momento.',
     backgroundColor: '#C6C6C6',
   },
   {
     icon: '',
     title: 'Transparencia',
-    description: '',
+    description: 'Transparencia, comunicación y trabajo en equipo.',
     backgroundColor: '#057ED1',
   },
   {
     icon: '',
     title: 'Familia',
-    description: '',
+    description: 'Cuidado y respecto por la reputación de la familia.',
     backgroundColor: '#4BADD8',
   },
   {
     icon: '',
     title: 'Compromiso',
-    description: '',
+    description: 'Estabilidad, integridad y compromiso de los accionistas a largo plazo.',
     backgroundColor: '#666666',
   },
   {
     icon: '',
     title: 'Ética',
-    description: '',
+    description: 'Ética en los negocios.',
     backgroundColor: '#80C8E4',
   },
 ]
@@ -76,6 +76,7 @@ onMounted(() => {
           :style="{ backgroundColor: value.backgroundColor }"
         >
           <p>{{ value.title }}</p>
+          <p class="corporative-values__item-description">{{ value.description }}</p>
         </div>
       </div>
     </div>
@@ -93,6 +94,11 @@ onMounted(() => {
   @include breakpoint(lg) {
     padding: $spacer*3;
     gap: $spacer-double;
+  }
+
+  &__title {
+    font-size: ms(3);
+    color: $color-primary;
   }
 
   &__wheel-container {
@@ -124,6 +130,11 @@ onMounted(() => {
     color: $color-neutral-white;
     font-size: ms(1);
     font-weight: $font-weight-bold;
+  }
+
+  &__item-description {
+    position: absolute;
+    color: $color-neutral-black;
   }
 }
 </style>
