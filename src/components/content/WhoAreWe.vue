@@ -29,8 +29,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
 
   @include breakpoint(lg) {
     gap: $spacer*3;
-    padding-top: $spacer*4;
-    padding-inline: $spacer*9.6785;
+    padding: $spacer*6 $spacer*9.6785;
   }
 
   &__title {

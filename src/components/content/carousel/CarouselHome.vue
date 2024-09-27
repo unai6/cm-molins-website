@@ -12,7 +12,7 @@ const imagesLength = 4
 
 state.interval = setInterval(() => {
   state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
-}, 2000)
+}, 6000)
 
 const carouselDotsConfig = {
   background: { color: '#6C6C6C', lg: { color: '#FFFFFF' } },

@@ -19,10 +19,13 @@ title: CM.Molins Family Office Web
 #item1Title
   ## VISIÓN
 #item1Content
-  Este es el contenido 1
+Somos un grupo familiar cuyo objetivo es la creación de valor a través de una gestión diversificada de activos, mediante un equilibrio entre la rentabilidad y el riesgo y como principio fundamental, debemos apoyar de forma activa y decisiva, a mantener el control de Cementos Molins, S.A en manos de la familia, y contribuir al buen gobierno de la sociedad.
 
 #item2Title
   ## MISIÓN
 #item2Content
-  Este es el contenido 2
+  Queremos convertirnos, mediante la adecuada inversión, diversificación y gestión de nuestros recursos, en un inversor de referencia en nuestro ámbito de actuación, velando por el crecimiento del patrimonio familiar de una forma rentable y sostenible.
+::
+
+::corporative-values
 ::
