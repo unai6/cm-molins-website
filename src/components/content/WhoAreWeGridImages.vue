@@ -13,13 +13,9 @@ function getTemplateIdx (idx) {
 }
 
 const carouselDotsConfig = {
-  position: {
-    left: '50%',
-    bottom: '0',
-    lg: {
-      bottom: '16px'
-    },
-  },
+  background: { color: '#FFFFFF', lg: { color: '#6C6C6C' } },
+  border: { color: '#FFFFFF', size: '2px', lg: {   color: '#6C6C6C',   size: '1px' } },
+  position: { left: '50%', bottom: '10px', lg: { bottom: '16px' } },
   size: '16px',
 }
 
@@ -43,7 +39,7 @@ onUnmounted(() => {
     v-model="state.activeImage"
     :items-length="8"
     :dots-config="carouselDotsConfig"
-    class="who-are-we-grid-images hidden-desktop"
+    class="who-are-we-grid-images hidden-desktop hidden-tablet"
   >
     <template #[getTemplateIdx(state.activeImage)]>
       <div class="who-are-we-grid-images__item" :class="` who-are-we-grid-images__item--${state.activeImage}`" />
@@ -53,11 +49,19 @@ onUnmounted(() => {
 
 <style lang="scss">
 .who-are-we-grid-images {
+  @include breakpoint(md) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacer;
+    padding: $spacer*1.5;
+  }
+
   @include breakpoint(lg) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr 1fr 1fr 1.5fr;
     gap: $spacer*0.75;
+    padding: unset;
   }
 
   &__item {
@@ -65,6 +69,10 @@ onUnmounted(() => {
     height: 300px;
     background-size: cover;
     animation: fadeIn 1s linear;
+
+    @include breakpoint(md) {
+      height: 300px;
+    }
 
     @include breakpoint(lg) {
       width: unset;

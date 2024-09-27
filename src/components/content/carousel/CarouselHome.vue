@@ -8,18 +8,16 @@ const state = reactive({
   interval: null,
 })
 
-// state.interval = setInterval(() => {
-//   state.activeImage = state.activeImage >= authors.length - 1 ? 1 : state.activeImage + 1
-// }, 6000)
+const imagesLength = 4
+
+state.interval = setInterval(() => {
+  state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
+}, 2000)
 
 const carouselDotsConfig = {
-  position: {
-    left: '50%',
-    bottom: '-80px',
-    lg: {
-      bottom: '16px'
-    },
-  },
+  background: { color: '#6C6C6C', lg: { color: '#FFFFFF' } },
+  border: { color: '#6C6C6C', size: '1px', lg: { color: '#FFFFFF', size: '1px' } },
+  position: { left: '50%', bottom: '-80px', lg: { bottom: '16px' } },
   size: '16px',
 }
 
@@ -36,7 +34,7 @@ onUnmounted(() => {
   <BaseCarousel
     v-model="state.activeImage"
     :dots-config="carouselDotsConfig"
-    class="carousel-home" :items-length="4"
+    class="carousel-home" :items-length="imagesLength"
   >
     <template #[getTemplateIdx(state.activeImage)]>
       <div class="carousel-home__image-wrapper">
@@ -88,7 +86,7 @@ onUnmounted(() => {
     justify-content: center;
     box-sizing: border-box;
     z-index: z-number(dropdown);
-    width: 352px;
+    width: 100%;
     height: 360px;
     padding: $spacer-double;
     font-size: ms(2);
@@ -100,9 +98,14 @@ onUnmounted(() => {
       font-size: ms(1);
     }
 
+    @include breakpoint(md) {
+      width: 350px
+    }
+
     @include breakpoint(lg) {
       bottom: -32px;
       left: 155px;
+      width: 336px;
     }
 
     &::after {

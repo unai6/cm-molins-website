@@ -39,7 +39,7 @@ function handleButtonNavigation (direction) {
   modelValue.value = direction === 'left' ? modelValue.value - 1 : modelValue.value + 1
 }
 
-const { borderColor, backgroundColor, size, position = {} } = props.dotsConfig
+const { border = {}, background = {}, size, position = {} } = props.dotsConfig
 </script>
 
 <template>
@@ -79,6 +79,7 @@ const { borderColor, backgroundColor, size, position = {} } = props.dotsConfig
 
   &__item {
     position: relative;
+    height: 100%;
   }
 
   &__nav {
@@ -127,17 +128,17 @@ const { borderColor, backgroundColor, size, position = {} } = props.dotsConfig
     width: v-bind(size);
     height: v-bind(size);
     border-radius: $border-radius-circular;
-    border: $border-weight-hairline solid $color-neutral-dark;
+    border: v-bind('border.size') solid v-bind('border.color');
 
     @include breakpoint(lg) {
-      border: $border-weight-hairline solid $color-neutral-white;
+      border: v-bind('border.lg?.size') solid v-bind('border.lg?.color');
     }
 
     &--active {
-      background-color: $color-neutral-dark;
+      background-color: v-bind('background.color');
 
       @include breakpoint(lg) {
-        background-color: $color-neutral-white;
+        background-color: v-bind('background.lg?.color');
       }
     }
   }
