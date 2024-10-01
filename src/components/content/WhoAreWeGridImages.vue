@@ -15,7 +15,12 @@ function getTemplateIdx (idx) {
 const carouselDotsConfig = {
   background: { color: '#FFFFFF', lg: { color: '#6C6C6C' } },
   border: { color: '#FFFFFF', size: '2px', lg: {   color: '#6C6C6C',   size: '1px' } },
-  position: { left: '50%', bottom: '10px', lg: { bottom: '16px' } },
+  position: {
+    position: 'absolute',
+    transform: 'translate(-50%, -50%)',
+    left: '50%',
+    bottom: '10px',
+  },
   size: '16px',
 }
 

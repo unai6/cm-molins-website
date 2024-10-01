@@ -10,16 +10,27 @@ const state = reactive({
 
 const imagesLength = 4
 
+const carouselDotsConfig = {
+  background: { color: '#6C6C6C', lg: { color: '#FFFFFF' } },
+  border: { color: '#6C6C6C', size: '1px', lg: { color: '#FFFFFF', size: '1px' } },
+  position: {
+    position: 'absolute',
+    transform: 'translate(-50%, -50%)',
+    left: '50%',
+    bottom: '-80px',
+    lg: {
+      position: 'absolute',
+      bottom: '16px',
+      left: 'unset',
+    }
+  },
+  size: '16px',
+}
+
 state.interval = setInterval(() => {
   state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
 }, 6000)
 
-const carouselDotsConfig = {
-  background: { color: '#6C6C6C', lg: { color: '#FFFFFF' } },
-  border: { color: '#6C6C6C', size: '1px', lg: { color: '#FFFFFF', size: '1px' } },
-  position: { left: '50%', bottom: '-80px', lg: { bottom: '16px' } },
-  size: '16px',
-}
 
 function getTemplateIdx (idx) {
   return `item-${idx}`
@@ -34,7 +45,8 @@ onUnmounted(() => {
   <BaseCarousel
     v-model="state.activeImage"
     :dots-config="carouselDotsConfig"
-    class="carousel-home" :items-length="imagesLength"
+    :items-length="imagesLength"
+    class="carousel-home"
   >
     <template #[getTemplateIdx(state.activeImage)]>
       <div class="carousel-home__image-wrapper">

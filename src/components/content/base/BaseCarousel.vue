@@ -21,6 +21,10 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  itemConfig: {
+    type: Object,
+    default: () => ({}),
+  },
 })
 
 const slots = useSlots()
@@ -40,6 +44,7 @@ function handleButtonNavigation (direction) {
 }
 
 const { border = {}, background = {}, size, position = {} } = props.dotsConfig
+const { styles = {} } = props.itemConfig
 </script>
 
 <template>
@@ -80,6 +85,14 @@ const { border = {}, background = {}, size, position = {} } = props.dotsConfig
   &__item {
     position: relative;
     height: 100%;
+
+    @include breakpoint(lg) {
+      display: v-bind('styles.lg?.display');
+      align-items: v-bind('styles.lg?.alignItems');
+      flex-direction: v-bind('styles.lg?.flexDirection');
+      justify-content: v-bind('styles.lg?.justifyContent');
+      gap: v-bind('styles.lg?.gap');
+    }
   }
 
   &__nav {
@@ -106,11 +119,11 @@ const { border = {}, background = {}, size, position = {} } = props.dotsConfig
   }
 
   &__dots {
-    position: absolute;
+    position: v-bind('position.position');
     z-index: z-number(overbase);
     left: v-bind('position.left');
     bottom: v-bind('position.bottom');
-    transform: translate(-50%, -50%);
+    transform: v-bind('position.transform');
     display: flex;
     align-items: center;
     gap: $spacer-half;
@@ -120,7 +133,10 @@ const { border = {}, background = {}, size, position = {} } = props.dotsConfig
     cursor: pointer;
 
     @include breakpoint(lg) {
+      position: v-bind('position.lg?.position');
       bottom: v-bind('position.lg?.bottom');
+      left: v-bind('position.lg?.left');
+      transform: v-bind('position.lg?.transform');
     }
   }
 

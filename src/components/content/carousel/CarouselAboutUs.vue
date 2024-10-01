@@ -9,10 +9,34 @@ const state = reactive({
 })
 
 const itemsLength = 2
+
+const carouselItemConfig = {
+  styles: {
+    lg: {
+      'display': 'flex',
+      'alignItems': 'center',
+      'flexDirection': 'column',
+      'justifyContent': 'center',
+      'gap': '1.25rem',
+    }
+  },
+}
+
 const carouselDotsConfig = {
   background: { color: '#FFFFFF', lg: { color: '#FFFFFF' } },
   border: { color: '#FFFFFF', size: '2px', lg: {   color: '#FFFFFF',   size: '1px' } },
-  position: { left: '50%', bottom: '-35px', lg: { bottom: '10px' } },
+  position: {
+    position: 'absolute',
+    transform: 'translate(-50%, -50%)',
+    left: '50%',
+    bottom: '-35px',
+    lg: {
+      position: 'relative',
+      transform: 'unset',
+      bottom: '0',
+      left: '0',
+    }
+  },
   size: '16px',
 }
 
@@ -34,6 +58,7 @@ onUnmounted(() => {
   <BaseCarousel
     v-model="state.activeItem"
     :dots-config="carouselDotsConfig"
+    :item-config="carouselItemConfig"
     :items-length="itemsLength"
     class="carousel-about-us"
     :class="{ 'carousel-about-us--primary': state.activeItem !== 1 }"
@@ -63,15 +88,13 @@ onUnmounted(() => {
 
 <style lang="scss">
 .carousel-about-us {
-  height: 650px;
   background-color: $color-neutral-dark;
   color: $color-neutral-white;
   padding: $spacer*3;
   box-sizing: border-box;
+
   @include breakpoint(lg) {
-    padding: unset;
-    padding-top: $spacer*3;
-    height: 330px;
+    padding: $spacer*3 0;
   }
 
   &--primary {

@@ -53,7 +53,7 @@ onMounted(() => {
   const radius =  (width.value / 2) + 16
 
   for (let i = 0; i < elementsArray.length; i++) {
-    const angle = alphaOffset * i + 4.188
+    const angle = alphaOffset * i + 4.188 // Apply design offset.
     const x = radius + radius * Math.cos(angle) - 75 - 16
     const y = radius + radius * Math.sin(angle) - 75 - 16
     elementsArray[i].style.left = `${x}px`
@@ -63,7 +63,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="corporative-values">
+  <div v-if="true" class="corporative-values">
     <p class="corporative-values__title">
       <ContentSlot :use="$slots.title" unwrap="p" />
     </p>
@@ -76,7 +76,9 @@ onMounted(() => {
           :style="{ backgroundColor: value.backgroundColor }"
         >
           <p>{{ value.title }}</p>
-          <p class="corporative-values__item-description">{{ value.description }}</p>
+          <p class="corporative-values__item-description">
+            {{ value.description }}
+          </p>
         </div>
       </div>
     </div>

@@ -18,9 +18,7 @@ const props = defineProps({
     :class="{ 'app-burger--active': !!modelValue, 'mobile-only': props.mobileOnly }"
     @click="modelValue = !modelValue"
   >
-    <div class="app-burger__line" />
-    <div class="app-burger__line" />
-    <div class="app-burger__line" />
+    <div v-for="i in 3" :key="i" class="app-burger__line" />
   </div>
 </template>
 
