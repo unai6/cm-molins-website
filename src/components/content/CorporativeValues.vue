@@ -63,7 +63,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="true" class="corporative-values">
+  <div class="corporative-values">
     <p class="corporative-values__title">
       <ContentSlot :use="$slots.title" unwrap="p" />
     </p>
@@ -137,6 +137,7 @@ onMounted(() => {
   &__item-description {
     position: absolute;
     color: $color-neutral-black;
+    font-size: ms(0);
   }
 }
 </style>
