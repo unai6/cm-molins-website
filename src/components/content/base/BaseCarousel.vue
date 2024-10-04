@@ -1,5 +1,8 @@
 <script setup>
+import { reactive } from 'vue'
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
+
+import { deepMerge } from '@/utils'
 
 const modelValue = defineModel({ type: Number, required: true })
 
@@ -25,9 +28,45 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  navConfig: {
+    type: Object,
+    default: () => ({}),
+  },
 })
 
 const slots = useSlots()
+
+const defaultNavConfigStyling = {
+  lg: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '100%',
+    maxWidth: '1440px',
+  },
+  positions: {
+    lg: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      width: '100%',
+      justifyContent: 'space-between',
+      transform: 'translate(-50%, -50%)',
+    },
+  },
+  buttons: {
+    color: '#FFFFFF',
+    border: {
+      color: '#FFFFFF',
+      weight: '2px',
+    },
+    margin: '0 32px',
+  },
+}
+
+const state = reactive({
+  navConfig: defaultNavConfigStyling,
+})
+
 
 function handleButtonNavigation (direction) {
   if (direction === 'left' && modelValue.value === 1) {
@@ -43,8 +82,15 @@ function handleButtonNavigation (direction) {
   modelValue.value = direction === 'left' ? modelValue.value - 1 : modelValue.value + 1
 }
 
-const { border = {}, background = {}, size, position = {} } = props.dotsConfig
-const { styles = {} } = props.itemConfig
+getNavConfig()
+
+function getNavConfig () {
+  if (props.navConfig) {
+    state.navConfig = deepMerge({ ...defaultNavConfigStyling }, props.navConfig)
+  } else {
+    state.navConfig = defaultNavConfigStyling
+  }
+}
 </script>
 
 <template>
@@ -87,11 +133,11 @@ const { styles = {} } = props.itemConfig
     height: 100%;
 
     @include breakpoint(lg) {
-      display: v-bind('styles.lg?.display');
-      align-items: v-bind('styles.lg?.alignItems');
-      flex-direction: v-bind('styles.lg?.flexDirection');
-      justify-content: v-bind('styles.lg?.justifyContent');
-      gap: v-bind('styles.lg?.gap');
+      display: v-bind('props.itemConfig?.lg?.display');
+      align-items: v-bind('props.itemConfig.lg?.alignItems');
+      flex-direction: v-bind('props.itemConfig.lg?.flexDirection');
+      justify-content: v-bind('props.itemConfig.lg?.justifyContent');
+      gap: v-bind('props.itemConfig.lg?.gap');
     }
   }
 
@@ -99,31 +145,32 @@ const { styles = {} } = props.itemConfig
     display: none;
 
     @include breakpoint(lg) {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+      position: v-bind('state.navConfig.positions?.lg?.position');
+      top: v-bind('state.navConfig.positions?.lg?.top');
+      left: v-bind('state.navConfig.positions?.lg?.left');
+      transform: v-bind('state.navConfig.positions?.lg?.transform');
+      display: v-bind('state.navConfig?.lg?.display');
+      width: v-bind('state.navConfig.lg?.width');
+      max-width: v-bind('state.navConfig.lg?.maxWidth');
+      justify-content: v-bind('state.navConfig.lg?.justifyContent');
     }
   }
 
   &__nav-button {
-    color: $color-neutral-white;
+    color: v-bind('state.navConfig.buttons?.color');
     border-radius: $border-radius-circular;
-    border: $border-weight-thin solid $color-neutral-white;
-    margin: 0 $spacer-double;
+    border: v-bind('state.navConfig.buttons?.border.color') solid v-bind('state.navConfig.buttons.border.weight');
+    margin: v-bind('state.navConfig.buttons?.margin');
     padding: $spacer*0.75;
     cursor: pointer;
   }
 
   &__dots {
-    position: v-bind('position.position');
+    position: v-bind('props.dotsConfig.positions.position');
     z-index: z-number(overbase);
-    left: v-bind('position.left');
-    bottom: v-bind('position.bottom');
-    transform: v-bind('position.transform');
+    left: v-bind('props.dotsConfig?.positions?.left');
+    bottom: v-bind('props.dotsConfig?.positions?.bottom');
+    transform: v-bind('props.dotsConfig?.positions?.transform');
     display: flex;
     align-items: center;
     gap: $spacer-half;
@@ -133,28 +180,28 @@ const { styles = {} } = props.itemConfig
     cursor: pointer;
 
     @include breakpoint(lg) {
-      position: v-bind('position.lg?.position');
-      bottom: v-bind('position.lg?.bottom');
-      left: v-bind('position.lg?.left');
-      transform: v-bind('position.lg?.transform');
+      position: v-bind('props.dotsConfig.positions?.lg?.position');
+      bottom: v-bind('props.dotsConfig.positions?.lg?.bottom');
+      left: v-bind('props.dotsConfig.positions?.lg?.left');
+      transform: v-bind('props.dotsConfig.positions?.lg?.transform');
     }
   }
 
   &__dot {
-    width: v-bind(size);
-    height: v-bind(size);
+    width: v-bind('props.dotsConfig.size');
+    height: v-bind('props.dotsConfig.size');
     border-radius: $border-radius-circular;
-    border: v-bind('border.size') solid v-bind('border.color');
+    border: v-bind('props.dotsConfig.border?.size') solid v-bind('props.dotsConfig.border?.color');
 
     @include breakpoint(lg) {
-      border: v-bind('border.lg?.size') solid v-bind('border.lg?.color');
+      border: v-bind('props.dotsConfig.border?.lg?.size') solid v-bind('props.dotsConfig.border.lg?.color');
     }
 
     &--active {
-      background-color: v-bind('background.color');
+      background-color: v-bind('props.dotsConfig.background?.color');
 
       @include breakpoint(lg) {
-        background-color: v-bind('background.lg?.color');
+        background-color: v-bind('props.dotsConfig.background?.lg?.color');
       }
     }
   }

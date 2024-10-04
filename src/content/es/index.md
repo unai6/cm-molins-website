@@ -28,6 +28,33 @@ Somos un grupo familiar cuyo objetivo es la creación de valor a través de una 
 ::
 
 ::corporative-values
+---
+corporativeValuesItems:
+  - icon: ''
+    title: 'Excelencia'
+    description: 'Esfuerzo, perseverancia en el trabajo realizado con un claro enfoque a la excelencia.'
+    backgroundColor: '#014CB1'
+  - icon: ''
+    title: 'Adaptabilidad'
+    description: 'Adaptar la organización a las circunstancias de cada momento.'
+    backgroundColor: '#C6C6C6'
+  - icon: ''
+    title: 'Transparencia'
+    description: 'Transparencia, comunicación y trabajo en equipo.'
+    backgroundColor: '#057ED1'
+  - icon: ''
+    title: 'Familia'
+    description: 'Cuidado y respecto por la reputación de la familia.'
+    backgroundColor: '#4BADD8'
+  - icon: ''
+    title: 'Compromiso'
+    description: 'Estabilidad, integridad y compromiso de los accionistas a largo plazo.'
+    backgroundColor: '#666666'
+  - icon: ''
+    title: 'Ética'
+    description: 'Ética en los negocios.'
+    backgroundColor: '#80C8E4'
+---
 #title
   ## VALORES CORPORATIVOS
 ::

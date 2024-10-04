@@ -11,21 +11,31 @@ const state = reactive({
 const itemsLength = 2
 
 const carouselItemConfig = {
-  styles: {
-    lg: {
-      'display': 'flex',
-      'alignItems': 'center',
-      'flexDirection': 'column',
-      'justifyContent': 'center',
-      'gap': '1.25rem',
-    }
+  lg: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    gap: '1.25rem',
   },
 }
 
 const carouselDotsConfig = {
-  background: { color: '#FFFFFF', lg: { color: '#FFFFFF' } },
-  border: { color: '#FFFFFF', size: '2px', lg: {   color: '#FFFFFF',   size: '1px' } },
-  position: {
+  background: {
+    color: '#FFFFFF',
+    lg: {
+      color: '#FFFFFF',
+    }
+  },
+  border: {
+    color: '#FFFFFF',
+    size: '2px',
+    lg: {
+      color: '#FFFFFF',
+      size: '1px',
+    }
+  },
+  positions: {
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
     left: '50%',
@@ -40,9 +50,15 @@ const carouselDotsConfig = {
   size: '16px',
 }
 
-state.interval = setInterval(() => {
-  state.activeItem = state.activeItem >= itemsLength ? 1 : state.activeItem + 1
-}, 6000)
+const carouselNavConfig = {
+  buttons: {
+    margin: '0'
+  },
+}
+
+// state.interval = setInterval(() => {
+//   state.activeItem = state.activeItem >= itemsLength ? 1 : state.activeItem + 1
+// }, 6000)
 
 
 function getTemplateIdx (idx) {
@@ -58,6 +74,7 @@ onUnmounted(() => {
   <BaseCarousel
     v-model="state.activeItem"
     :dots-config="carouselDotsConfig"
+    :nav-config="carouselNavConfig"
     :item-config="carouselItemConfig"
     :items-length="itemsLength"
     class="carousel-about-us"
@@ -94,7 +111,7 @@ onUnmounted(() => {
   box-sizing: border-box;
 
   @include breakpoint(lg) {
-    padding: $spacer*3 0;
+    padding: $spacer*3 $spacer*10;
   }
 
   &--primary {
@@ -106,8 +123,11 @@ onUnmounted(() => {
     gap: $spacer*1.25;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
     height: 100%;
     width: 100%;
+    max-width: $max-content-width;
+    margin: 0 auto;
     animation: fadeIn 1s linear;
   }
 
@@ -125,10 +145,10 @@ onUnmounted(() => {
     text-wrap: balance;
 
     @include breakpoint(lg) {
-      padding: 0 $spacer*9.6875;
       text-align: center;
       text-wrap: unset;
       font-size: ms(1);
+      padding: 0 $spacer*7;
     }
   }
 }

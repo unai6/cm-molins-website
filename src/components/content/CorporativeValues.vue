@@ -1,56 +1,24 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useElementSize } from  '@vueuse/core'
+import { useElementSize } from '@vueuse/core'
 
-const corporativeValuesItems = [
-  {
-    icon: '',
-    title: 'Excelencia',
-    description: 'Esfuerzo, perseverancia en el trabajo realizado con un claro enfoque a la excelencia.',
-    backgroundColor: '#014CB1',
+const props = defineProps({
+  corporativeValuesItems: {
+    type: Array,
+    required: true,
   },
-  {
-    icon: '',
-    title: 'Adaptabilidad',
-    description: 'Adaptar la organización a las circunstancias de cada momento.',
-    backgroundColor: '#C6C6C6',
-  },
-  {
-    icon: '',
-    title: 'Transparencia',
-    description: 'Transparencia, comunicación y trabajo en equipo.',
-    backgroundColor: '#057ED1',
-  },
-  {
-    icon: '',
-    title: 'Familia',
-    description: 'Cuidado y respecto por la reputación de la familia.',
-    backgroundColor: '#4BADD8',
-  },
-  {
-    icon: '',
-    title: 'Compromiso',
-    description: 'Estabilidad, integridad y compromiso de los accionistas a largo plazo.',
-    backgroundColor: '#666666',
-  },
-  {
-    icon: '',
-    title: 'Ética',
-    description: 'Ética en los negocios.',
-    backgroundColor: '#80C8E4',
-  },
-]
+})
 
 const doublePi = 2 * Math.PI
-const alphaOffset = doublePi / corporativeValuesItems.length
+const alphaOffset = doublePi / props.corporativeValuesItems.length
 const innerCircleRef = ref(null)
 
-const  { width } = useElementSize(innerCircleRef)
+const { width } = useElementSize(innerCircleRef)
 
 onMounted(() => {
   const elementsArray = [...innerCircleRef.value.children]
   // 16 stands for the px spacer added by design.
-  const radius =  (width.value / 2) + 16
+  const radius = (width.value / 2) + 16
 
   for (let i = 0; i < elementsArray.length; i++) {
     const angle = alphaOffset * i + 4.188 // Apply design offset.
@@ -58,27 +26,37 @@ onMounted(() => {
     const y = radius + radius * Math.sin(angle) - 75 - 16
     elementsArray[i].style.left = `${x}px`
     elementsArray[i].style.top = `${y}px`
+
+    // Position the description container
+    const descriptionContainer = elementsArray[i].querySelector('.corporative-values__item-container')
+    const descriptionX = 75 * Math.cos(angle) + (Math.cos(angle) > 0 ? 75 + 56 : -75 - 56) // Adjust the offset for the description container
+    descriptionContainer.style.left = `${descriptionX}px`
+
   }
 })
 </script>
 
 <template>
   <div class="corporative-values">
-    <p class="corporative-values__title">
-      <ContentSlot :use="$slots.title" unwrap="p" />
-    </p>
-    <div class="corporative-values__wheel-container">
-      <div ref="innerCircleRef" class="corporative-values__inner-circle">
-        <div
-          v-for="(value, idx) in corporativeValuesItems"
-          :key="idx"
-          class="corporative-values__item"
-          :style="{ backgroundColor: value.backgroundColor }"
-        >
-          <p>{{ value.title }}</p>
-          <p class="corporative-values__item-description">
-            {{ value.description }}
-          </p>
+    <div class="corporative-values__content">
+      <p class="corporative-values__title">
+        <ContentSlot :use="$slots.title" unwrap="p" />
+      </p>
+      <div class="corporative-values__wheel-container">
+        <div ref="innerCircleRef" class="corporative-values__inner-circle">
+          <div
+            v-for="(value, idx) in props.corporativeValuesItems"
+            :key="idx"
+            class="corporative-values__item-circle"
+            :style="{ backgroundColor: value.backgroundColor }"
+          >
+            <div class="corporative-values__item-container">
+              <p class="corporative-values__item-description">
+                {{ value.description }}
+              </p>
+            </div>
+            <p>{{ value.title }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -87,15 +65,22 @@ onMounted(() => {
 
 <style lang="scss">
 .corporative-values {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  $parent: &;
+
   background: $color-neutral-white;
 
-  @include breakpoint(lg) {
-    padding: $spacer*3;
-    gap: $spacer-double;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: $max-content-width;
+
+    @include breakpoint(lg) {
+      padding: $spacer*3;
+      margin: 0 auto;
+      gap: $spacer-double;
+    }
   }
 
   &__title {
@@ -118,7 +103,7 @@ onMounted(() => {
     background-color: $color-neutral-medium;
   }
 
-  &__item {
+  &__item-circle {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -132,12 +117,42 @@ onMounted(() => {
     color: $color-neutral-white;
     font-size: ms(1);
     font-weight: $font-weight-bold;
+    transition: transform $transition-duration-slow ease;
+
+    &:hover {
+      @media (hover: hover) {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__item-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    color: $color-neutral-white;
+    font-size: ms(1);
+    font-weight: $font-weight-bold;
   }
 
   &__item-description {
     position: absolute;
     color: $color-neutral-black;
     font-size: ms(0);
+    line-height: $font-lineheight-large;
+    font-family: $font-family-highlight;
+    font-weight: $font-weight-regular;
+
+    &:hover {
+      @media (hover: hover) {
+        cursor: pointer;
+        color: $color-primary;
+      }
+    }
   }
 }
 </style>

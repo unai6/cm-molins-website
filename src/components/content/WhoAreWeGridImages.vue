@@ -15,7 +15,7 @@ function getTemplateIdx (idx) {
 const carouselDotsConfig = {
   background: { color: '#FFFFFF', lg: { color: '#6C6C6C' } },
   border: { color: '#FFFFFF', size: '2px', lg: {   color: '#6C6C6C',   size: '1px' } },
-  position: {
+  positions: {
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
     left: '50%',
@@ -59,6 +59,7 @@ onUnmounted(() => {
     grid-template-columns: repeat(2, 1fr);
     gap: $spacer;
     padding: $spacer*1.5;
+    box-sizing: border-box;
   }
 
   @include breakpoint(lg) {

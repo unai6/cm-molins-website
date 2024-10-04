@@ -26,6 +26,8 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
   flex-direction: column;
   gap: $spacer-double;
   padding-top: $spacer*8;
+  max-width: $max-content-width;
+  margin: 0 auto;
 
   @include breakpoint(lg) {
     gap: $spacer*3;

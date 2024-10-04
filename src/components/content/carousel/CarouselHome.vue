@@ -11,25 +11,44 @@ const state = reactive({
 const imagesLength = 4
 
 const carouselDotsConfig = {
-  background: { color: '#6C6C6C', lg: { color: '#FFFFFF' } },
-  border: { color: '#6C6C6C', size: '1px', lg: { color: '#FFFFFF', size: '1px' } },
-  position: {
+  background: {
+    color: '#6C6C6C',
+    lg: {
+      color: '#FFFFFF',
+    }
+  },
+  border: {
+    color: '#6C6C6C',
+    size: '1px',
+    lg: {
+      color: '#FFFFFF',
+      size: '1px',
+    }
+  },
+  positions: {
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
     left: '50%',
     bottom: '-80px',
     lg: {
       position: 'absolute',
-      bottom: '16px',
-      left: 'unset',
+      bottom: '24px',
+      transform: 'translate(-50%, -50%)',
+      left: '50%',
     }
   },
   size: '16px',
 }
 
-state.interval = setInterval(() => {
-  state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
-}, 6000)
+const carouselNavConfig = {
+  lg: {
+    maxWidth: 'unset',
+  },
+}
+
+// state.interval = setInterval(() => {
+//   state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
+// }, 6000)
 
 
 function getTemplateIdx (idx) {
@@ -45,6 +64,7 @@ onUnmounted(() => {
   <BaseCarousel
     v-model="state.activeImage"
     :dots-config="carouselDotsConfig"
+    :nav-config="carouselNavConfig"
     :items-length="imagesLength"
     class="carousel-home"
   >
