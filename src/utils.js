@@ -8,3 +8,11 @@ export function deepMerge( target, source) {
   }
   return target
 }
+
+export function debounce (callback, delay = 500) {
+  let timeout
+  return (...args) => {
+    clearTimeout(timeout)
+    timeout = setTimeout(() => callback(...args), delay)
+  }
+}

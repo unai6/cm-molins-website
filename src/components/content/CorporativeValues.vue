@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useElementSize } from '@vueuse/core'
+import { useElementSize, useBreakpoints } from '@vueuse/core'
+
+import { debounce } from '@/utils'
 
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
@@ -11,14 +13,24 @@ const props = defineProps({
   },
 })
 
+const breakpoints = useBreakpoints({
+  md: 768,
+  lg: 1024,
+  xl: 1366,
+})
+
+const isMobile = ref(breakpoints.smaller('lg'))
+
 const doublePi = 2 * Math.PI
 const alphaOffset = doublePi / props.corporativeValuesItems.length
 const innerCircleRef = ref(null)
-
 const { width } = useElementSize(innerCircleRef)
 
-onMounted(() => {
-  const elementsArray = [...innerCircleRef.value.children]
+
+function placeWheelItems () {
+  if (isMobile.value) return
+
+  const elementsArray = [...innerCircleRef.value?.children]
   // 16 stands for the px spacer added by design.
   const radius = (width.value / 2) + 16
 
@@ -35,6 +47,12 @@ onMounted(() => {
     descriptionContainer.style.left = `${descriptionX}px`
 
   }
+}
+
+onMounted(() => {
+  placeWheelItems()
+
+  window.addEventListener('resize', debounce(placeWheelItems))
 })
 </script>
 
@@ -46,20 +64,36 @@ onMounted(() => {
       </p>
       <div class="corporative-values__wheel-container">
         <div ref="innerCircleRef" class="corporative-values__inner-circle">
-          <div
-            v-for="(value, idx) in props.corporativeValuesItems"
-            :key="idx"
-            class="corporative-values__item-circle"
-            :style="{ backgroundColor: value.backgroundColor }"
-          >
-            <div class="corporative-values__item-container">
-              <BaseIcon :icon="value.icon" class="corporative-values__item-icon" />
-              <p class="corporative-values__item-description">
-                {{ value.description }}
-              </p>
+          <template v-if="!isMobile">
+            <div
+              v-for="(value, idx) in props.corporativeValuesItems"
+              :key="idx"
+              class="corporative-values__item-circle"
+              :style="{ backgroundColor: value.backgroundColor }"
+            >
+              <div class="corporative-values__item-container">
+                <BaseIcon :icon="value.icon" class="corporative-values__item-icon" />
+                <p class="corporative-values__item-description">
+                  {{ value.description }}
+                </p>
+              </div>
+              <p>{{ value.title }}</p>
             </div>
-            <p>{{ value.title }}</p>
-          </div>
+          </template>
+          <template v-else>
+            <div
+              v-for="(value, idx) in props.corporativeValuesItems"
+              :key="idx"
+              class="corporative-values__item-circle-container-mobile"
+            >
+              <div class="corporative-values__item-circle" :style="{ backgroundColor: value.backgroundColor }">
+                <p>{{ value.title }}</p>
+              </div>
+                <p class="corporative-values__item-description">
+                  {{ value.description }}
+                </p>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -71,56 +105,75 @@ onMounted(() => {
   $parent: &;
 
   background: $color-neutral-white;
+  padding: $spacer*3 $spacer*1.25;
+
+  @include breakpoint(lg) {
+    padding: unset;
+  }
 
   &__content {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: $spacer-double;
+    justify-content: center;
     max-width: $max-content-width;
 
     @include breakpoint(lg) {
       padding: $spacer*3;
       margin: 0 auto;
-      gap: $spacer-double;
     }
   }
 
   &__title {
     font-size: ms(3);
     color: $color-primary;
+    text-align: center;
   }
 
   &__wheel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 470px;
+    @include breakpoint(lg) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 470px;
+    }
   }
 
   &__inner-circle {
-    position: relative;
-    border-radius: $border-radius-circular;
-    height: 320px;
-    width: 320px;
-    background-color: $color-neutral-medium;
+    display: flex;
+    flex-direction: column;
+    gap: $spacer*1.5;
+    height: 100%;
+
+    @include breakpoint(lg) {
+      display: block;
+      position: relative;
+      border-radius: $border-radius-circular;
+      height: 320px;
+      width: 320px;
+      background-color: $color-neutral-medium;
+    }
   }
 
   &__item-circle {
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: $border-radius-circular;
-    width: 150px;
-    height: 150px;
-    left: 50%;
-    top: 50%;
+    width: 160px;
+    height: 160px;
     color: $color-neutral-white;
-    font-size: ms(1);
     font-weight: $font-weight-bold;
     transition: transform $transition-duration-slow ease;
+
+    @include breakpoint(lg) {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      font-size: ms(1);
+    }
 
     &:hover {
       @media (hover: hover) {
@@ -176,6 +229,16 @@ onMounted(() => {
     line-height: $font-lineheight-large;
     font-family: $font-family-highlight;
     font-weight: $font-weight-regular;
+  }
+
+  &__item-circle-container-mobile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: $spacer;
+    padding: 0 $spacer-double;
+    box-sizing: border-box;
+    text-align: center;
   }
 }
 </style>
