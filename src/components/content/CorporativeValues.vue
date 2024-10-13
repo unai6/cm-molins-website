@@ -2,6 +2,8 @@
 import { ref, onMounted } from 'vue'
 import { useElementSize } from '@vueuse/core'
 
+import BaseIcon from '@/components/content/base/BaseIcon.vue'
+
 const props = defineProps({
   corporativeValuesItems: {
     type: Array,
@@ -29,7 +31,7 @@ onMounted(() => {
 
     // Position the description container
     const descriptionContainer = elementsArray[i].querySelector('.corporative-values__item-container')
-    const descriptionX = 75 * Math.cos(angle) + (Math.cos(angle) > 0 ? 75 + 56 : -75 - 56) // Adjust the offset for the description container
+    const descriptionX = 75 * Math.cos(angle) + (Math.cos(angle) > 0 ? 75 + 56 : -75 - 56) // Adjust the offset for the description container.
     descriptionContainer.style.left = `${descriptionX}px`
 
   }
@@ -51,6 +53,7 @@ onMounted(() => {
             :style="{ backgroundColor: value.backgroundColor }"
           >
             <div class="corporative-values__item-container">
+              <BaseIcon :icon="value.icon" class="corporative-values__item-icon" />
               <p class="corporative-values__item-description">
                 {{ value.description }}
               </p>
@@ -122,6 +125,11 @@ onMounted(() => {
     &:hover {
       @media (hover: hover) {
         transform: scale(1.1);
+
+        & #{$parent}__item-description,
+        & #{$parent}__item-icon {
+          color: $color-primary;
+        }
       }
     }
   }
@@ -129,30 +137,45 @@ onMounted(() => {
   &__item-container {
     position: absolute;
     display: flex;
+    gap: $spacer;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 150px;
     height: 150px;
     color: $color-neutral-white;
-    font-size: ms(1);
     font-weight: $font-weight-bold;
-  }
 
-  &__item-description {
-    position: absolute;
-    color: $color-neutral-black;
-    font-size: ms(0);
-    line-height: $font-lineheight-large;
-    font-family: $font-family-highlight;
-    font-weight: $font-weight-regular;
 
     &:hover {
       @media (hover: hover) {
         cursor: pointer;
-        color: $color-primary;
+
+        & > * {
+          color: $color-primary;
+        }
       }
     }
+  }
+
+  &__item-icon {
+    display: none;
+
+    @include breakpoint(lg) {
+      display: block;
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      color: $color-neutral-light-dark;
+    }
+  }
+
+  &__item-description {
+    color: $color-neutral-black;
+    font-size: ms(-1);
+    line-height: $font-lineheight-large;
+    font-family: $font-family-highlight;
+    font-weight: $font-weight-regular;
   }
 }
 </style>
