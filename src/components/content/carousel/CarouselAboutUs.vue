@@ -107,7 +107,7 @@ onUnmounted(() => {
 .carousel-about-us {
   background-color: $color-neutral-dark;
   color: $color-neutral-white;
-  padding: $spacer*3;
+  padding: $spacer*3 $spacer*1.5;
   box-sizing: border-box;
 
   @include breakpoint(lg) {

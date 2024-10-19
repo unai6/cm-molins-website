@@ -58,3 +58,15 @@ corporativeValuesItems:
 #title
   ## VALORES CORPORATIVOS
 ::
+
+::what-we-do
+#title
+  ## ¿QUÉ HACEMOS?
+#intro
+  El Family Office tiene como inversión principal e histórica su participación en Cementos Molins S.A., si bien desde hace muchos años inició una estrategia de inversión y diversificación mediante la distribución de activos en cuatro áreas:
+#list
+  1. Inversiones en activos financieros<br>(mercado de capitales)
+  2. Inversiones en startups
+  3. Adquisiciones empresariales
+  4. Inversiones inmobiliarias
+::
