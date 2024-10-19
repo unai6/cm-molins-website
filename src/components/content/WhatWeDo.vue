@@ -26,9 +26,13 @@
   &::before {
     position: absolute;
     content: '';
-    height: 100px;
+    height: 48px;
     width: 100%;
     background-color: $color-neutral-medium;
+
+    @include breakpoint(xl) {
+      height: 100px;
+    }
   }
 
   &__container {
@@ -37,19 +41,31 @@
     flex-direction: column;
     gap: $spacer*3;
     padding: $spacer*1.5 0;
+    padding-top: $spacer*6;
     max-width: $max-content-width;
     margin: 0 auto;
 
-    @include breakpoint(lg) {
+    @include breakpoint(xl) {
       flex-direction: row;
-      padding: $spacer*3 0;
+      padding: $spacer*3 $spacer*9.6785;
+      padding-top: calc(100px + $spacer*3);;
+      padding-right: 0;
+    }
+
+    @include breakpoint(xxl) {
+      padding-right: unset;
+      padding: $spacer*3 $spacer*9.6785;
     }
   }
 
   &__title {
     color: $color-primary;
     font-size: ms(3);
-    text-align: left;
+    text-align: center;
+
+    @include breakpoint(xl) {
+      text-align: left;
+    }
   }
 
   &__content {
@@ -57,16 +73,12 @@
     flex-direction: column;
     gap: $spacer*3;
     padding: $spacer*1.5;
-    padding-top: calc(100px + $spacer*3);
-
-    @include breakpoint(lg) {
-      padding-left: $spacer*9.6785;
-    }
+    padding-top: 0;
   }
 
   &__intro {
     font-size: ms(0);
-    line-height: $font-lineheight-large;
+    line-height: $font-lineheight-largest;
     font-weight: $font-weight-light;
   }
 
@@ -95,14 +107,12 @@
   }
 
   &__image {
-    align-self: center;
     object-fit: cover;
     width: 100%;
-    aspect-ratio: 1;
 
-    @include breakpoint(lg) {
-      padding-top: calc(100px + $spacer*3);
+    @include breakpoint(xl) {
       width: 40%;
+      aspect-ratio: 1;
     }
   }
 }

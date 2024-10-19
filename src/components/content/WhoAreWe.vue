@@ -26,6 +26,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
   flex-direction: column;
   gap: $spacer-double;
   padding-top: $spacer*8;
+  padding-bottom: $spacer*3;
   max-width: $max-content-width;
   margin: 0 auto;
 
@@ -42,8 +43,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
     justify-content: center;
     box-sizing: border-box;
     width: 100%;
-    padding: $spacer*1.5;
-    padding-bottom: 0;
+    padding: 0 $spacer*1.5;
     color: $color-primary;
     font-size: ms(3);
 
@@ -76,7 +76,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
       padding-left: 0;
       width: 30%;
       line-height: 2.5rem;
-      text-wrap: pretty;
+      text-wrap: balance;
     }
   }
 

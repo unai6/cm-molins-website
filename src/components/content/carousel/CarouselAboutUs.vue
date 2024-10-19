@@ -54,6 +54,9 @@ const carouselNavConfig = {
   buttons: {
     margin: '0'
   },
+  lg: {
+    width: 'calc(100%  - 155px * 2)',
+  },
 }
 
 // state.interval = setInterval(() => {
@@ -130,6 +133,10 @@ onUnmounted(() => {
     max-width: $max-content-width;
     margin: 0 auto;
     animation: fadeIn 1s linear;
+
+    @include breakpoint(lg) {
+      gap: $spacer*3;
+    }
   }
 
   &__title {

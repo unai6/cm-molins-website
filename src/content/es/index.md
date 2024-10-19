@@ -70,3 +70,28 @@ corporativeValuesItems:
   3. Adquisiciones empresariales
   4. Inversiones inmobiliarias
 ::
+
+
+::organs-of-government
+---
+  organs:
+    - name: 'Consejo de Administración'
+      description: 'Formado por accionistas del grupo y consejeros independientes. Es el órgano donde se tratan todos los asuntos relevantes para la gestión y la estrategia de inversión.'
+      icon: 'team-admin'
+    - name: 'Equipo de Dirección'
+      description: 'Es el órgano de gestión operativa, compuesto por sus ejecutivos, y en el que se analizan y coordinan tanto temas internos como aquellos relacionados con las inversiones realizadas.'
+      icon: team-dir
+    - name: 'Comisión de Análisis de Proyectos'
+      description: 'Es el órgano en el que se analizan las distintas oportunidades de inversión del grupo, está compuesto por el equipo de dirección y en gran medida por asesores y consultores externos.'
+      icon: team-analysis
+---
+#title
+ ## Principales Órganos de Gobierno del Grupo
+::
+
+::corporative-responsibility
+#title
+  ## Responsabilidad Social Corporativa
+#description
+  CARTERA DE INVERSIONES **CM, S.A.** es plenamente consciente de las consecuencias e impacto que sus acciones e inversiones tienen en la sociedad, motivo por el cuál además de contribuir en el ámbito socioeconómico, medioambiental y sociocultural, colabora y financia actividades de mecenazgo a través de la [Fundación Joaquim Molins Figueras.](http://www.joaquimmolinsfigueras.org/)
+::

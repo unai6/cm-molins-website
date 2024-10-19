@@ -123,13 +123,13 @@ function getNavConfig () {
 <style lang="scss">
 .base-carousel {
   width: 100%;
+  position: relative;
 
   @include breakpoint(lg) {
     overflow-y: hidden;
   }
 
   &__item {
-    position: relative;
     height: 100%;
 
     @include breakpoint(lg) {
@@ -151,6 +151,7 @@ function getNavConfig () {
       transform: v-bind('state.navConfig.positions?.lg?.transform');
       display: v-bind('state.navConfig?.lg?.display');
       width: v-bind('state.navConfig.lg?.width');
+      margin: v-bind('state.navConfig.lg?.margin');
       max-width: v-bind('state.navConfig.lg?.maxWidth');
       justify-content: v-bind('state.navConfig.lg?.justifyContent');
     }

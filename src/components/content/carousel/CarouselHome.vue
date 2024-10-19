@@ -43,7 +43,7 @@ const carouselDotsConfig = {
 const carouselNavConfig = {
   lg: {
     maxWidth: 'unset',
-  },
+  }
 }
 
 // state.interval = setInterval(() => {

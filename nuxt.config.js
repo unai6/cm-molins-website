@@ -76,24 +76,23 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
-  baseUrl: currentEnv === 'development' ? '' : process.env.BASE_APP_URL,
-  locales: [
-    { code: 'es', language: 'es-ES', customCode: 'ESP' },
-    { code: 'ca', language: 'ca-CA', customCode: 'CAT' },
-    { code: 'en', language: 'en-EN', customCode: 'ENG' },
-  ],
-  defaultLocale: 'es',
-  detectBrowserLanguage: {
-    useCookie: true,
-    cookieKey: 'locale',
-    alwaysRedirect: false,
-    redirectOn: 'root',
+    baseUrl: currentEnv === 'development' ? '' : process.env.BASE_APP_URL,
+    locales: [
+      { code: 'es', language: 'es-ES', customCode: 'ESP' },
+      { code: 'ca', language: 'ca-CA', customCode: 'CAT' },
+      { code: 'en', language: 'en-EN', customCode: 'ENG' },
+    ],
+    defaultLocale: 'es',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'locale',
+      alwaysRedirect: false,
+      redirectOn: 'root',
+    },
+    strategy: 'prefix_except_default',
+    customRoutes: 'config',
+    pages: i18nPages,
+    vueI18n: './src/lang/i18n.config.js',
   },
-  strategy: 'prefix_except_default',
-  customRoutes: 'config',
-  pages: i18nPages,
-  vueI18n: './src/lang/i18n.config.js',
-},
-
   compatibilityDate: '2024-09-20',
 })

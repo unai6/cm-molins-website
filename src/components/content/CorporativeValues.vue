@@ -121,6 +121,7 @@ onMounted(() => {
 
     @include breakpoint(lg) {
       margin: 0 auto;
+      gap: $spacer*3;
     }
   }
 
