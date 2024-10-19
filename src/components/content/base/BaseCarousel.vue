@@ -7,6 +7,18 @@ import { deepMerge } from '@/utils'
 const modelValue = defineModel({ type: Number, required: true })
 
 const props = defineProps({
+  dotsConfig: {
+    type: Object,
+    default: () => ({}),
+  },
+  itemConfig: {
+    type: Object,
+    default: () => ({}),
+  },
+  navConfig: {
+    type: Object,
+    default: () => ({}),
+  },
   animation: {
     type: String,
     default: 'fade',
@@ -19,18 +31,6 @@ const props = defineProps({
   isButtonNavCircular: {
     type: Boolean,
     default: true,
-  },
-  dotsConfig: {
-    type: Object,
-    default: () => ({}),
-  },
-  itemConfig: {
-    type: Object,
-    default: () => ({}),
-  },
-  navConfig: {
-    type: Object,
-    default: () => ({}),
   },
 })
 

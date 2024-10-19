@@ -14,7 +14,7 @@
           <ContentSlot :use="$slots.list"  />
         </div>
       </div>
-      <img class="what-we-do__image" src="/images/terraza.webp">
+      <img class="what-we-do__image" src="/images/terraza.jpg">
     </div>
   </div>
 </template>
@@ -48,13 +48,14 @@
     @include breakpoint(xl) {
       flex-direction: row;
       padding: $spacer*3 $spacer*9.6785;
-      padding-top: calc(100px + $spacer*3);;
+      padding-top: calc(100px + $spacer*3);
       padding-right: 0;
     }
 
     @include breakpoint(xxl) {
       padding-right: unset;
       padding: $spacer*3 $spacer*9.6785;
+      padding-top: calc(100px + $spacer*3);
     }
   }
 

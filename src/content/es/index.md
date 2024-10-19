@@ -4,6 +4,7 @@ title: CM.Molins Family Office Web
 
 ::carousel-home
 ::
+
 ::who-are-we
 #title
   ## ¿QUIÉNES SOMOS?
@@ -94,4 +95,9 @@ corporativeValuesItems:
   ## Responsabilidad Social Corporativa
 #description
   CARTERA DE INVERSIONES **CM, S.A.** es plenamente consciente de las consecuencias e impacto que sus acciones e inversiones tienen en la sociedad, motivo por el cuál además de contribuir en el ámbito socioeconómico, medioambiental y sociocultural, colabora y financia actividades de mecenazgo a través de la [Fundación Joaquim Molins Figueras.](http://www.joaquimmolinsfigueras.org/)
+::
+
+::investee-companies
+#title
+  ## Empresas Participadas
 ::
