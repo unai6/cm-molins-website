@@ -4,10 +4,10 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
 
 <template>
   <div class="who-are-we">
-    <p class="who-are-we__title">
+    <div class="who-are-we__title">
       <ContentSlot :use="$slots.title" unwrap="p" />
       <ContentSlot :use="$slots.subtitle" unwrap="p"/>
-    </p>
+    </div>
     <div class="who-are-we__content">
       <p class="who-are-we__text">
         <span class="who-are-we__float">

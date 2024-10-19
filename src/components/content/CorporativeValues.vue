@@ -59,9 +59,9 @@ onMounted(() => {
 <template>
   <div class="corporative-values">
     <div class="corporative-values__content">
-      <p class="corporative-values__title">
+      <div class="corporative-values__title">
         <ContentSlot :use="$slots.title" unwrap="p" />
-      </p>
+      </div>
       <div class="corporative-values__wheel-container">
         <div ref="innerCircleRef" class="corporative-values__inner-circle">
           <template v-if="!isMobile">
@@ -108,19 +108,18 @@ onMounted(() => {
   padding: $spacer*3 $spacer*1.25;
 
   @include breakpoint(lg) {
-    padding: unset;
+    padding: $spacer*3 $spacer*9.6785;
   }
 
   &__content {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: $spacer-double;
     justify-content: center;
+    gap: $spacer-double;
     max-width: $max-content-width;
 
     @include breakpoint(lg) {
-      padding: $spacer*3;
       margin: 0 auto;
     }
   }
@@ -145,6 +144,11 @@ onMounted(() => {
     flex-direction: column;
     gap: $spacer*1.5;
     height: 100%;
+
+    @include breakpoint(md) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     @include breakpoint(lg) {
       display: block;

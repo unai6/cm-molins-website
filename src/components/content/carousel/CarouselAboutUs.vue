@@ -82,14 +82,14 @@ onUnmounted(() => {
   >
     <template #[getTemplateIdx(state.activeItem)]>
       <div class="carousel-about-us__container">
-        <p class="carousel-about-us__title">
+        <div class="carousel-about-us__title">
           <template v-if="state.activeItem === 1">
             <ContentSlot :use="$slots.item1Title" unwrap="p" />
           </template>
           <template v-else>
             <ContentSlot :use="$slots.item2Title" unwrap="p" />
           </template>
-        </p>
+        </div>
         <div class="carousel-about-us__content">
           <template v-if="state.activeItem === 1">
             <ContentSlot :use="$slots.item1Content" unwrap="p" />
@@ -108,10 +108,11 @@ onUnmounted(() => {
   background-color: $color-neutral-dark;
   color: $color-neutral-white;
   padding: $spacer*3 $spacer*1.5;
+  padding-bottom: $spacer*4.25;
   box-sizing: border-box;
 
   @include breakpoint(lg) {
-    padding: $spacer*3 $spacer*10;
+    padding: $spacer*3 $spacer*9.6785;
   }
 
   &--primary {
