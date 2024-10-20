@@ -30,7 +30,7 @@ const companiesByType = computed(() => state.selectedInvestee ? investeeCompanie
         </div>
       </div>
     </div>
-          <div class="investee-companies__carousel-container">
+      <div class="investee-companies__carousel-container">
         <div class="investee-companies__carousel">
           <div v-for="company in companiesByType">
             <img class="investee-companies__investee-logo" :src="company.logoUrl">
