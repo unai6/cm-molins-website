@@ -149,7 +149,7 @@ onUnmounted(() => {
       background-image: url('https://res.cloudinary.com/webmolins/image/upload/v1618327504/fotos%20carousel%20home/cms_mapa_vjvy7u.webp');
 
       @include breakpoint(lg) {
-        background-position: center;
+        background-position: bottom;
         grid-area: 4 / 1 / -1 / 5;
         height: 300px;
       }

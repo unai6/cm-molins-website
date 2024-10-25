@@ -1,15 +1,61 @@
 <script setup>
-import { reactive, computed } from 'vue'
+import { reactive, ref, computed } from 'vue'
 
 import investeeCompanies from '@/data/investee-companies'
 
 const state = reactive({
   selectedInvestee: null,
+  direction: 'left',
+  canSlide: false,
 })
 
 const investeeCompaniesType = ['industry', 'startup', 'finance', 'real-state']
 
+const carouselRef = ref(null)
+
 const companiesByType = computed(() => state.selectedInvestee ? investeeCompanies.filter((company) => state.selectedInvestee === company.type) : investeeCompanies)
+
+const distanceToTranslate = ref(0)
+const elementsToDisplay = 4
+
+function handleButtonNavigation (direction) {
+  state.direction = direction
+
+  const children = [...carouselRef.value.children]
+  if (!carouselRef.value || !children.length) return
+
+  const columnGap = parseInt(window.getComputedStyle(carouselRef.value).columnGap)
+  const childrenWidth = children[0].offsetWidth + columnGap
+
+  const totalDistanceToTranslate = childrenWidth * (children.length - elementsToDisplay)
+  distanceToTranslate.value = direction === 'right' ? distanceToTranslate.value - childrenWidth : distanceToTranslate.value + childrenWidth
+
+  state.canSlide = distanceToTranslate.value >= -totalDistanceToTranslate && distanceToTranslate.value <= 0
+  distanceToTranslate.value = Math.max(Math.min(distanceToTranslate.value, 0), -totalDistanceToTranslate)
+
+  setElementsTransition(children, '0.3s', 'linear')
+}
+
+function selectInvestee (investee) {
+  state.selectedInvestee = investee
+  resetElementsPosition()
+}
+
+function resetElementsPosition () {
+  distanceToTranslate.value = 0
+  state.direction = 'left'
+  state.canSlide = false
+
+  const children = [...carouselRef.value.children]
+  setElementsTransition(children)
+}
+
+function setElementsTransition (elements, duration = '0', animation = 'none') {
+  elements.forEach(element => {
+    element.style.transform = `translateX(${distanceToTranslate.value}px)`
+    element.style.transition = `${duration} ${animation}`
+  })
+}
 </script>
 
 <template>
@@ -24,14 +70,23 @@ const companiesByType = computed(() => state.selectedInvestee ? investeeCompanie
           :key="investee"
           class="investee-companies__investee"
           :class="{ 'investee-companies__investee--selected': state.selectedInvestee === investee }"
-          @click="state.selectedInvestee = investee"
+          @click="selectInvestee(investee)"
         >
           <img class="investee-companies__image" :src="`/images/investee/participadas-${investee}.jpg`">
         </div>
       </div>
     </div>
       <div class="investee-companies__carousel-container">
-        <div class="investee-companies__carousel">
+        <div v-if="companiesByType.length > elementsToDisplay" class="investee-companies__direction">
+          <BaseIcon
+            v-for="direction in ['left', 'right']"
+            :icon="`arrow-${direction}`"
+            class="investee-companies__chevron"
+            :class="{ 'investee-companies__chevron--disabled': !state.canSlide && direction === state.direction }"
+            @click="handleButtonNavigation(direction)"
+           />
+        </div>
+        <div ref="carouselRef" class="investee-companies__carousel">
           <div v-for="company in companiesByType">
             <img class="investee-companies__investee-logo" :src="company.logoUrl">
           </div>
@@ -66,8 +121,13 @@ const companiesByType = computed(() => state.selectedInvestee ? investeeCompanie
 
   &__companies {
     display: flex;
+    flex-direction: column;
     gap: $spacer;
     justify-content: center;
+
+    @include breakpoint(lg) {
+      flex-direction: row;
+    }
   }
 
   &__investee {
@@ -108,12 +168,12 @@ const companiesByType = computed(() => state.selectedInvestee ? investeeCompanie
   }
 
   &__carousel-container {
+    position: relative;
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: $spacer 0;
+    padding: $spacer*1.5 0;
     background-color: $color-neutral-white;
-
   }
 
   &__carousel {
@@ -130,6 +190,32 @@ const companiesByType = computed(() => state.selectedInvestee ? investeeCompanie
     height: fit-content;
     width: 132px;
     object-fit: contain;
+  }
+
+  &__direction {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: calc(768px + $spacer*4);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__chevron {
+    cursor: pointer;
+    color: $color-neutral-medium;
+
+    @include breakpoint(lg) {
+      height: 48px;
+      width: 48px;
+    }
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.4;
+    }
   }
 }
 </style>

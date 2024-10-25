@@ -7,11 +7,12 @@
         <div class="corporative-responsibility__title">
           <ContentSlot :use="$slots.title" />
         </div>
+        <img class="corporative-responsibility__corp-logo hidden-desktop" src="/images/fundacion-joaquin-molins-logo.jpg">
         <div class="corporative-responsibility__description">
           <ContentSlot :use="$slots.description" unwrap="p" />
         </div>
       </div>
-      <img class="corporative-responsibility__corp-logo" src="/images/fundacion-joaquin-molins-logo.jpg">
+      <img class="corporative-responsibility__corp-logo desktop-only" src="/images/fundacion-joaquin-molins-logo.jpg">
     </div>
     <img class="corporative-responsibility__stairs" src="/images/escalera-2.jpg">
   </div>
@@ -23,14 +24,20 @@
 
   &__container {
     display: flex;
+    flex-direction: column;
     gap: $spacer*1.5;
     padding: $spacer*1.5;
     max-width: $max-content-width;
     margin: 0 auto;
 
     @include breakpoint(lg) {
-      gap: $spacer*12;
+      flex-direction: row;
       padding: $spacer*3 $spacer*9.6785;
+      gap: $spacer*3;
+    }
+
+    @include breakpoint(xl) {
+      gap: $spacer*12;
     }
   }
 
@@ -63,7 +70,18 @@
   }
 
   &__corp-logo {
-    width: 240px;
+    width: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
+
+    @include breakpoint(md) {
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    @include breakpoint(lg) {
+      min-width: 240px;
+    }
   }
 
   &__stairs {

@@ -84,7 +84,7 @@
   }
 
   &__list {
-    font-size: ms(3);
+    font-size: ms(2);
     line-height: $font-lineheight-long;
     padding-left: $spacer*2.5;
     color: $color-primary;
