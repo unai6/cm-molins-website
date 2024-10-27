@@ -105,10 +105,11 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     flex-direction: column;
     gap: $spacer*3;
     max-width: $max-content-width;
+    padding: $spacer*3 0;
 
     @include breakpoint(lg) {
-      margin: 0 auto;
       padding: $spacer*3 $spacer*9.6785;
+      margin: 0 auto;
     }
   }
 
@@ -125,7 +126,14 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     gap: $spacer;
     justify-content: center;
 
+    @include breakpoint(md) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+
     @include breakpoint(lg) {
+      display: flex;
       flex-direction: row;
     }
   }
@@ -180,16 +188,25 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     display: flex;
     align-items: center;
     gap: $spacer-double;
-    overflow-x: scroll;
+    overflow-x: hidden;
     overflow-y: hidden;
     scrollbar-width: none;
-    max-width: calc(528px + $spacer*6);
+    max-width: calc(250px + 32px * 4); // Calculated based on the width of the images and container gap.
+
+    @include breakpoint(lg) {
+      max-width: calc(680px + 32px * 4); // Calculated based on the width of the investee logo and container gap.
+    }
   }
 
   &__investee-logo {
     height: fit-content;
-    width: 132px;
+    max-height: 100px;
+    width: 100px;
     object-fit: contain;
+
+    @include breakpoint(lg) {
+      width: 170px;
+    }
   }
 
   &__direction {
@@ -197,10 +214,14 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: calc(768px + $spacer*4);
+    max-width: calc(100px * 4 + 48px); // Calculated based on the width of the images and container gap.
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
+    @include breakpoint(lg) {
+      max-width: calc(250px * 4 + 48px);
+    }
   }
 
   &__chevron {
