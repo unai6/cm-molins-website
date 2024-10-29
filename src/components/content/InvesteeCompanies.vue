@@ -1,6 +1,8 @@
 <script setup>
 import { reactive, ref, computed } from 'vue'
 
+import BaseModal from '@/components/content/base/BaseModal.vue'
+
 import investeeCompanies from '@/data/investee-companies'
 
 const state = reactive({
