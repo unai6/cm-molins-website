@@ -229,8 +229,8 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     color: $color-neutral-medium;
 
     @include breakpoint(lg) {
-      height: 48px;
-      width: 48px;
+      height: 64px;
+      width: 64px;
     }
 
     &--disabled {
