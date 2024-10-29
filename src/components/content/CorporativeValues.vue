@@ -23,7 +23,7 @@ const isMobile = ref(breakpoints.smaller('lg'))
 
 const doublePi = 2 * Math.PI
 const alphaOffset = doublePi / props.corporativeValuesItems.length
-const innerCircleRef = ref(null)
+const innerCircleRef = useTemplateRef('innerCircleRef')
 const { width } = useElementSize(innerCircleRef)
 
 

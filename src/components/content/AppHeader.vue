@@ -16,7 +16,8 @@ const state = reactive({
   isMobile: breakpoints.smaller('lg'),
 })
 
-const appHeaderRef = ref(null)
+const appHeaderRef = useTemplateRef('appHeaderRef')
+
 onClickOutside(appHeaderRef, () => {
   state.visibleDropdown = null
 })

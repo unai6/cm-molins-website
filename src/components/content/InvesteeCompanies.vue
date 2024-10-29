@@ -6,16 +6,18 @@ import BaseModal from '@/components/content/base/BaseModal.vue'
 import investeeCompanies from '@/data/investee-companies'
 
 const state = reactive({
-  selectedInvestee: null,
+  selectedCompanyType: null,
+  selectedCompany: null,
   direction: 'left',
   canSlide: false,
+  isModalOpen: false
 })
 
 const investeeCompaniesType = ['industry', 'startup', 'finance', 'real-state']
 
-const carouselRef = ref(null)
+const carouselRef = useTemplateRef('carouselRef')
 
-const companiesByType = computed(() => state.selectedInvestee ? investeeCompanies.filter((company) => state.selectedInvestee === company.type) : investeeCompanies)
+const companiesByType = computed(() => state.selectedCompanyType ? investeeCompanies.filter((company) => state.selectedCompanyType === company.type) : investeeCompanies)
 
 const distanceToTranslate = ref(0)
 const elementsToDisplay = 4
@@ -38,9 +40,14 @@ function handleButtonNavigation (direction) {
   setElementsTransition(children, '0.3s', 'linear')
 }
 
-function selectInvestee (investee) {
-  state.selectedInvestee = investee
+function selectCompanyType (companyType) {
+  state.selectedCompanyType = companyType
   resetElementsPosition()
+}
+
+function selectCompany (company) {
+  state.selectedCompany = company
+  state.isModalOpen = true
 }
 
 function resetElementsPosition () {
@@ -61,6 +68,14 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
 </script>
 
 <template>
+  <BaseModal v-model="state.isModalOpen">
+    <template #title>
+      <img
+        class="investee-companies__investee-logo investe-companies__investee-logo--large"
+        :src="state.selectedCompany.logoUrl"
+      />
+    </template>
+  </BaseModal>
   <div class="investee-companies">
     <div class="investee-companies__container">
       <div class="investee-companies__title">
@@ -68,13 +83,13 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
       </div>
       <div class="investee-companies__companies">
         <div
-          v-for="investee in investeeCompaniesType"
-          :key="investee"
+          v-for="companyType in investeeCompaniesType"
+          :key="companyType"
           class="investee-companies__investee"
-          :class="{ 'investee-companies__investee--selected': state.selectedInvestee === investee }"
-          @click="selectInvestee(investee)"
+          :class="{ 'investee-companies__investee--selected': state.selectedCompanyType === companyType }"
+          @click="selectCompanyType(companyType)"
         >
-          <img class="investee-companies__image" :src="`/images/investee/participadas-${investee}.jpg`">
+          <img class="investee-companies__image" :src="`/images/investee/participadas-${companyType}.jpg`">
         </div>
       </div>
     </div>
@@ -90,7 +105,11 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
         </div>
         <div ref="carouselRef" class="investee-companies__carousel">
           <div v-for="company in companiesByType">
-            <img class="investee-companies__investee-logo" :src="company.logoUrl">
+            <img
+              class="investee-companies__investee-logo"
+              :src="company.logoUrl"
+              @click="selectCompany(company)"
+              >
           </div>
         </div>
       </div>
@@ -99,6 +118,7 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
 
 <style lang="scss">
 .investee-companies {
+  position: relative;
   background-color: $color-neutral-medium;
 
   &__container {
@@ -194,6 +214,7 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     overflow-y: hidden;
     scrollbar-width: none;
     max-width: calc(250px + 32px * 4); // Calculated based on the width of the images and container gap.
+    z-index: z-number(overbase);
 
     @include breakpoint(lg) {
       max-width: calc(680px + 32px * 4); // Calculated based on the width of the investee logo and container gap.
@@ -208,6 +229,17 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
 
     @include breakpoint(lg) {
       width: 170px;
+      cursor: pointer;
+    }
+
+    &--large {
+      width: 200px;
+      height: 200px;
+
+      @include breakpoint(lg) {
+        width: 300px;
+        height: 300px;
+      }
     }
   }
 
@@ -220,6 +252,7 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    z-index: z-number(base);
 
     @include breakpoint(lg) {
       max-width: calc(250px * 4 + 48px);
