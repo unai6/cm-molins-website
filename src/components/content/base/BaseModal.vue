@@ -13,23 +13,25 @@ onClickOutside(modalRefContainer, () => {
 </script>
 
 <template>
-  <div v-if="isOpen" class="base-modal">
-    <div class="base-modal__overlay" />
-    <div class="base-modal__container" ref="modalRefContainer" >
-      <BaseIcon
-        class="base-modal__x-mark"
-        icon="x-mark"
-        size="largest"
-        @click="isOpen = false"
-      />
-      <h2 class="base-modal__title">
-        <slot name="title" />
-      </h2>
-      <div class="base-modal__content">
-        <slot name="content" />
+  <Transition name="fade" mode="out-in">
+    <div v-if="isOpen" class="base-modal">
+      <div class="base-modal__overlay" />
+      <div class="base-modal__container" ref="modalRefContainer" >
+        <BaseIcon
+          class="base-modal__x-mark"
+          icon="x-mark"
+          size="largest"
+          @click="isOpen = false"
+        />
+        <h2 v-if="!!$slots.title" class="base-modal__title">
+          <slot name="title" />
+        </h2>
+        <div v-if="!!$slots.content" class="base-modal__content">
+          <slot name="content" />
+        </div>
       </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 
@@ -55,20 +57,36 @@ onClickOutside(modalRefContainer, () => {
 
   &__container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: $spacer;
     border: $border-weight-heaviest solid $color-neutral-dark;
     background-color: $color-neutral-white;
 
     @include breakpoint(lg) {
       height: 600px;
       width: 600px;
+      padding: $spacer*1.5;
     }
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacer;
+  }
+
   &__x-mark {
-    position: absolute;
-    top: $spacer;
-    right: $spacer;
+    display: block;
+    margin-left: auto;
+    padding: $spacer;
     cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $color-primary;
+      }
+    }
   }
 }
 </style>

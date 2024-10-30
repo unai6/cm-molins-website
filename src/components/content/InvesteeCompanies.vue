@@ -69,11 +69,14 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
 
 <template>
   <BaseModal v-model="state.isModalOpen">
-    <template #title>
+    <template #content>
       <img
         class="investee-companies__investee-logo investe-companies__investee-logo--large"
         :src="state.selectedCompany.logoUrl"
       />
+      <p class="investee-companies__modal-description">
+        {{ state.selectedCompany.description[$i18n.locale] }}
+      </p>
     </template>
   </BaseModal>
   <div class="investee-companies">
@@ -237,8 +240,8 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
       height: 200px;
 
       @include breakpoint(lg) {
-        width: 300px;
-        height: 300px;
+        width: 500px;
+        height: 400px;
       }
     }
   }
@@ -271,6 +274,19 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     &--disabled {
       pointer-events: none;
       opacity: 0.4;
+    }
+  }
+
+  &__modal-description {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: $border-weight-hairline;
+      top: -$spacer;
+      background-color: $color-neutral-dark;
     }
   }
 }
