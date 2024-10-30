@@ -31,7 +31,7 @@ const companiesByType = computed(() => state.selectedCompanyType
 )
 
 const distanceToTranslate = ref(0)
-const elementsToDisplay = computed(() => state.isMobile ? 2 : 4)
+const elementsToDisplay = computed(() => state.isMobile ? 1 : 4)
 
 function handleButtonNavigation (direction) {
   state.direction = direction
@@ -111,7 +111,7 @@ function setElementsTransition (elements, duration, animation) {
            />
         </div>
         <div ref="carouselRef" class="investee-companies__carousel">
-          <div v-for="company in companiesByType">
+          <div class="investee-companies__investee-logo-wrapper" v-for="company in companiesByType">
             <img
               class="investee-companies__investee-logo"
               :src="company.logoUrl"
@@ -255,10 +255,19 @@ function setElementsTransition (elements, duration, animation) {
     }
   }
 
+  &__investee-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+  }
+
   &__investee-logo {
     height: fit-content;
     max-height: 100px;
-    width: calc(windowWidth / 4 - 32px); // Calculated based on the width of the images and container gap.
+    width: 100%; // Calculated based on the width of the images and container gap.
     object-fit: contain;
 
     @include breakpoint(lg) {
