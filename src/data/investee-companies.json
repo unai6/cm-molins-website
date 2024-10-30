@@ -1,0 +1,261 @@
+[
+  {
+    "name": "Compettia",
+    "type": "startup",
+    "investedAt": "2016",
+    "order": "2",
+    "category": "Inversiones Startups Tecnológicas",
+    "websiteUrl": "https://www.atrivity.com",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1606126892/company-logos/logo-compettia3.pngMonday%2C%20November%2023%2C%202020.webp",
+    "headquarters": "Barcelona",
+    "description": {
+      "es": "Plataforma empresarial gamificada (Atrivity) que permite asegurar de forma medible que una audiencia adquiera y retenga rápidamente cualquier conocimiento. Los clientes, la mayoría grandes compañías, se benefician de mejoras en las operaciones (ventas, costes, rapidez, seguridad….) gracias a lanzamientos de productos, mayor conversión en las ventas, superiores canales de información, que se consiguen desplegando una mejor formación/información, captando más interés y obteniendo indicadores como el grado de conocimiento, tanto agregados como detallados por región, equipos, personas y categorías de conocimiento.",
+      "en": "Gamified business platform (Atrivity) that allows to measurably ensure that an audience quickly acquires and retains any knowledge. Clients, most of them large companies, benefit from improvements in operations (sales, costs, speed, security ...) thanks to product launches, higher sales conversion, superior information channels, which are achieved by deploying better training / information, capturing more interest and obtaining indicators such as the degree of knowledge, both aggregated and detailed by region, teams, people and categories of knowledge.",
+      "ca": "Plataforma empresarial gamificada (Atrivity) què permet assegurar de\nmanera mesurable, què una audiència adquireixi i retingui ràpidament\nqualsevol coneixement. Els clients, la majoria grans companyies, es\nbeneficien de les millores en les operacions (vendes, costos, rapidesa,\nseguretat...) gràcies, als llançaments de productes, major conversió en les\nvendes, millors canals d'informació què s'aconsegueixen desplegant una\nmillor formació/informació, captant més interès i obtenint indicadors com el\ngrau de coneixement, tant afegits com detallats per regió, equips, persones\ni categories de coneixement."
+    }
+  },
+  {
+    "name": "Urban Fisio",
+    "investedAt": "2020",
+    "order": "5",
+    "category": "Inversiones Startups Tecnológicas",
+    "websiteUrl": "https://www.urbanfisio.com",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1606208600/company-logos/urbanFisio_logogood.pngTuesday%2C%20November%2024%2C%202020.webp",
+    "headquarters": "Barcelona",
+    "description": {
+      "es": "Clínica digital de fisioterapia a domicilio.",
+      "en": "Digital physiotherapy clinic at home.",
+      "ca": "Clínica digital de fisioteràpia a domicili."
+    }
+  },
+  {
+    "name": "Talent Clue",
+    "type": "startup",
+    "investedAt": "2015",
+    "order": "6",
+    "category": "Inversiones Startups Tecnológicas",
+    "websiteUrl": "https://www.talentclue.com",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1608630387/company-logos/tc-logo_j3bvgm.webp",
+    "headquarters": "Barcelona",
+    "description": {
+      "es": "Software de reclutamiento para atraer y fidelizar.",
+      "en": "Recruitment software to attract and improve customer loyalty.",
+      "ca": "Software de reclutament per atraure i fidelitzar."
+    }
+  },
+  {
+    "name": "Mondo",
+    "type": "startup",
+    "investedAt": "2018",
+    "order": "3",
+    "category": "Inversiones Startups Tecnológicas",
+    "websiteUrl": "https://www.heymondo.es",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605713270/company-logos/ttcxh1zwvosaclt2qaio.webp",
+    "headquarters": "Barcelona",
+    "description": {
+      "es": " Mondo es una insurtech especializada en seguros de viaje. Diseñamos una experiencia 100% digital aportando al viajero una solución rápida, fácil y transparente durante todo el proceso, desde la búsqueda del seguro que mejor se adapte a su viaje hasta la prestación de la asistencia mediante una app innovadora y disruptiva.",
+      "en": "Mondo is an insurtech specialized in travel insurance. We design a 100% digital experience providing travelers with a quick, easy and transparent solution throughout the process, from finding the insurance that best suits their trip to providing assistance through an innovative and disruptive app.",
+      "ca": "Mondo és una insurtech especialitzada en assegurances de viatge.\nDissenyem una experiència 100% digital aportant al viatger una\nsolució ràpida, fàcil i transparent durant tot el procés, des de la cerca de\nl'assegurança que millor s'adapti al seu viatge fins a la prestació de\nl'assistència mitjançant una app innovadora i disruptiva."
+    }
+  },
+  {
+    "name": "World Mastery",
+    "type": "startup",
+    "investedAt": "2015",
+    "disinvestedAt": "2023",
+    "order": "1",
+    "category": "Inversiones Startups Tecnológicas",
+    "websiteUrl": "https://www.world-mastery.com",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605713512/company-logos/y9cxwele4qjg4phfefbh.webp",
+    "headquarters": "Barcelona",
+    "description": {
+      "es": "E-learning: Creación de cursos en línea, especialmente diseñados para los instructores profesionales, recopilando técnicas, experiencia y valores de los mejores maestros de cada disciplina.",
+      "en": "E-learning: Creation of online courses, specially designed for professional instructors, gathering techniques, experience and values ​​from the best teachers in each discipline.",
+      "ca": "E-learning: Creació de cursos en línia, especialment dissenyats pels\ninstructors professionals, recopilant tècniques, experiència i valors, dels\nmillors mestres de cada disciplina."
+    }
+  },
+  {
+    "name": "Le Room Service",
+    "type": "startup",
+    "investedAt": "2019",
+    "order": "4",
+    "category": "Inversiones Startups Tecnológicas",
+    "websiteUrl": "https://www.leroomservice.es",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605871109/company-logos/ueu9fmvrm8orztw3myh0.webp",
+    "headquarters": "Madrid",
+    "description": {
+      "es": "Empresa especializada en el outsourcing del servicio de F&B a habitaciones de hotel y apartamentos turísticos. Es la alternativa rentable al servicio de habitaciones a través de la innovación en tendencias gastronómicas y servicio.",
+      "en": "Company specialized in outsourcing the F&B service to hotel rooms and tourist apartments. It is the profitable alternative to room service through innovation in gastronomic trends and service.",
+      "ca": "Empresa especialitzada en l'outsourcing del servei de F&B a les\nhabitacions d'hotel i apartaments turístics. És l'alternativa rendible al servei\nd'habitacions a través de la innovació en les tendències gastronòmiques i\nde serveis."
+    }
+  },
+  {
+    "name": "Immfly",
+    "type": "startup",
+    "investedAt": "2015",
+    "disinvestedAt": "2019",
+    "category": "Inversiones Startups Tecnológicas",
+    "websiteUrl": "https://www.immfly.com",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605866376/company-logos/vvxjak2dwxy5aslrzn2i.webp",
+    "headquarters": "Barcelona",
+    "description": {
+      "es": " Ofrece sistemas de entretenimiento a bordo de los aviones mediante la utilización de una red Wifi interna “intranet”.",
+      "en": "It offers entertainment systems on board the aircraft through the use of an internal Wi-Fi network \"intranet\".",
+      "ca": "Ofereix sistemes d’entreteniment a bord dels avions mitjançant la utilització\nd’una xarxa wifi interna “intranet”."
+    }
+  },
+  {
+    "name": "Bebitus",
+    "type": "startup",
+    "disinvestedAt": "2016",
+    "investedAt": "2013",
+    "category": "Inversiones Startups Tecnológicas",
+    "websiteUrl": "https://www.bebitus.com",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605869829/company-logos/zfybhag0dr9tkgqi3qju.webp",
+    "headquarters": "",
+    "description": {
+      "es": "Ecommerce. Tienda on-line para cubrir las necesidades propias del bebé, donde se ofrece una gran variedad de primeras marcas a buen precio y servicio de entrega.",
+      "en": " Ecommerce. On-line store to cover baby'sneeds, where a wide variety of top brands are offered at a good price and delivery service.",
+      "ca": "ecommerce. Botiga on-line per cobrir les necessitats pròpies del bebè, on\ns’ofereix una gran varietat de primeres marques a bon preu i amb servei\nd’entrega."
+    }
+  },
+  {
+    "name": "Naturitas",
+    "type": "startup",
+    "investedAt": "2016",
+    "disinvestedAt": "2019",
+    "category": "Inversiones Startups Tecnológicas",
+    "websiteUrl": "https://www.naturitas.es",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1618993203/company-logos/naturitas_nobg_bh2jcr.webp",
+    "headquarters": "Barcelona",
+    "description": {
+      "es": "Ecommerce. Tienda on-line de productos naturales y de herbolario, tales como suplementos alimenticios, complementos vitamínicos o alimentos básicos de origen bio y eco.",
+      "en": "Ecommerce. Online  natural and herbal products store, such as food supplements, vitamin supplements or basic organic foods.",
+      "ca": "Ecommerce. Botiga on-line de productes naturals i d’herbolaris, tal com\nsuplements alimentaris, complements vitamínics o aliments bàsics d’origen bio i\neco."
+    }
+  },
+  {
+    "name": "Compañía General de Inversiones SICAV, SA",
+    "type": "finance",
+    "investedAt": "1998",
+    "order": "1",
+    "category": "Inversiones Financieras",
+    "websiteUrl": "https://gesiuris.com/sicav/compania-general-de-inversiones-sicav/",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605870327/company-logos/nn9isz6z7pf5vxxq9tze.webp",
+    "headquarters": "undefined",
+    "description": {
+      "es": "Sociedad de Inversión de capital variable.",
+      "en": " Variable Capital Investment Company.",
+      "ca": "Societat d’Inversió de capital variable."
+    }
+  },
+  {
+    "name": "Gesiuris Asset Management",
+    "type": "finance",
+    "investedAt": "2002",
+    "order": "0",
+    "category": "Inversiones Financieras",
+    "websiteUrl": "https://www.gesiuris.com/",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605870515/company-logos/qdp1rsyaqfckfhxm6tum.webp",
+    "headquarters": "",
+    "description": {
+      "es": "Sociedad Gestora de Instituciones de Inversión Colectiva.",
+      "en": "Collective Investment Institutions Management Company.",
+      "ca": "Societat Gestora d'Institucions d'Inversió Col·lectiva."
+    }
+  },
+  {
+    "name": "Cementos Molins",
+    "type": "industry",
+    "category": "Participaciones Industriales",
+    "websiteUrl": "https://www.cemolins.es",
+    "logoUrl": "/images/investee/logo-cartera-cm-color.png",
+    "headquarters": "",
+    "description": {
+      "es": "Inversión principal del Family Office, inicia su actividad en el año 1928 de la mano de su fundador Joaquín Molins Parera con canteras y explotaciones de fabricación de cal y cemento natural en las localidades barcelonesas de Pallejá, Vallirana y Sant Vicenç dels Horts. Hoy es una consolidada compañía con presencia en 9 países, 4.932 empleados y unos ingresos de 797 Millones de €. En la página Web de la compañía pueden encontrar toda la información disponible para accionistas, inversores, clientes y proveedores, más de 90 años de historia avalan el trabajo de Cementos Molins en el sector de la construcción. Integridad, eficiencia, pasión y respecto por el medioambiente son los valores en los que confía el Grupo para crear soluciones innovadoras y sostenibles en el sector de la construcción.  ",
+      "en": "Family Office's Main investment , it began its activity in 1928 by its founder Joaquín Molins Parera with quarries and operations for the manufacture of lime and natural cement in the Barcelona towns of Pallejá, Vallirana and Sant Vicenç dels Horts. Today it is a consolidated company with a presence in 9 countries, 4,932 employees and revenues of € 797 million. On the company's websiteUrl you can find all the information available to shareholders, investors, clients and suppliers. More than 90 years of history support the work of Cementos Molins in the construction sector. Integrity, efficiency, passion and respect for the environment are the values ​​that the Group trusts to create innovative and sustainable solutions in the construction sector.",
+      "ca": "\nInversió principal del Family Office, inicia la seva activitat l'any 1928 de la mà del seu fundador Joan Molins Parera amb pedreres i explotacions de fabricació de calç i ciment natural en les localitats barcelonines de Pallejà, Vallirana i Sant Vicenç dels Horts. Avui és una consolidada companyia amb presència en 9 països, 4.932 empleats i uns ingressos de 797 Milions de €. En la pàgina Web de la companyia poden trobar tota la informació disponible per a accionistes, inversors, clients i proveïdors, més de 90 anys d'història avalen el treball de Ciments Molins en el sector de la construcció. Integritat, eficiència, passió i respecte pel medi ambient són els valors en els quals confia el Grup per a crear solucions innovadores i sostenibles en el sector de la construcció.\n"
+    }
+  },
+  {
+    "name": "Profitex",
+    "type": "realState",
+    "investedAt": "1991",
+    "category": "Inversiones Inmobiliarias",
+    "websiteUrl": "http://www.profitex.es",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605873861/company-logos/jrl5wjn17e8rccvxqu9i.webp",
+    "headquarters": "Terrassa(Barcelona)",
+    "description": {
+      "es": "Gestión y alquiler de naves industriales en Terrassa.",
+      "en": " Management and rental of industrial buildings in Terrassa.",
+      "ca": "Gestió i lloguer de naus industrials a Terrassa."
+    }
+  },
+  {
+    "name": "Gesiuris Real State, S.L.",
+    "type": "realState",
+    "investedAt": "2005",
+    "category": "Inversiones Inmobiliarias",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1619950289/company-logos/LOGO_GESIURIS_REAL_ESTATE_vvdvsb.png",
+    "headquarters": "Barcelona",
+    "description": {
+      "es": "Tenencia y alquiler de inmuebles (oficinas). Es propietaria de unos 3.000 m2 de oficinas, principalmente 8 plantas de su propiedad del edificio sito en Rambla Catalunya, 38, Barcelona",
+      "en": " Ownership and rental of real estate (offices). It owns about 3,000 m2 of offices, mainly on 8 floors of its property in the building located at Rambla Catalunya, 38, Barcelona",
+      "ca": "Tinença i lloguer d'immobles (oficines). És propietària d'uns\n3.000 m² d'oficines, principalment 8 plantes de la seva propietat de l'edifici\nsituat a Rambla Catalunya, 38, Barcelona."
+    }
+  },
+  {
+    "name": "DESARROLLO DE INVERSIONES, S.L",
+    "type": "realState",
+    "investedAt": "1975",
+    "category": "Inversiones Inmobiliarias",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1620665331/company-logos/dise%C3%B1o_logos2-03_pwyfoj.png",
+    "headquarters": "undefined",
+    "description": {
+      "es": "Tenencia y alquiler de inmuebles. Es la sociedad del grupo que aglutina las inversiones inmobiliarias. Entre sus inmuebles más representativos figura el edificio ubicado en Paseo de la Bonanova 64 y unas oficinas ubicadas en Paseo de Gracia, 76, ambos de Barcelona.",
+      "en": " Ownership and rental of real estate. It is the group company that brings together real estate investments. Its most representative properties include the building located at Paseo de la Bonanova 64 and some offices located at Paseo de Gracia, 76, both in Barcelona.",
+      "ca": "Tinença i lloguer d’immobles. És la societat del grup que aglutina les\ninversions immobiliàries. Entre els seus immobles més representatius\nfigura l’edifici ubicat al Passeig de la Bonanova, 64, i unes oficines\nubicades a Passeig de Gràcia, 76, ambdós de Barcelona."
+    }
+  },
+  {
+    "name": "Ares",
+    "type": "realState",
+    "investedAt": "2003",
+    "category": "Inversiones Inmobiliarias",
+    "websiteUrl": "http://www.aressa.com.ar/sitio/",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1619950289/company-logos/logos-06_qjsudm.png",
+    "headquarters": "Mendoza (Argentina)",
+    "description": {
+      "en": "Real Estate Ventures",
+      "es": "Emprendimientos Inmobiliarios",
+      "ca": "Emprenedories Immobiliàries."
+    }
+  },
+  {
+    "name": "MESbook",
+    "type": "startup",
+    "investedAt": "2021",
+    "order": 6,
+    "category": "Inversiones Startups Tecnológicas",
+    "websiteUrl": "https://mesbook.com",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1622743564/company-logos/LogoMESbook_ALTA_aiqfnt.png",
+    "description": {
+      "es": "Sistema de gestión de fábricas en tiempo real estandarizado para cualquier industria: controla, comunica, aprende y predice para fabricar MÁS, MEJOR y MÁS BARATO.",
+      "en": " Standardized real-time factory management system for any industry: control, communicate, learn and predict to manufacture MORE, BETTER and CHEAPER.",
+      "ca": "Sistema de gestió de fàbriques en temps real estandarditzat per a\nqualsevol indústria: controla, comunica, aprèn i prediu per a fabricar MÉS,\nMILLOR I MÉS BARAT."
+    }
+  },
+  {
+    "name": "Aervio",
+    "type": "startup",
+    "investedAt": "2022",
+    "category": "Inversiones Startups/Tecnológicas",
+    "websiteUrl": "https://www.aervio.com",
+    "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1655148475/company-logos/molins_participada.jpglunes%2C%2013%20de%20junio%20de%202022.jpg",
+    "description": {
+      "en": "Aervio is the definitive solution for travel coordination and booking\ncorporate, which combines our powerful technological platform with the\nsecurity of having the dedication of a travel management expert from\ncompany, guaranteed a fast, efficient and user experience\npersonalized.",
+      "es": "Aervio es la solución definitiva para la coordinación y reserva de viajes corporativos, que combina nuestra potente plataforma tecnológica con la seguridad de tener la dedicación de un experto en gestión de viajes de empresa, garantizado una experiencia de usuario rápida, eficiente y personalizada. ",
+      "ca": "Aervio, és la solució definitiva per a la coordinació i reserva de viatges\ncorporatius, combina la nostra potent plataforma tecnològica amb la\nseguretat de tenir la dedicació d’un expert en gestió de viatges d’empresa,\ngarantint una experiència d’usuari ràpida, eficient i personalitzada."
+    }
+  }
+]

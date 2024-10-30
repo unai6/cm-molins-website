@@ -296,6 +296,8 @@ function setElementsTransition (elements, duration, animation) {
   &__chevron {
     cursor: pointer;
     color: $color-neutral-medium;
+    height: 32px;
+    width: 32px;
 
     @include breakpoint(lg) {
       height: 64px;
