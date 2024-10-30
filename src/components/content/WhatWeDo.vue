@@ -39,7 +39,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: $spacer*3;
+    gap: $spacer*1.5;
     padding: $spacer*1.5 0;
     padding-top: $spacer*6;
     max-width: $max-content-width;
@@ -47,6 +47,7 @@
 
     @include breakpoint(xl) {
       flex-direction: row;
+      gap: $spacer*3;
       padding: $spacer*3 $spacer*9.6785;
       padding-top: calc(100px + $spacer*3);
       padding-right: 0;
@@ -72,9 +73,13 @@
   &__content {
     display: flex;
     flex-direction: column;
-    gap: $spacer*3;
+    gap: $spacer*1.5;
     padding: $spacer*1.5;
     padding-top: 0;
+
+    @include breakpoint(lg) {
+      gap: $spacer*3;
+    }
   }
 
   &__intro {

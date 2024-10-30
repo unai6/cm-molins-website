@@ -70,8 +70,8 @@ onClickOutside(modalRefContainer, () => {
     height: calc(100% - $app-header-height);
 
     @include breakpoint(lg) {
-      height: 500px;
-      width: 550px;
+      height: 600px;
+      width: 650px;
       padding: $spacer*1.5;
     }
   }

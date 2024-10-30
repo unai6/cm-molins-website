@@ -1,16 +1,22 @@
 <script setup>
 import { reactive, ref, computed } from 'vue'
-
-import BaseModal from '@/components/content/base/BaseModal.vue'
+import { useBreakpoints } from '@vueuse/core'
 
 import investeeCompanies from '@/data/investee-companies'
+
+const breakpoints = useBreakpoints({
+  md: 768,
+  lg: 1024,
+  xl: 1366,
+})
 
 const state = reactive({
   selectedCompanyType: null,
   selectedCompany: null,
   direction: 'left',
   canSlide: false,
-  isModalOpen: false
+  isModalOpen: false,
+  isMobile: breakpoints.smaller('lg'),
 })
 
 const investeeCompaniesType = ['industry', 'startup', 'finance', 'realState']
@@ -23,7 +29,7 @@ const companiesByType = computed(() => state.selectedCompanyType
 )
 
 const distanceToTranslate = ref(0)
-const elementsToDisplay = 4
+const elementsToDisplay = computed(() => state.isMobile ? 2 : 4)
 
 function handleButtonNavigation (direction) {
   state.direction = direction
@@ -34,7 +40,7 @@ function handleButtonNavigation (direction) {
   const columnGap = parseInt(window.getComputedStyle(carouselRef.value).columnGap)
   const childrenWidth = children[0].offsetWidth + columnGap
 
-  const totalDistanceToTranslate = childrenWidth * (children.length - elementsToDisplay)
+  const totalDistanceToTranslate = childrenWidth * (children.length - elementsToDisplay.value)
   distanceToTranslate.value = direction === 'right' ? distanceToTranslate.value - childrenWidth : distanceToTranslate.value + childrenWidth
 
   state.canSlide = distanceToTranslate.value >= -totalDistanceToTranslate && distanceToTranslate.value <= 0
@@ -59,10 +65,10 @@ function resetElementsPosition () {
   state.canSlide = false
 
   const children = [...carouselRef.value.children]
-  setElementsTransition(children)
+  setElementsTransition(children, '0s', 'none')
 }
 
-function setElementsTransition (elements, duration = '0', animation = 'none') {
+function setElementsTransition (elements, duration, animation) {
   elements.forEach(element => {
     element.style.transform = `translateX(${distanceToTranslate.value}px)`
     element.style.transition = `${duration} ${animation}`
@@ -71,22 +77,6 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
 </script>
 
 <template>
-  <BaseModal v-model="state.isModalOpen">
-    <template #content>
-      <img
-        class="investee-companies__investee-logo investee-companies__investee-logo--large"
-        :src="state.selectedCompany.logoUrl"
-      />
-      <p class="investee-companies__modal-description">
-        <b v-if="!!state.selectedCompany.investedAt">{{ $t('investeeCompanies.label.investedAt', { year: state.selectedCompany.investedAt }) }}</b>
-
-        {{ state.selectedCompany.description[$i18n.locale] }}
-      </p>
-      <a class="investee-companies__modal-website-url" :href="state.selectedCompany.websiteUrl" target="_blank" rel="nofollow">
-        {{ state.selectedCompany.websiteUrl }}
-      </a>
-    </template>
-  </BaseModal>
   <div class="investee-companies">
     <div class="investee-companies__container">
       <div class="investee-companies__title">
@@ -140,11 +130,12 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: $spacer*3;
+    gap: $spacer*1.5;
     max-width: $max-content-width;
     padding: $spacer*3 0;
 
     @include breakpoint(lg) {
+      gap: $spacer*3;
       padding: $spacer*3 $spacer*9.6785;
       margin: 0 auto;
     }
@@ -158,36 +149,36 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
   }
 
   &__companies {
-    display: flex;
-    flex-direction: column;
-    gap: $spacer;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacer-half;
     justify-content: center;
-
-    @include breakpoint(md) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
+    box-sizing: border-box;
+    padding: 0 $spacer*1.5;
+    width: 100%;
 
     @include breakpoint(lg) {
       display: flex;
       flex-direction: row;
+      gap: $spacer;
     }
   }
 
   &__investee {
     position: relative;
 
-    &:hover {
-      &::after {
-        position: absolute;
-        content: '';
-        z-index: z-number(overbase);
-        bottom: 0;
-        left: 0;
-        height: 10px;
-        width: 100%;
-        background-color: $color-primary;
+    @media(hover: hover) {
+      &:hover {
+        &::after {
+          position: absolute;
+          content: '';
+          z-index: z-number(overbase);
+          bottom: 0;
+          left: 0;
+          height: 10px;
+          width: 100%;
+          background-color: $color-primary;
+        }
       }
     }
 
@@ -208,27 +199,43 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
   &__image {
     position: relative;
     cursor: pointer;
-    height: 250px;
-    width: 250px;
+    width: 100%;
+    height: 125px;
+    object-fit: cover;
+
+    @include breakpoint(lg) {
+      width: 250px;
+      height: 250px;
+    }
   }
 
   &__type {
     position: absolute;
-    bottom: 32px;
     left: 50%;
+    bottom: $spacer*1.25;
     transform: translateX(-50%);
-    font-size: ms(3);
+    line-height: $font-lineheight-base;
     font-weight: $font-weight-bold;
     color: $color-neutral-white;
+
+    @include breakpoint(lg) {
+      bottom: $spacer-double;
+      font-size: ms(3);
+    }
   }
 
   &__carousel-container {
     position: relative;
     display: flex;
     justify-content: center;
+    box-sizing: border-box;
     width: 100%;
-    padding: $spacer*1.5 0;
+    padding: $spacer $spacer*1.5;
     background-color: $color-neutral-white;
+
+    @include breakpoint(lg) {
+      padding: $spacer*1.5 0;
+    }
   }
 
   &__carousel {
@@ -249,7 +256,7 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
   &__investee-logo {
     height: fit-content;
     max-height: 100px;
-    width: 100px;
+    width: 125px; // Calculated based on the width of the images and container gap.
     object-fit: contain;
 
     @include breakpoint(lg) {

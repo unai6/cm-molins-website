@@ -105,7 +105,7 @@ onMounted(() => {
   $parent: &;
 
   background: $color-neutral-white;
-  padding: $spacer*3 $spacer*1.25;
+  padding: $spacer*3 $spacer*1.5;
 
   @include breakpoint(lg) {
     padding: $spacer*3 $spacer*9.6785;
@@ -116,7 +116,7 @@ onMounted(() => {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    gap: $spacer-double;
+    gap: $spacer*1.5;
     max-width: $max-content-width;
 
     @include breakpoint(lg) {
