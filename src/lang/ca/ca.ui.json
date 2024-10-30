@@ -10,5 +10,9 @@
   "carouselHome.message.item2": "Un somni és simplement un somni. Una meta és un somni, amb un pla i una data de venciment.<br><br><span>HARVEY MACKAY</span>",
   "carouselHome.message.item3": "El secret per avançar és començar.<br><br><span>MARK TWAIN</span>",
   "carouselHome.message.item4": "Les oportunitats no apareixen, les crees.<br><br><span>CHRIS GROSSER</span>",
-  "investeeCompanies.label.investedAt": "Any d'inversió {year}"
+  "investeeCompanies.label.investedAt": "Any d'inversió {year}",
+  "investeeCompanies.label.startup": "Startups Tecnològiques",
+  "investeeCompanies.label.realState": "Immobiliàries",
+  "investeeCompanies.label.finance": "Financeres",
+  "investeeCompanies.label.industry": "Industrials"
 }

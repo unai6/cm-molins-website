@@ -1,10 +1,10 @@
 <script setup>
 import { reactive, ref, computed } from 'vue'
-import { useBreakpoints, useWindowSize } from '@vueuse/core'
+import { useBreakpoints } from '@vueuse/core'
+
+import BaseModal from '@/components/content/base/BaseModal.vue';
 
 import investeeCompanies from '@/data/investee-companies'
-
-const { width: windowWidth } = useWindowSize()
 
 const breakpoints = useBreakpoints({
   md: 768,
@@ -79,6 +79,20 @@ function setElementsTransition (elements, duration, animation) {
 </script>
 
 <template>
+  <BaseModal v-model="state.isModalOpen">
+    <template #content>
+      <img
+        class="investee-companies__investee-logo investee-companies__investee-logo--large"
+        :src="state.selectedCompany.logoUrl"
+      />
+      <p class="investee-companies__modal-description">
+        {{ state.selectedCompany.description[$i18n.locale] }}
+      </p>
+      <a class="investee-companies__modal-website-url" :href="state.selectedCompany.websiteUrl" target="_blank" rel="nofollow">
+        {{ state.selectedCompany.websiteUrl }}
+      </a>
+    </template>
+  </BaseModal>
   <div class="investee-companies">
     <div class="investee-companies__container">
       <div class="investee-companies__title">
@@ -262,6 +276,13 @@ function setElementsTransition (elements, duration, animation) {
     width: 100%;
     height: 100%;
     flex-shrink: 0;
+
+    @include breakpoint(lg) {
+      display: block;
+      width: unset;
+      height: unset;
+      flex-shrink: unset;
+    }
   }
 
   &__investee-logo {

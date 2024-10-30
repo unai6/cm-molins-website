@@ -95,3 +95,8 @@ corporativeValuesItems:
 #description
   CARTERA DE INVERSIONES **CM, S.A.** is fully aware of the consequences and impact that its actions and investments have on society. For this reason, in addition to contributing to the socioeconomic, environmental, and sociocultural fields, it collaborates with and finances patronage activities through the [Joaquim Molins Figueras Foundation.](http://www.joaquimmolinsfigueras.org/)
 ::
+
+::investee-companies
+#title
+  ## Investee companies
+::
