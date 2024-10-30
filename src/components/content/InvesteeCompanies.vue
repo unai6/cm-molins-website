@@ -71,12 +71,15 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
   <BaseModal v-model="state.isModalOpen">
     <template #content>
       <img
-        class="investee-companies__investee-logo investe-companies__investee-logo--large"
+        class="investee-companies__investee-logo investee-companies__investee-logo--large"
         :src="state.selectedCompany.logoUrl"
       />
       <p class="investee-companies__modal-description">
         {{ state.selectedCompany.description[$i18n.locale] }}
       </p>
+      <a :href="state.selectedCompany.websiteUrl" target="_blank" rel="nofollow">
+        {{ state.selectedCompany.websiteUrl }}
+      </a>
     </template>
   </BaseModal>
   <div class="investee-companies">
@@ -237,11 +240,12 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
 
     &--large {
       width: 200px;
-      height: 200px;
+      height: 100%;
+      max-height: 200px;
 
       @include breakpoint(lg) {
-        width: 500px;
-        height: 400px;
+        width: 225px;
+        margin: 0 auto;
       }
     }
   }
@@ -279,13 +283,15 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
 
   &__modal-description {
     position: relative;
+    padding-top: $spacer;
+    font-family: $font-family-highlight;
 
     &::before {
       position: absolute;
       content: '';
+      top: 0;
       width: 100%;
       height: $border-weight-hairline;
-      top: -$spacer;
       background-color: $color-neutral-dark;
     }
   }
