@@ -2,21 +2,21 @@
   "short_name": "CARTERA DE INVERSIONES CM, S.A.",
   "name": "CARTERA DE INVERSIONES CM, S.A.",
   "icons": [
-    {
-      "src": "/logos/dogfy-logo-vector.svg",
-      "type": "image/svg+xml",
-      "sizes": "512x512"
-    },
-    {
-      "src": "/logos/dogfy-logo-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/logos/dogfy-logo-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
+    // {
+    //   "src": "/logos/cartera-cm-logo-vector.svg",
+    //   "type": "image/svg+xml",
+    //   "sizes": "512x512"
+    // },
+    // {
+    //   "src": "/logos/cartera-cm-logo-192.png",
+    //   "type": "image/png",
+    //   "sizes": "192x192"
+    // },
+    // {
+    //   "src": "/logos/cartera-cm-logo-512.png",
+    //   "type": "image/png",
+    //   "sizes": "512x512"
+    // }
   ],
   "start_url": "/",
   "background_color": "#FFFFFF",

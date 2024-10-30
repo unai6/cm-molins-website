@@ -256,7 +256,7 @@ function setElementsTransition (elements, duration, animation) {
   &__investee-logo {
     height: fit-content;
     max-height: 100px;
-    width: 125px; // Calculated based on the width of the images and container gap.
+    width: 125px;
     object-fit: contain;
 
     @include breakpoint(lg) {
@@ -296,8 +296,6 @@ function setElementsTransition (elements, duration, animation) {
   &__chevron {
     cursor: pointer;
     color: $color-neutral-medium;
-    height: 32px;
-    width: 32px;
 
     @include breakpoint(lg) {
       height: 64px;
