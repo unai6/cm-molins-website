@@ -81,10 +81,10 @@ function openDropdown (id) {
   left: 0;
   top: 0;
   width: 100%;
+  height: $app-header-height;
 
   @include breakpoint(lg) {
     background-color: $color-neutral-white;
-    height: 96px;
   }
 
   &__container {
@@ -98,6 +98,7 @@ function openDropdown (id) {
     padding: $spacer*1.5;
     padding-bottom: $spacer;
     width: 100%;
+    height: 100%;
     text-transform: uppercase;
     font-family: $font-family-highlight;
     font-weight: $font-weight-regular;

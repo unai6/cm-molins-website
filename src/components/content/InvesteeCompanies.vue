@@ -104,6 +104,7 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
           <p class="investee-companies__type">
             {{ $t(`investeeCompanies.label.${companyType}`) }}
           </p>
+
         </div>
       </div>
     </div>

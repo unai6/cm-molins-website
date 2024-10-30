@@ -40,7 +40,7 @@ onClickOutside(modalRefContainer, () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   position: fixed;
   top: 0;
   right: 0;
@@ -48,10 +48,14 @@ onClickOutside(modalRefContainer, () => {
   left: 0;
   z-index: z-number(modal);
 
+  @include breakpoint(lg) {
+    justify-content: center;
+  }
+
   &__overlay {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: $color-opacities-darkest;
   }
 
@@ -60,8 +64,10 @@ onClickOutside(modalRefContainer, () => {
     display: flex;
     flex-direction: column;
     gap: $spacer;
+    box-sizing: border-box;
     border: $border-weight-heaviest solid $color-neutral-dark;
     background-color: $color-neutral-white;
+    height: calc(100% - $app-header-height);
 
     @include breakpoint(lg) {
       height: 500px;
