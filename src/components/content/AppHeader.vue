@@ -37,7 +37,7 @@ function openDropdown (id) {
 </script>
 
 <template>
-  <div ref="appHeaderRef" class="app-header">
+  <div ref="appHeaderRef" class="app-header" :class="{ 'app-header--collapsed': !state.isMenuVisible }">
     <div class="app-header__container">
       <div class="app-header__mobile-menu mobile-only">
         <p class="app-header__title">CARTERA DE<br>INVERSIONES&nbsp;<span>C.M.</span></p>
@@ -81,10 +81,14 @@ function openDropdown (id) {
   left: 0;
   top: 0;
   width: 100%;
-  height: $app-header-height;
 
   @include breakpoint(lg) {
+    height: $app-header-height;
     background-color: $color-neutral-white;
+  }
+
+  &--collapsed {
+    height: $app-header-height;
   }
 
   &__container {

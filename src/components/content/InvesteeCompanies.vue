@@ -1,8 +1,10 @@
 <script setup>
 import { reactive, ref, computed } from 'vue'
-import { useBreakpoints } from '@vueuse/core'
+import { useBreakpoints, useWindowSize } from '@vueuse/core'
 
 import investeeCompanies from '@/data/investee-companies'
+
+const { width: windowWidth } = useWindowSize()
 
 const breakpoints = useBreakpoints({
   md: 768,
@@ -256,7 +258,7 @@ function setElementsTransition (elements, duration, animation) {
   &__investee-logo {
     height: fit-content;
     max-height: 100px;
-    width: 125px;
+    width: calc(windowWidth / 4 - 32px); // Calculated based on the width of the images and container gap.
     object-fit: contain;
 
     @include breakpoint(lg) {
