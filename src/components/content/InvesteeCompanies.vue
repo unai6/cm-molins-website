@@ -13,11 +13,14 @@ const state = reactive({
   isModalOpen: false
 })
 
-const investeeCompaniesType = ['industry', 'startup', 'finance', 'real-state']
+const investeeCompaniesType = ['industry', 'startup', 'finance', 'realState']
 
 const carouselRef = useTemplateRef('carouselRef')
 
-const companiesByType = computed(() => state.selectedCompanyType ? investeeCompanies.filter((company) => state.selectedCompanyType === company.type) : investeeCompanies)
+const companiesByType = computed(() => state.selectedCompanyType
+  ? investeeCompanies.filter((company) => state.selectedCompanyType === company.type).sort((a, b) => a.order - b.order)
+  : investeeCompanies,
+)
 
 const distanceToTranslate = ref(0)
 const elementsToDisplay = 4
@@ -75,6 +78,8 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
         :src="state.selectedCompany.logoUrl"
       />
       <p class="investee-companies__modal-description">
+        <b v-if="!!state.selectedCompany.investedAt">{{ $t('investeeCompanies.label.investedAt', { year: state.selectedCompany.investedAt }) }}</b>
+
         {{ state.selectedCompany.description[$i18n.locale] }}
       </p>
       <a class="investee-companies__modal-website-url" :href="state.selectedCompany.websiteUrl" target="_blank" rel="nofollow">
@@ -96,6 +101,9 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
           @click="selectCompanyType(companyType)"
         >
           <img class="investee-companies__image" :src="`/images/investee/participadas-${companyType}.jpg`">
+          <p class="investee-companies__type">
+            {{ $t(`investeeCompanies.label.${companyType}`) }}
+          </p>
         </div>
       </div>
     </div>
@@ -203,6 +211,16 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     width: 250px;
   }
 
+  &__type {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: ms(3);
+    font-weight: $font-weight-bold;
+    color: $color-neutral-white;
+  }
+
   &__carousel-container {
     position: relative;
     display: flex;
@@ -234,8 +252,8 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
     object-fit: contain;
 
     @include breakpoint(lg) {
-      width: 170px;
       cursor: pointer;
+      width: 170px;
     }
 
     &--large {
@@ -245,6 +263,7 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
 
       @include breakpoint(lg) {
         width: 225px;
+        height: 125px;
         margin: 0 auto;
       }
     }
@@ -283,8 +302,12 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
 
   &__modal-description {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: $spacer;
     padding-top: $spacer;
     font-family: $font-family-highlight;
+    line-height: $font-lineheight-extra-large;
 
     &::before {
       position: absolute;
@@ -294,11 +317,17 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
       height: $border-weight-hairline;
       background-color: $color-neutral-dark;
     }
+
+    & > b {
+      font-size: ms(2);
+      font-weight: $font-weight-bold;
+    }
   }
 
   &__modal-website-url {
     text-decoration: none;
     color: $color-primary;
+    font-size: ms(1);
     font-weight: $font-weight-bold;
     line-height: $font-lineheight-long;
     font-family: $font-family-highlight;

@@ -64,7 +64,7 @@ onClickOutside(modalRefContainer, () => {
     background-color: $color-neutral-white;
 
     @include breakpoint(lg) {
-      height: 550px;
+      height: 500px;
       width: 550px;
       padding: $spacer*1.5;
     }

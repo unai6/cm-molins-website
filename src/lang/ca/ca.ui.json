@@ -9,5 +9,6 @@
   "carouselHome.message.item1": "Experiència i compromís, en el procés de creixement de persones i negocis.",
   "carouselHome.message.item2": "Un somni és simplement un somni. Una meta és un somni, amb un pla i una data de venciment.<br><br><span>HARVEY MACKAY</span>",
   "carouselHome.message.item3": "El secret per avançar és començar.<br><br><span>MARK TWAIN</span>",
-  "carouselHome.message.item4": "Les oportunitats no apareixen, les crees.<br><br><span>CHRIS GROSSER</span>"
+  "carouselHome.message.item4": "Les oportunitats no apareixen, les crees.<br><br><span>CHRIS GROSSER</span>",
+  "investeeCompanies.label.investedAt": "Any d'inversió {year}"
 }
