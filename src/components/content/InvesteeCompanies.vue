@@ -77,7 +77,7 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
       <p class="investee-companies__modal-description">
         {{ state.selectedCompany.description[$i18n.locale] }}
       </p>
-      <a :href="state.selectedCompany.websiteUrl" target="_blank" rel="nofollow">
+      <a class="investee-companies__modal-website-url" :href="state.selectedCompany.websiteUrl" target="_blank" rel="nofollow">
         {{ state.selectedCompany.websiteUrl }}
       </a>
     </template>
@@ -294,6 +294,14 @@ function setElementsTransition (elements, duration = '0', animation = 'none') {
       height: $border-weight-hairline;
       background-color: $color-neutral-dark;
     }
+  }
+
+  &__modal-website-url {
+    text-decoration: none;
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+    line-height: $font-lineheight-long;
+    font-family: $font-family-highlight;
   }
 }
 </style>
