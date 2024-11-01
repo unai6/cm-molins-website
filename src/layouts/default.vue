@@ -36,14 +36,22 @@ const { y } = useWindowScroll({ behavior: 'smooth' })
   &__arrow {
     position: fixed;
     z-index: z-number(overall);
-    bottom: 4rem;
-    right: 4rem;
-    width: 56px;
-    height: 56px;
+    bottom: $spacer;
+    right: $spacer;
+    width: 48px;
+    height: 48px;
     color: $color-opacities-darkest;
     padding: $spacer*0.25;
     border: $border-weight-hairline solid $color-neutral-black;
     border-radius: $border-radius-circular;
+    cursor: pointer;
+
+    @include breakpoint(lg) {
+      bottom: 4rem;
+      right: 4rem;
+      width: 56px;
+      height: 56px;
+    }
   }
 }
 </style>
