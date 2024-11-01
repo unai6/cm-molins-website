@@ -103,18 +103,16 @@ corporativeValuesItems:
 ::
 
 ::contact-us
----
-  contactDetails:
-    - name: 'phone'
-      value: '+34 93 412 13 00'
-      icon: 'phone'
-    - name: 'email'
-      value: 'carteracm@carteracm.com'
-      icon: 'email'
-    - name: 'address'
-      value: 'Paseo de la Bonanova 64, 3º planta'
-      icon: 'gps'
----
-  #phone
-  [+34934121300](tel:+34934121300)
+#title
+  CONTACTO
+#subtitle
+  CARTERA DE INVERSIONES **C.M.**
+#phone
+  :base-icon{icon="contact-phone"} [T. 934 876 666](tel:+34934121300)
+#mail
+  :base-icon{icon="contact-mail"} [carteracm@carteracm.com](mailto:carteracm@carteracm.com)
+#location
+  :base-icon{icon="contact-map-pin"} Paseo de la Bonanova 64, 3º planta
+#zip
+  08017 Barcelona
 ::

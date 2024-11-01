@@ -127,13 +127,13 @@ function setElementsTransition (elements, duration, animation) {
           <BaseIcon
             icon="arrow-left"
             class="investee-companies__chevron investee"
-            :class="{ 'investee-companies__chevron--disabled': !state.canSlide && direction === state.direction }"
+            :class="{ 'investee-companies__chevron--disabled': !state.canSlide && state.direction === 'left' }"
             @click="handleButtonNavigation('left')"
            />
           <BaseIcon
             icon="arrow-right"
             class="investee-companies__chevron investee"
-            :class="{ 'investee-companies__chevron--disabled': !state.canSlide && direction === state.direction }"
+            :class="{ 'investee-companies__chevron--disabled': !state.canSlide && state.direction === 'right' }"
             @click="handleButtonNavigation('right')"
           />
         </template>
