@@ -46,6 +46,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
     padding: 0 $spacer*1.5;
     color: $color-primary;
     font-size: ms(3);
+    text-align: center;
 
     @include breakpoint(lg) {
       gap: $spacer-double;

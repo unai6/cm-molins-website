@@ -1,4 +1,5 @@
 <script setup>
+import { watch } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
@@ -9,6 +10,15 @@ const modalRefContainer = useTemplateRef('modalRefContainer')
 
 onClickOutside(modalRefContainer, () => {
   isOpen.value = false
+})
+
+
+watch(isOpen, value=> {
+  if (value) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = 'visible'
+  }
 })
 </script>
 
@@ -65,14 +75,19 @@ onClickOutside(modalRefContainer, () => {
     flex-direction: column;
     gap: $spacer;
     box-sizing: border-box;
-    border: $border-weight-heaviest solid $color-neutral-dark;
+    border-top-left-radius: $spacer;
+    border-top-right-radius: $spacer;
+    padding: $spacer*1.5;
+    width: 100%;
+    height: fit-content;
     background-color: $color-neutral-white;
-    height: calc(100% - $app-header-height);
 
     @include breakpoint(lg) {
-      height: 600px;
+      border-top-left-radius: unset;
+      border-top-right-radius: unset;
+      border: $border-weight-heaviest solid $color-neutral-dark;
       width: 650px;
-      padding: $spacer*1.5;
+      height: 600px;
     }
   }
 
@@ -84,8 +99,8 @@ onClickOutside(modalRefContainer, () => {
 
   &__x-mark {
     display: block;
+    flex-shrink: 0;
     margin-left: auto;
-    padding: $spacer;
     cursor: pointer;
 
     @media (hover: hover) {

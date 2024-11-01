@@ -119,8 +119,8 @@ onUnmounted(() => {
     justify-content: center;
     box-sizing: border-box;
     z-index: z-number(dropdown);
-    width: 100%;
-    height: 360px;
+    width: 80%;
+    height: 300px;
     padding: $spacer-double;
     font-size: ms(2);
     line-height: $font-lineheight-long;

@@ -43,7 +43,7 @@ function placeWheelItems () {
 
     // Position the description container
     const descriptionContainer = elementsArray[i].querySelector('.corporative-values__item-container')
-    const descriptionX = 75 * Math.cos(angle) + (Math.cos(angle) > 0 ? 75 + 56 : -75 - 56) // Adjust the offset for the description container.
+    const descriptionX = 75 * Math.cos(angle) + (Math.cos(angle) > 0 ? 75 + 72 : -75 - 72) // Adjust the offset for the description container.
     descriptionContainer.style.left = `${descriptionX}px`
 
   }

@@ -79,6 +79,7 @@ const props = defineProps({
     color: $color-primary;
     font-size: ms(1);
     text-transform: uppercase;
+    text-align: center;
   }
 
   &__description {

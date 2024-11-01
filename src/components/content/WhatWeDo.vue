@@ -45,10 +45,13 @@
     max-width: $max-content-width;
     margin: 0 auto;
 
+    @include breakpoint(lg) {
+      padding: $spacer*3 $spacer*9.6785;
+    }
+
     @include breakpoint(xl) {
       flex-direction: row;
       gap: $spacer*3;
-      padding: $spacer*3 $spacer*9.6785;
       padding-top: calc(100px + $spacer*3);
       padding-right: 0;
     }
@@ -78,6 +81,7 @@
     padding-top: 0;
 
     @include breakpoint(lg) {
+      padding-top: $spacer*3;
       gap: $spacer*3;
     }
   }

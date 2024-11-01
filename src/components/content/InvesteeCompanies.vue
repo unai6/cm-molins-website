@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, ref, computed } from 'vue'
-import { useBreakpoints } from '@vueuse/core'
+import { useBreakpoints, useSwipe } from '@vueuse/core'
 
 import BaseModal from '@/components/content/base/BaseModal.vue';
 
@@ -24,6 +24,13 @@ const state = reactive({
 const investeeCompaniesType = ['industry', 'startup', 'finance', 'realState']
 
 const carouselRef = useTemplateRef('carouselRef')
+
+useSwipe(carouselRef, {
+  onSwipeEnd: (_, direction) => {
+    const currentDirection = direction === 'left' ? 'right' : 'left'
+    handleButtonNavigation(currentDirection)
+  }
+})
 
 const companiesByType = computed(() => state.selectedCompanyType
   ? investeeCompanies.filter((company) => state.selectedCompanyType === company.type).sort((a, b) => a.order - b.order)
@@ -114,26 +121,34 @@ function setElementsTransition (elements, duration, animation) {
         </div>
       </div>
     </div>
+    <div class="investee-companies__carousel-wrapper">
       <div class="investee-companies__carousel-container">
-        <div v-if="companiesByType.length > elementsToDisplay" class="investee-companies__direction">
+        <template v-if="companiesByType.length > elementsToDisplay">
           <BaseIcon
-            v-for="direction in ['left', 'right']"
-            :icon="`arrow-${direction}`"
-            class="investee-companies__chevron"
+            icon="arrow-left"
+            class="investee-companies__chevron investee"
             :class="{ 'investee-companies__chevron--disabled': !state.canSlide && direction === state.direction }"
-            @click="handleButtonNavigation(direction)"
+            @click="handleButtonNavigation('left')"
            />
-        </div>
+          <BaseIcon
+            icon="arrow-right"
+            class="investee-companies__chevron investee"
+            :class="{ 'investee-companies__chevron--disabled': !state.canSlide && direction === state.direction }"
+            @click="handleButtonNavigation('right')"
+          />
+        </template>
         <div ref="carouselRef" class="investee-companies__carousel">
-          <div class="investee-companies__investee-logo-wrapper" v-for="company in companiesByType">
-            <img
-              class="investee-companies__investee-logo"
-              :src="company.logoUrl"
-              @click="selectCompany(company)"
-              >
+          <div
+           v-for="company in companiesByType"
+           :key="company.id"
+            class="investee-companies__investee-logo-wrapper"
+            @click="selectCompany(company)"
+          >
+            <img class="investee-companies__investee-logo" :src="company.logoUrl">
           </div>
         </div>
       </div>
+    </div>
   </div>
 </template>
 
@@ -177,6 +192,7 @@ function setElementsTransition (elements, duration, animation) {
       display: flex;
       flex-direction: row;
       gap: $spacer;
+      padding: 0;
     }
   }
 
@@ -220,6 +236,15 @@ function setElementsTransition (elements, duration, animation) {
     object-fit: cover;
 
     @include breakpoint(lg) {
+      max-height: 215px;
+      max-width: 215px;
+      width: 100%;
+      height: 100%;
+    }
+
+    @include breakpoint(xl) {
+      max-width: unset;
+      max-height: unset;
       width: 250px;
       height: 250px;
     }
@@ -230,14 +255,24 @@ function setElementsTransition (elements, duration, animation) {
     left: 50%;
     bottom: $spacer*1.25;
     transform: translateX(-50%);
+    font-size: ms(1);
     line-height: $font-lineheight-base;
     font-weight: $font-weight-bold;
     color: $color-neutral-white;
+    text-align: center;
 
     @include breakpoint(lg) {
       bottom: $spacer-double;
+      font-size: ms(2);
+    }
+
+    @include breakpoint(xl) {
       font-size: ms(3);
     }
+  }
+
+  &__carousel-wrapper {
+    background-color: $color-neutral-white;
   }
 
   &__carousel-container {
@@ -246,8 +281,9 @@ function setElementsTransition (elements, duration, animation) {
     justify-content: center;
     box-sizing: border-box;
     width: 100%;
-    padding: $spacer $spacer*1.5;
-    background-color: $color-neutral-white;
+    max-width: $max-content-width;
+    margin: 0 auto;
+    padding: $spacer $spacer*3;
 
     @include breakpoint(lg) {
       padding: $spacer*1.5 0;
@@ -288,17 +324,18 @@ function setElementsTransition (elements, duration, animation) {
   &__investee-logo {
     height: fit-content;
     max-height: 100px;
-    width: 100%; // Calculated based on the width of the images and container gap.
+    width: 60%;
     object-fit: contain;
+    margin: 0 auto;
 
     @include breakpoint(lg) {
       cursor: pointer;
-      width: 170px;
+      width: 178px;
     }
 
     &--large {
-      width: 200px;
-      height: 100%;
+      width: 150px;
+      height: 50%;
       max-height: 200px;
 
       @include breakpoint(lg) {
@@ -313,12 +350,11 @@ function setElementsTransition (elements, duration, animation) {
     position: absolute;
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    max-width: calc(100px * 4 + 48px); // Calculated based on the width of the images and container gap.
+    width: calc(100% - $spacer*3);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: z-number(base);
+    z-index: z-number(underheader);
 
     @include breakpoint(lg) {
       max-width: calc(250px * 4 + 48px);
@@ -326,8 +362,11 @@ function setElementsTransition (elements, duration, animation) {
   }
 
   &__chevron {
+    position: absolute;
     cursor: pointer;
     color: $color-neutral-medium;
+    width: 32px;
+    height: 32px;
 
     @include breakpoint(lg) {
       height: 64px;
@@ -337,6 +376,28 @@ function setElementsTransition (elements, duration, animation) {
     &--disabled {
       pointer-events: none;
       opacity: 0.4;
+    }
+
+    &:nth-child(1) {
+      left: $spacer*1.5;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: z-number(overbase);
+
+      @include breakpoint(xl) {
+        left: calc(9.6785rem + $spacer*1.5);
+      }
+    }
+
+    &:nth-child(2) {
+      right: $spacer*1.5;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: z-number(overbase);
+
+      @include breakpoint(xl) {
+        right: calc(9.6785rem + $spacer*1.5);
+      }
     }
   }
 
