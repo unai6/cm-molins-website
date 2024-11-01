@@ -4,7 +4,7 @@ import { useWindowScroll } from '@vueuse/core'
 import AppHeader from '@/components/content/AppHeader.vue'
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
-const { y } = useWindowScroll()
+const { y } = useWindowScroll({ behavior: 'smooth' })
 </script>
 
 <template>
@@ -13,7 +13,12 @@ const { y } = useWindowScroll()
     <main>
       <slot />
       <Transition name="fade">
-        <BaseIcon v-if="y > 200" class="default-layout__arrow" icon="arrow-tail-up" />
+        <BaseIcon
+          v-if="y > 200"
+          class="default-layout__arrow"
+          icon="arrow-tail-up"
+          @click="y = 0"
+        />
         </Transition>
     </main>
   </div>
