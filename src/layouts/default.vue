@@ -1,37 +1,20 @@
 <script setup>
-import { ref, watch } from 'vue'
-import { useScroll } from '@vueuse/core'
+import { useWindowScroll } from '@vueuse/core'
 
 import AppHeader from '@/components/content/AppHeader.vue'
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
-const mainRef = useTemplateRef('mainRef')
-
-const isArrowVisible = ref(false)
-
-const { isScrolling } = useScroll(mainRef, {
-  throttle: 100,
-  onScroll: ({ x, y }) => {
-    console.log(x, y)
-  },
-})
-
-watch(isScrolling, () => {
-  // console.info(isScrolling.value)
-  isArrowVisible.value = true
-})
-
-onMounted(() => {
-  // console.info(window.scrollY)
-})
+const { y } = useWindowScroll()
 </script>
 
 <template>
   <div class="default-layout">
     <AppHeader />
-    <main ref="mainRef">
+    <main>
       <slot />
-      <BaseIcon v-if="isArrowVisible" class="default-layout__arrow" icon="arrow-tail-up" />
+      <Transition name="fade">
+        <BaseIcon v-if="y > 200" class="default-layout__arrow" icon="arrow-tail-up" />
+        </Transition>
     </main>
   </div>
 </template>
