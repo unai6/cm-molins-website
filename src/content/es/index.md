@@ -101,3 +101,20 @@ corporativeValuesItems:
 #title
   ## Empresas Participadas
 ::
+
+::contact-us
+---
+  contactDetails:
+    - name: 'phone'
+      value: '+34 93 412 13 00'
+      icon: 'phone'
+    - name: 'email'
+      value: 'carteracm@carteracm.com'
+      icon: 'email'
+    - name: 'address'
+      value: 'Paseo de la Bonanova 64, 3º planta'
+      icon: 'gps'
+---
+  #phone
+  [+34934121300](tel:+34934121300)
+::
