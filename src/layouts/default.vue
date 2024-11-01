@@ -1,18 +1,35 @@
 <script setup>
-import { computed } from 'vue'
+import { ref, watch } from 'vue'
+import { useScroll } from '@vueuse/core'
 
 import AppHeader from '@/components/content/AppHeader.vue'
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
 const mainRef = useTemplateRef('mainRef')
 
-const isArrowVisible = computed(() => window.scrollY > 100)
+const isArrowVisible = ref(false)
+
+const { isScrolling } = useScroll(mainRef, {
+  throttle: 100,
+  onScroll: ({ x, y }) => {
+    console.log(x, y)
+  },
+})
+
+watch(isScrolling, () => {
+  // console.info(isScrolling.value)
+  isArrowVisible.value = true
+})
+
+onMounted(() => {
+  // console.info(window.scrollY)
+})
 </script>
 
 <template>
   <div class="default-layout">
     <AppHeader />
-    <main class="mainRef">
+    <main ref="mainRef">
       <slot />
       <BaseIcon v-if="isArrowVisible" class="default-layout__arrow" icon="arrow-tail-up" />
     </main>
