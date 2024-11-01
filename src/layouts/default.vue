@@ -1,12 +1,20 @@
 <script setup>
+import { computed } from 'vue'
+
 import AppHeader from '@/components/content/AppHeader.vue'
+import BaseIcon from '@/components/content/base/BaseIcon.vue'
+
+const mainRef = useTemplateRef('mainRef')
+
+const isArrowVisible = computed(() => window.scrollY > 100)
 </script>
 
 <template>
   <div class="default-layout">
     <AppHeader />
-    <main>
+    <main class="mainRef">
       <slot />
+      <BaseIcon v-if="isArrowVisible" class="default-layout__arrow" icon="arrow-tail-up" />
     </main>
   </div>
 </template>
@@ -19,5 +27,18 @@ import AppHeader from '@/components/content/AppHeader.vue'
   background-color: $color-neutral-medium;
 
   min-height: 100vh;
+
+  &__arrow {
+    position: fixed;
+    z-index: z-number(overall);
+    bottom: 4rem;
+    right: 4rem;
+    width: 56px;
+    height: 56px;
+    color: $color-opacities-darkest;
+    padding: $spacer*0.25;
+    border: $border-weight-hairline solid $color-neutral-black;
+    border-radius: $border-radius-circular;
+  }
 }
 </style>

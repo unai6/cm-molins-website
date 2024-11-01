@@ -28,10 +28,20 @@
 
 <style lang="scss">
 .contact-us {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: $spacer*3;
-  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include breakpoint(lg) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: unset;
+    padding-top: $spacer*3;
+    width: 100%;
+  }
+
+  @include breakpoint(xl) {
+    padding-top: 100px;
+  }
 
   &__image {
     object-fit: cover;
@@ -50,6 +60,8 @@
     display: flex;
     flex-direction: column;
     gap: $spacer-double;
+    box-sizing: border-box;
+    padding: $spacer*3 $spacer*1.5;
   }
 
   &__title {
@@ -63,7 +75,6 @@
   }
 
   &__subtitle {
-    white-space: nowrap;
     font-size: ms(1);
     font-family: Cinzel, serif;
     letter-spacing: 0;

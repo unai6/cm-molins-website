@@ -116,3 +116,10 @@ corporativeValuesItems:
 #zip
   08017 Barcelona
 ::
+
+::app-footer
+#legal
+  [Aviso legal](/legal)
+#termsAndConditions
+  [Política de privacidad](/privacidad)
+::
