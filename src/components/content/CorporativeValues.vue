@@ -30,7 +30,7 @@ const { width } = useElementSize(innerCircleRef)
 function placeWheelItems () {
   if (isMobile.value) return
 
-  const elementsArray = [...innerCircleRef.value?.children]
+  const elementsArray = [...innerCircleRef.value?.children] || []
   // 16 stands for the px spacer added by design.
   const radius = (width.value / 2) + 16
 
