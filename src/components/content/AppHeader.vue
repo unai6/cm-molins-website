@@ -200,7 +200,6 @@ function navigateToElement (id) {
 
       & > .router-link-active {
         border-bottom: $border-weight-hairline solid $color-neutral-black;
-        padding-bottom: $spacer*0.75;
         color: $color-neutral-black;
         text-decoration: none;
 

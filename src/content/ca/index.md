@@ -120,5 +120,5 @@ corporativeValuesItems:
 #legal
   [Avís legal](/ca/legal)
 #termsAndConditions
-  [Política de privadesa](/ca/privacidad)
+  [Política de privadesa](/ca/privacitat)
 ::
