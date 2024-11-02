@@ -82,7 +82,6 @@
 
     @include breakpoint(lg) {
       gap: $spacer*3;
-      padding-top: $spacer*3;
     }
   }
 
