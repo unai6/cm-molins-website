@@ -66,7 +66,7 @@
 
   &__description {
     text-align: justify;
-    text-wrap: balance;
+    text-wrap: pretty;
   }
 
   &__corp-logo {

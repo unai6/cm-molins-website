@@ -77,7 +77,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
       padding-left: 0;
       width: 30%;
       line-height: 2.5rem;
-      text-wrap: balance;
+      text-wrap: pretty;
     }
   }
 
@@ -85,7 +85,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
     line-height: 2.5rem;
     font-family: $font-family-highlight;
     text-align: justify;
-    text-wrap: balance;
+    text-wrap: pretty;
   }
 }
 </style>

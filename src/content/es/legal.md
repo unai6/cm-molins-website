@@ -24,10 +24,10 @@ Toda persona que acceda a esta web asume el papel de usuario (en adelante "el us
 La prestación de los servicios por parte de **CARTERA DE INVERSIONES CM, S.A.** es gratuita para todos los Usuarios. No obstante, algunos de los servicios suministrados están sujetos al pago de un precio determinado en las condiciones generales de contratación.
 
 ### 2.2. Registro de Usuario
-Con carácter general, la prestación de los servicios no exige la previa suscripción o registro de los Usuarios. Aun así, CARTERA DE INVERSIONES CM, S.A.
+Con carácter general, la prestación de los servicios no exige la previa suscripción o registro de los Usuarios. Aun así, **CARTERA DE INVERSIONES CM, S.A.**
 
 ### 2.3. Veracidad de la información
-Toda la información que facilita el Usuario debe ser veraz, y el Usuario garantiza la autenticidad de los datos comunicados a través de los formularios. Será responsabilidad del Usuario mantener toda la información facilitada a CARTERA DE INVERSIONES CM, S.A. permanentemente actualizada.
+Toda la información que facilita el Usuario debe ser veraz, y el Usuario garantiza la autenticidad de los datos comunicados a través de los formularios. Será responsabilidad del Usuario mantener toda la información facilitada a **CARTERA DE INVERSIONES CM, S.A.** permanentemente actualizada.
 
 ### 2.4. Menores de edad
 Para el uso de los servicios, los menores de edad deben obtener el consentimiento de sus padres, tutores o representantes legales, quienes son responsables últimos de todos los actos realizados por los menores a su cargo.
