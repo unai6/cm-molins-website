@@ -36,7 +36,6 @@ function openDropdown (id) {
 }
 
 function navigateToElement (id) {
-  console.info(id)
   // setTimeout is needed to wait for the DOM to update after navigating from external page routes.
   setTimeout(() => {
     const element = document.getElementById(id)
