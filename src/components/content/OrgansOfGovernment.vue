@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="organs-of-government">
+  <div id="organsOfGovernment" class="organs-of-government">
     <div class="organs-of-government__container">
       <div class="organs-of-government__title">
         <ContentSlot :use="$slots.title" />

@@ -87,7 +87,6 @@ onUnmounted(() => {
 <style lang="scss">
 .carousel-home {
   position: relative;
-  padding-top: $app-header-height;
 
   @include breakpoint(lg) {
     height: calc(100dvh - 64px);

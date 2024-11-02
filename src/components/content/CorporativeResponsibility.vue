@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="corporative-responsibility">
+  <div id="socialResponsability" class="corporative-responsibility">
     <div class="corporative-responsibility__container">
       <div class="corporative-responsibility__content">
         <div class="corporative-responsibility__title">

@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="what-we-do">
+  <div id="whatWeDo" class="what-we-do">
     <div class="what-we-do__container">
       <div class="what-we-do__content">
         <div class="what-we-do__title">
@@ -81,8 +81,8 @@
     padding-top: 0;
 
     @include breakpoint(lg) {
-      padding-top: $spacer*3;
       gap: $spacer*3;
+      padding-top: $spacer*3;
     }
   }
 

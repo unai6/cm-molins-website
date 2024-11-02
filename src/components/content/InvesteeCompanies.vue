@@ -100,7 +100,7 @@ function setElementsTransition (elements, duration, animation) {
       </a>
     </template>
   </BaseModal>
-  <div class="investee-companies">
+  <div id="investee" class="investee-companies">
     <div class="investee-companies__container">
       <div class="investee-companies__title">
         <ContentSlot :use="$slots.title" />

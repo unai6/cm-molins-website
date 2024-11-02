@@ -3,7 +3,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
 </script>
 
 <template>
-  <div class="who-are-we">
+  <div id="us" class="who-are-we">
     <div class="who-are-we__title">
       <ContentSlot :use="$slots.title" unwrap="p" />
       <ContentSlot :use="$slots.subtitle" unwrap="p"/>

@@ -25,3 +25,21 @@ html, body {
   font-weight: $font-weight-regular;
   line-height: $font-lineheight-base;
 }
+
+h1 {
+  font-size: ms(3);
+  line-height: $font-lineheight-base;
+  color: $color-primary;
+}
+
+h2 {
+  font-size: ms(2);
+  line-height: $font-lineheight-long;
+  color: $color-primary;
+}
+
+h3 {
+  font-size: ms(1);
+  line-height: $font-lineheight-long;
+  color: $color-primary;
+}

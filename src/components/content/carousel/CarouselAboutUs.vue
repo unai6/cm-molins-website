@@ -75,6 +75,7 @@ onUnmounted(() => {
 
 <template>
   <BaseCarousel
+    id="vision"
     v-model="state.activeItem"
     :dots-config="carouselDotsConfig"
     :nav-config="carouselNavConfig"
@@ -144,6 +145,10 @@ onUnmounted(() => {
 
     @include breakpoint(lg) {
       font-size: ms(3);
+    }
+
+    h2 {
+      color: $color-neutral-white !important;
     }
   }
 

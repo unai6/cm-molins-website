@@ -24,7 +24,7 @@ onClickOutside(appHeaderRef, () => {
 
 
 const whoWeAreLinks = ['us', 'vision', 'corporateValues']
-const whatWeDoLinks = ['whatWeDo', 'governmentOrgans', 'socialResponsability']
+const whatWeDoLinks = ['whatWeDo', 'organsOfGovernment', 'socialResponsability']
 
 function openDropdown (id) {
   if (state.visibleDropdown === id) {
@@ -34,13 +34,27 @@ function openDropdown (id) {
 
   state.visibleDropdown = id
 }
+
+function navigateToElement (id) {
+  // setTimeout is needed to wait for the DOM to update after navigating from external page routes.
+  setTimeout(() => {
+    const element = document.getElementById(id)
+
+    window.scrollTo({
+      top: element.offsetTop - 96,
+      behavior: 'smooth',
+    })
+  }, 100)
+}
 </script>
 
 <template>
-  <div ref="appHeaderRef" class="app-header" :class="{ 'app-header--collapsed': !state.isMenuVisible }">
+  <div id="top" ref="appHeaderRef" class="app-header" :class="{ 'app-header--collapsed': !state.isMenuVisible }">
     <div class="app-header__container">
       <div class="app-header__mobile-menu mobile-only">
-        <p class="app-header__title">CARTERA DE<br>INVERSIONES&nbsp;<span>C.M.</span></p>
+        <NuxtLink class="app-header__title" :to="localePath('/')" @click="navigateToElement('top')">
+          CARTERA DE<br>INVERSIONES&nbsp;<span>C.M.</span>
+        </NuxtLink>
         <AppBurger v-model="state.isMenuVisible" mobile-only />
       </div>
       <template v-if="state.isMenuVisible || !state.isMobile">
@@ -49,7 +63,12 @@ function openDropdown (id) {
             ¿Quiénes somos?&nbsp;<BaseIcon icon="chevron-down"/>
           </p>
           <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'aboutUs' }">
-            <NuxtLink to="/" v-for="(link, idx) in whoWeAreLinks" :key="idx">
+            <NuxtLink
+              v-for="(link, idx) in whoWeAreLinks"
+              :key="idx"
+              class="app-header__link"
+              @click="navigateToElement(link)"
+            >
               {{ $t(`appHeader.label.${link}`) }}
             </NuxtLink>
           </div>
@@ -59,14 +78,21 @@ function openDropdown (id) {
             ¿Qué hacemos?&nbsp;<BaseIcon icon="chevron-down"/>
             </p>
           <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'whatWeDo' }">
-            <NuxtLink to="/"  v-for="(link, idx) in whatWeDoLinks" :key="idx">
+            <NuxtLink
+              v-for="(link, idx) in whatWeDoLinks"
+              :key="idx"
+              class="app-header__link"
+              @click="navigateToElement(link)"
+            >
               {{ $t(`appHeader.label.${link}`) }}
             </NuxtLink>
           </div>
         </div>
-        <p class="app-header__title desktop-only">CARTERA DE INVERSIONES&nbsp;<span>C.M.</span></p>
-        <NuxtLink class="app-header__link">Empresas participadas</NuxtLink>
-        <NuxtLink class="app-header__link">Contacto</NuxtLink>
+        <NuxtLink :to="localePath('/')" class="app-header__title desktop-only" @click="navigateToElement('top')">
+          CARTERA DE INVERSIONES&nbsp;<span>C.M.</span>
+        </NuxtLink>
+        <NuxtLink :to="localePath('/')" class="app-header__link" @click="navigateToElement('investee')">Empresas participadas</NuxtLink>
+        <NuxtLink :to="localePath('/')" class="app-header__link" @click="navigateToElement('contact')">Contacto</NuxtLink>
         <AppLocaleSwitcher class="app-header__locale-switcher" />
       </template>
     </div>
@@ -114,6 +140,8 @@ function openDropdown (id) {
       padding: 0 $spacer;
       box-sizing: border-box;
       height: 100%;
+      max-width: $max-content-width;
+      margin: 0 auto;
     }
   }
 
@@ -142,7 +170,6 @@ function openDropdown (id) {
       gap: $spacer;
       padding: $spacer-double $spacer $spacer 0;
       padding-left: $spacer-half;
-      padding-bottom: 0;
       font-size: ms(0);
       line-height: $font-lineheight-long;
       color: $color-opacities-darkest;
@@ -177,6 +204,7 @@ function openDropdown (id) {
     line-height: $font-lineheight-long;
     font-weight: $font-weight-light;
     color: $color-opacities-darkest;
+    text-decoration: none;
 
     @include breakpoint(lg) {
       line-height: $font-lineheight-base;
@@ -194,6 +222,18 @@ function openDropdown (id) {
 
     @include breakpoint(lg) {
       margin-top: unset;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+    text-decoration: none;
+    color: $color-neutral-black;
+
+    @media(hover: hover) {
+      &:hover {
+        color: $color-primary;
+      }
     }
   }
 }

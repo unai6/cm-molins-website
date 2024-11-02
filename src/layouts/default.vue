@@ -30,7 +30,7 @@ const { y } = useWindowScroll({ behavior: 'smooth' })
   display: flex;
   flex-direction: column;
   background-color: $color-neutral-medium;
-
+  padding-top: $app-header-height;
   min-height: 100vh;
 
   &__arrow {

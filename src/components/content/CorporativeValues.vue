@@ -57,7 +57,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="corporative-values">
+  <div id="corporateValues" class="corporative-values">
     <div class="corporative-values__content">
       <div class="corporative-values__title">
         <ContentSlot :use="$slots.title" unwrap="p" />
