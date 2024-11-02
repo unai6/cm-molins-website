@@ -36,6 +36,7 @@ function openDropdown (id) {
 }
 
 function navigateToElement (id) {
+  console.info(id)
   // setTimeout is needed to wait for the DOM to update after navigating from external page routes.
   setTimeout(() => {
     const element = document.getElementById(id)
@@ -44,7 +45,7 @@ function navigateToElement (id) {
       top: element.offsetTop - 96,
       behavior: 'smooth',
     })
-  }, 100)
+  }, 200)
 }
 </script>
 
@@ -52,7 +53,7 @@ function navigateToElement (id) {
   <div id="top" ref="appHeaderRef" class="app-header" :class="{ 'app-header--collapsed': !state.isMenuVisible }">
     <div class="app-header__container">
       <div class="app-header__mobile-menu mobile-only">
-        <NuxtLink class="app-header__title" :to="localePath('/')" @click="navigateToElement('top')">
+        <NuxtLink class="app-header__title" :to="localePath('/', $i18n.locale)" @click="navigateToElement('top')">
           CARTERA DE<br>INVERSIONES&nbsp;<span>C.M.</span>
         </NuxtLink>
         <AppBurger v-model="state.isMenuVisible" mobile-only />
@@ -66,6 +67,7 @@ function navigateToElement (id) {
             <NuxtLink
               v-for="(link, idx) in whoWeAreLinks"
               :key="idx"
+              :to="localePath('/', $i18n.locale)"
               class="app-header__link"
               @click="navigateToElement(link)"
             >
@@ -82,17 +84,30 @@ function navigateToElement (id) {
               v-for="(link, idx) in whatWeDoLinks"
               :key="idx"
               class="app-header__link"
+              :to="localePath('/', $i18n.locale)"
               @click="navigateToElement(link)"
             >
               {{ $t(`appHeader.label.${link}`) }}
             </NuxtLink>
           </div>
         </div>
-        <NuxtLink :to="localePath('/')" class="app-header__title desktop-only" @click="navigateToElement('top')">
+        <NuxtLink :to="localePath('/', $i18n.locale)" class="app-header__title desktop-only" @click="navigateToElement('top')">
           CARTERA DE INVERSIONES&nbsp;<span>C.M.</span>
         </NuxtLink>
-        <NuxtLink :to="localePath('/')" class="app-header__link" @click="navigateToElement('investee')">Empresas participadas</NuxtLink>
-        <NuxtLink :to="localePath('/')" class="app-header__link" @click="navigateToElement('contact')">Contacto</NuxtLink>
+        <NuxtLink
+          :to="localePath('/', $i18n.locale)"
+          class="app-header__link"
+          @click="navigateToElement('investee')"
+        >
+          Empresas participadas
+        </NuxtLink>
+        <NuxtLink
+          :to="localePath('/', $i18n.locale)"
+          class="app-header__link"
+          @click="navigateToElement('contact')"
+        >
+          Contacto
+        </NuxtLink>
         <AppLocaleSwitcher class="app-header__locale-switcher" />
       </template>
     </div>

@@ -100,3 +100,25 @@ corporativeValuesItems:
 #title
   ## Investee companies
 ::
+
+::contact-us
+#title
+  CONTACT
+#subtitle
+  INVESTMENT PORTFOLIO **C.M.**
+#phone
+  :base-icon{icon="contact-phone"} [T. 934 876 666](tel:+34934121300)
+#mail
+  :base-icon{icon="contact-mail"} [carteracm@carteracm.com](mailto:carteracm@carteracm.com)
+#location
+  :base-icon{icon="contact-map-pin"} Paseo de la Bonanova 64, 3rd floor
+#zip
+  08017 Barcelona
+::
+
+::app-footer
+#legal
+  [Legal notice](/en/legal)
+#termsAndConditions
+  [Privacy policy](/en/privacidad)
+::

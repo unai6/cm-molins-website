@@ -100,3 +100,25 @@ corporativeValuesItems:
 #title
   ## Empreses Participades
 ::
+
+::contact-us
+#title
+  CONTACTE
+#subtitle
+  CARTERA D'INVERSIONS **C.M.**
+#phone
+  :base-icon{icon="contact-phone"} [T. 934 876 666](tel:+34934121300)
+#mail
+  :base-icon{icon="contact-mail"} [carteracm@carteracm.com](mailto:carteracm@carteracm.com)
+#location
+  :base-icon{icon="contact-map-pin"} Passeig de la Bonanova 64, 3ª planta
+#zip
+  08017 Barcelona
+::
+
+::app-footer
+#legal
+  [Avís legal](/ca/legal)
+#termsAndConditions
+  [Política de privadesa](/ca/privacidad)
+::
