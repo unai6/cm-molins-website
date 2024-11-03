@@ -333,8 +333,8 @@ function setElementsTransition (elements, duration, animation) {
 
     &--large {
       width: 150px;
-      height: 50%;
-      max-height: 200px;
+      min-height: 64px;
+      max-height: 150px;
 
       @include breakpoint(lg) {
         width: 225px;
@@ -407,6 +407,7 @@ function setElementsTransition (elements, duration, animation) {
     padding-top: $spacer;
     font-family: $font-family-highlight;
     line-height: $font-lineheight-extra-large;
+    overflow: auto;
 
     &::before {
       position: absolute;
@@ -415,6 +416,19 @@ function setElementsTransition (elements, duration, animation) {
       width: 100%;
       height: $border-weight-hairline;
       background-color: $color-neutral-dark;
+    }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      z-index: z-number(overbase);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: $border-radius-lg;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+      background-color: $color-neutral-medium;
     }
 
     & > b {
