@@ -65,7 +65,7 @@
   }
 
   &__description {
-    text-align: justify;
+    text-align: left;
     text-wrap: pretty;
 
     & > a {

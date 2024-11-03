@@ -154,7 +154,7 @@ onUnmounted(() => {
 
   &__content {
     line-height: $font-lineheight-largest;
-    text-align: justify;
+    text-align: left;
     text-wrap: balance;
 
     @include breakpoint(lg) {
