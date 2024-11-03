@@ -122,19 +122,23 @@ function setElementsTransition (elements, duration, animation) {
     </div>
     <div class="investee-companies__carousel-wrapper">
       <div class="investee-companies__carousel-container">
+        <div class="investee-companies__buttonset">
+          <button class="investee-companies__button">Portfolio</button>
+          <button class="investee-companies__button">Desinversiones</button>
+        </div>
         <template v-if="companiesByType.length > elementsToDisplay">
-          <BaseIcon
-            icon="arrow-left"
-            class="investee-companies__chevron investee"
-            :class="{ 'investee-companies__chevron--disabled': !state.canSlide && state.direction === 'left' }"
-            @click="handleButtonNavigation('left')"
-           />
           <BaseIcon
             icon="arrow-right"
             class="investee-companies__chevron investee"
             :class="{ 'investee-companies__chevron--disabled': !state.canSlide && state.direction === 'right' }"
             @click="handleButtonNavigation('right')"
           />
+          <BaseIcon
+            icon="arrow-left"
+            class="investee-companies__chevron investee"
+            :class="{ 'investee-companies__chevron--disabled': !state.canSlide && state.direction === 'left' }"
+            @click="handleButtonNavigation('left')"
+           />
         </template>
         <div ref="carouselRef" class="investee-companies__carousel">
           <div
@@ -161,6 +165,7 @@ function setElementsTransition (elements, duration, animation) {
     align-items: center;
     flex-direction: column;
     gap: $spacer*1.5;
+    box-sizing: border-box;
     max-width: $max-content-width;
     padding: $spacer*3 $spacer*1.5;
 
@@ -182,7 +187,7 @@ function setElementsTransition (elements, duration, animation) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: $spacer-half;
-    justify-content: center;
+    justify-content: space-between;
     box-sizing: border-box;
     width: 100%;
 
@@ -276,6 +281,8 @@ function setElementsTransition (elements, duration, animation) {
   &__carousel-container {
     position: relative;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     box-sizing: border-box;
     width: 100%;
@@ -284,7 +291,7 @@ function setElementsTransition (elements, duration, animation) {
     padding: $spacer $spacer*3;
 
     @include breakpoint(lg) {
-      padding: $spacer*1.5 0;
+      padding: $spacer*1.5 $spacer*9.6785;
     }
   }
 
@@ -301,6 +308,14 @@ function setElementsTransition (elements, duration, animation) {
     @include breakpoint(lg) {
       max-width: calc(680px + 32px * 4); // Calculated based on the width of the investee logo and container gap.
     }
+  }
+
+  &__buttonset {
+    display: flex;
+    gap: $spacer;
+    width: 100%;
+    max-width: $max-content-width;
+    margin: 0 auto;
   }
 
   &__investee-logo-wrapper {
@@ -376,17 +391,6 @@ function setElementsTransition (elements, duration, animation) {
       opacity: 0.4;
     }
 
-    &:nth-child(1) {
-      left: $spacer*1.5;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: z-number(overbase);
-
-      @include breakpoint(xl) {
-        left: calc(9.6785rem + $spacer*1.5);
-      }
-    }
-
     &:nth-child(2) {
       right: $spacer*1.5;
       top: 50%;
@@ -395,6 +399,17 @@ function setElementsTransition (elements, duration, animation) {
 
       @include breakpoint(xl) {
         right: calc(9.6785rem + $spacer*1.5);
+      }
+    }
+
+    &:nth-child(3) {
+      left: $spacer*1.5;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: z-number(overbase);
+
+      @include breakpoint(xl) {
+        left: calc(9.6785rem + $spacer*1.5);
       }
     }
   }
