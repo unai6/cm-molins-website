@@ -7,7 +7,7 @@ import { debounce } from '@/utils'
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
 const props = defineProps({
-  corporativeValuesItems: {
+  corporateValuesItems: {
     type: Array,
     required: true,
   },
@@ -22,7 +22,7 @@ const breakpoints = useBreakpoints({
 const isMobile = ref(breakpoints.smaller('lg'))
 
 const doublePi = 2 * Math.PI
-const alphaOffset = doublePi / props.corporativeValuesItems.length
+const alphaOffset = doublePi / props.corporateValuesItems.length
 const innerCircleRef = useTemplateRef('innerCircleRef')
 const { width } = useElementSize(innerCircleRef)
 
@@ -42,7 +42,7 @@ function placeWheelItems () {
     elementsArray[i].style.top = `${y}px`
 
     // Position the description container
-    const descriptionContainer = elementsArray[i].querySelector('.corporative-values__item-container')
+    const descriptionContainer = elementsArray[i].querySelector('.corporate-values__item-container')
     const descriptionX = 75 * Math.cos(angle) + (Math.cos(angle) > 0 ? 75 + 72 : -75 - 72) // Adjust the offset for the description container.
     descriptionContainer.style.left = `${descriptionX}px`
 
@@ -57,23 +57,23 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="corporateValues" class="corporative-values">
-    <div class="corporative-values__content">
-      <div class="corporative-values__title">
+  <div id="corporateValues" class="corporate-values">
+    <div class="corporate-values__content">
+      <div class="corporate-values__title">
         <ContentSlot :use="$slots.title" unwrap="p" />
       </div>
-      <div class="corporative-values__wheel-container">
-        <div ref="innerCircleRef" class="corporative-values__inner-circle">
+      <div class="corporate-values__wheel-container">
+        <div ref="innerCircleRef" class="corporate-values__inner-circle">
           <template v-if="!isMobile">
             <div
-              v-for="(value, idx) in props.corporativeValuesItems"
+              v-for="(value, idx) in props.corporateValuesItems"
               :key="idx"
-              class="corporative-values__item-circle"
+              class="corporate-values__item-circle"
               :style="{ backgroundColor: value.backgroundColor }"
             >
-              <div class="corporative-values__item-container">
-                <BaseIcon :icon="value.icon" class="corporative-values__item-icon" />
-                <p class="corporative-values__item-description">
+              <div class="corporate-values__item-container">
+                <BaseIcon :icon="value.icon" class="corporate-values__item-icon" />
+                <p class="corporate-values__item-description">
                   {{ value.description }}
                 </p>
               </div>
@@ -82,14 +82,14 @@ onMounted(() => {
           </template>
           <template v-else>
             <div
-              v-for="(value, idx) in props.corporativeValuesItems"
+              v-for="(value, idx) in props.corporateValuesItems"
               :key="idx"
-              class="corporative-values__item-circle-container-mobile"
+              class="corporate-values__item-circle-container-mobile"
             >
-              <div class="corporative-values__item-circle" :style="{ backgroundColor: value.backgroundColor }">
+              <div class="corporate-values__item-circle" :style="{ backgroundColor: value.backgroundColor }">
                 <p>{{ value.title }}</p>
               </div>
-                <p class="corporative-values__item-description">
+                <p class="corporate-values__item-description">
                   {{ value.description }}
                 </p>
             </div>
@@ -101,7 +101,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-.corporative-values {
+.corporate-values {
   $parent: &;
 
   background: $color-neutral-white;

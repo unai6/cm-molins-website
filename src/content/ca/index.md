@@ -28,9 +28,9 @@ Som un grup familiar l’objectiu del qual és la creació de valor a través d�
   Volem convertir-nos, mitjançant una inversió adequada, diversificació i gestió dels nostres recursos, en un inversor de referència en el nostre àmbit d’actuació, vetllant pel creixement del patrimoni familiar de manera rendible i sostenible.
 ::
 
-::corporative-values
+::corporate-values
 ---
-corporativeValuesItems:
+corporateValuesItems:
   - icon: 'excellence'
     title: 'Excel·lència'
     description: 'Esforç, perseverança en el treball realitzat amb un clar enfocament a l’excel·lència.'
@@ -89,7 +89,7 @@ corporativeValuesItems:
  ## Principals Òrgans de Govern del Grup
 ::
 
-::corporative-responsibility
+::corporate-responsibility
 #title
   ## Responsabilitat Social Corporativa
 #description

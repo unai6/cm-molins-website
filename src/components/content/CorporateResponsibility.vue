@@ -1,25 +1,25 @@
 <script setup></script>
 
 <template>
-  <div id="socialResponsability" class="corporative-responsibility">
-    <div class="corporative-responsibility__container">
-      <div class="corporative-responsibility__content">
-        <div class="corporative-responsibility__title">
+  <div id="socialResponsability" class="corporate-responsibility">
+    <div class="corporate-responsibility__container">
+      <div class="corporate-responsibility__content">
+        <div class="corporate-responsibility__title">
           <ContentSlot :use="$slots.title" />
         </div>
-        <img class="corporative-responsibility__corp-logo hidden-desktop" src="/images/fundacion-joaquin-molins-logo.jpg">
-        <div class="corporative-responsibility__description">
+        <img class="corporate-responsibility__corp-logo hidden-desktop" src="/images/fundacion-joaquin-molins-logo.jpg">
+        <div class="corporate-responsibility__description">
           <ContentSlot :use="$slots.description" unwrap="p" />
         </div>
       </div>
-      <img class="corporative-responsibility__corp-logo desktop-only" src="/images/fundacion-joaquin-molins-logo.jpg">
+      <img class="corporate-responsibility__corp-logo desktop-only" src="/images/fundacion-joaquin-molins-logo.jpg">
     </div>
-    <img class="corporative-responsibility__stairs" src="/images/escalera-2.jpg">
+    <img class="corporate-responsibility__stairs" src="/images/escalera-2.jpg">
   </div>
 </template>
 
 <style lang="scss">
-.corporative-responsibility {
+.corporate-responsibility {
   background-color: $color-primary-lighter;
 
   &__container {

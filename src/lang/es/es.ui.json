@@ -6,6 +6,8 @@
   "appHeader.label.whatWeDo": "¿Qué hacemos?",
   "appHeader.label.organsOfGovernment": "Órganos de gobierno",
   "appHeader.label.socialResponsability": "Responsabilidad social corp.",
+  "appHeader.label.investeeCompanies": "Empresas participadas",
+  "appHeader.label.contact": "Contacto",
   "carouselHome.message.item1": "Experiencia y compromiso, en el proceso de crecimiento de personas y negocios.",
   "carouselHome.message.item2": "Un sueño es simplemente un sueño. Una meta es un sueño, con un plan y un vencimiento.<br><br><span>HARVEY MACKAY</span>",
   "carouselHome.message.item3": "El secreto de ir hacia delante es empezar.<br><br><span>MARK TWAIN</span>",
@@ -15,5 +17,4 @@
   "investeeCompanies.label.realState": "Inmobiliarias",
   "investeeCompanies.label.finance": "Financieras",
   "investeeCompanies.label.industry": "Industriales"
-
 }

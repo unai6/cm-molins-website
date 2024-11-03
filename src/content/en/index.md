@@ -28,9 +28,9 @@ title: CM.Molins Family Office Web
   Through proper investment, diversification, and management of our resources, we want to become a reference investor in our area of operation, ensuring the growth of the family’s assets in a profitable and sustainable way.
 ::
 
-::corporative-values
+::corporate-values
 ---
-corporativeValuesItems:
+corporateValuesItems:
   - icon: 'excellence'
     title: 'Excellence'
     description: 'Effort, perseverance in work done with a clear focus on excellence.'
@@ -89,7 +89,7 @@ corporativeValuesItems:
   ## Main Governing Bodies of the Group
 ::
 
-::corporative-responsibility
+::corporate-responsibility
 #title
   ## Corporate Social Responsibility
 #description

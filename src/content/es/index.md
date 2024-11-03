@@ -28,9 +28,9 @@ Somos un grupo familiar cuyo objetivo es la creación de valor a través de una 
   Queremos convertirnos, mediante la adecuada inversión, diversificación y gestión de nuestros recursos, en un inversor de referencia en nuestro ámbito de actuación, velando por el crecimiento del patrimonio familiar de una forma rentable y sostenible.
 ::
 
-::corporative-values
+::corporate-values
 ---
-corporativeValuesItems:
+corporateValuesItems:
   - icon: 'excellence'
     title: 'Excelencia'
     description: 'Esfuerzo, perseverancia en el trabajo realizado con un claro enfoque a la excelencia.'
@@ -90,7 +90,7 @@ corporativeValuesItems:
  ## Principales Órganos de Gobierno del Grupo
 ::
 
-::corporative-responsibility
+::corporate-responsibility
 #title
   ## Responsabilidad Social Corporativa
 #description

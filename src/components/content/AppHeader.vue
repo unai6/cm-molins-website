@@ -44,7 +44,7 @@ function navigateToElement (id) {
       top: element.offsetTop - 96,
       behavior: 'smooth',
     })
-  }, 200)
+  }, 500)
 }
 </script>
 
@@ -60,7 +60,7 @@ function navigateToElement (id) {
       <template v-if="state.isMenuVisible || !state.isMobile">
         <div class="app-header__block">
           <p class="app-header__dropdown-title" @click="openDropdown('aboutUs')">
-            ¿Quiénes somos?&nbsp;<BaseIcon icon="chevron-down"/>
+            {{ $t('appHeader.label.aboutUs') }} &nbsp;<BaseIcon icon="chevron-down"/>
           </p>
           <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'aboutUs' }">
             <NuxtLink
@@ -76,7 +76,7 @@ function navigateToElement (id) {
         </div>
         <div class="app-header__block">
           <p class="app-header__dropdown-title" @click="openDropdown('whatWeDo')">
-            ¿Qué hacemos?&nbsp;<BaseIcon icon="chevron-down"/>
+            {{ $t('appHeader.label.whatWeDo') }} &nbsp;<BaseIcon icon="chevron-down"/>
             </p>
           <div class="app-header__dropdown" :class="{ 'app-header__dropdown--visible': state.visibleDropdown === 'whatWeDo' }">
             <NuxtLink
@@ -98,14 +98,14 @@ function navigateToElement (id) {
           class="app-header__link"
           @click="navigateToElement('investee')"
         >
-          Empresas participadas
+          {{ $t('appHeader.label.investeeCompanies') }}
         </NuxtLink>
         <NuxtLink
           :to="localePath('/', $i18n.locale)"
           class="app-header__link"
           @click="navigateToElement('contact')"
         >
-          Contacto
+          {{ $t('appHeader.label.contact') }}
         </NuxtLink>
         <AppLocaleSwitcher class="app-header__locale-switcher" />
       </template>
