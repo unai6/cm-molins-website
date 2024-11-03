@@ -126,16 +126,16 @@ const slots = useSlots()
     box-sizing: border-box;
     z-index: z-number(dropdown);
     width: 80%;
-    max-width: 300px;
-    height: 300px;
+    max-width: 250px;
+    height: 250px;
     padding: $spacer-double;
-    font-size: ms(2);
+    font-size: ms(1);
     line-height: $font-lineheight-long;
     color: $color-neutral-white;
     animation: fadeIn 1s linear;
 
     & span {
-      font-size: ms(1);
+      font-size: ms(0);
       align-self: flex-start;
     }
 

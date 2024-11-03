@@ -75,9 +75,10 @@
   }
 
   &__corp-logo {
-    width: 100%;
-    object-fit: contain;
     flex-shrink: 0;
+    object-fit: contain;
+    margin: 0 auto;
+    width: 50%;
 
     @include breakpoint(md) {
       width: 300px;
