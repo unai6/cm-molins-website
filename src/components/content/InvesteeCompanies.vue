@@ -14,6 +14,7 @@ const breakpoints = useBreakpoints(config.breakpoints)
 const state = reactive({
   selectedCompanyType: null,
   selectedCompany: null,
+  startupInvestmentStatus: '',
   direction: 'left',
   canSlide: false,
   isModalOpen: false,
@@ -31,10 +32,24 @@ useSwipe(carouselRef, {
   }
 })
 
-const companiesByType = computed(() => state.selectedCompanyType
-  ? investeeCompanies.filter((company) => state.selectedCompanyType === company.type).sort((a, b) => a.order - b.order)
-  : investeeCompanies,
-)
+const companiesByType = computed(() => {
+  let filteredCompanies = investeeCompanies;
+
+  if (state.selectedCompanyType) {
+    filteredCompanies = filteredCompanies.filter((company) => {
+      if (state.selectedCompanyType === 'startup') {
+        if (state.startupInvestmentStatus === 'disinvested') {
+          return !!company.disinvestedAt
+        } else if (state.startupInvestmentStatus === 'invested') {
+          return !company.disinvestedAt
+        }
+      }
+      return state.selectedCompanyType === company.type
+    });
+  }
+
+  return filteredCompanies.sort((a, b) => a.order - b.order)
+})
 
 const distanceToTranslate = ref(0)
 const elementsToDisplay = computed(() => state.isMobile ? 1 : 4)
@@ -57,7 +72,12 @@ function handleButtonNavigation (direction) {
   setElementsTransition(children, '0.3s', 'linear')
 }
 
-function selectCompanyType (companyType) {
+function selectCompanyType (companyType, status) {
+  state.startupInvestmentStatus = ''
+
+  if (status) {
+    state.startupInvestmentStatus = status
+  }
   state.selectedCompanyType = companyType
   resetElementsPosition()
 }
@@ -91,6 +111,14 @@ function setElementsTransition (elements, duration, animation) {
         class="investee-companies__investee-logo investee-companies__investee-logo--large"
         :src="state.selectedCompany.logoUrl"
       />
+      <p class="investee-companies__modal-title">
+        <template v-if="!!state.selectedCompany.investedAt">
+        {{ $t('investeeCompanies.label.investedAt', { year: state.selectedCompany.investedAt }) }}
+        </template>
+      </p>
+      <p v-if="!!state.selectedCompany.disinvestedAt" class="investee-companies__modal-title">
+        {{ $t('investeeCompanies.label.disinvestedAt', { year: state.selectedCompany.disinvestedAt }) }}
+      </p>
       <p class="investee-companies__modal-description">
         {{ state.selectedCompany.description[$i18n.locale] }}
       </p>
@@ -120,25 +148,39 @@ function setElementsTransition (elements, duration, animation) {
         </div>
       </div>
     </div>
+    <div class="investee-companies__buttonset-wrapper">
+      <div v-if="state.selectedCompanyType === 'startup'" class="investee-companies__buttonset">
+        <button
+          class="investee-companies__button"
+          :class="{ 'investee-companies__button--active': state.startupInvestmentStatus === 'invested' }"
+          @click="selectCompanyType('startup', 'invested')"
+        >
+          Portfolio
+        </button>
+        <button
+          class="investee-companies__button"
+          :class="{ 'investee-companies__button--active': state.startupInvestmentStatus === 'disinvested' }"
+          @click="selectCompanyType('startup', 'disinvested')"
+        >
+          Desinversiones
+        </button>
+      </div>
+    </div>
     <div class="investee-companies__carousel-wrapper">
       <div class="investee-companies__carousel-container">
-        <div class="investee-companies__buttonset">
-          <button class="investee-companies__button">Portfolio</button>
-          <button class="investee-companies__button">Desinversiones</button>
-        </div>
         <template v-if="companiesByType.length > elementsToDisplay">
-          <BaseIcon
-            icon="arrow-right"
-            class="investee-companies__chevron investee"
-            :class="{ 'investee-companies__chevron--disabled': !state.canSlide && state.direction === 'right' }"
-            @click="handleButtonNavigation('right')"
-          />
           <BaseIcon
             icon="arrow-left"
             class="investee-companies__chevron investee"
             :class="{ 'investee-companies__chevron--disabled': !state.canSlide && state.direction === 'left' }"
             @click="handleButtonNavigation('left')"
            />
+          <BaseIcon
+            icon="arrow-right"
+            class="investee-companies__chevron investee"
+            :class="{ 'investee-companies__chevron--disabled': !state.canSlide && state.direction === 'right' }"
+            @click="handleButtonNavigation('right')"
+          />
         </template>
         <div ref="carouselRef" class="investee-companies__carousel">
           <div
@@ -157,6 +199,8 @@ function setElementsTransition (elements, duration, animation) {
 
 <style lang="scss">
 .investee-companies {
+  $parent: &;
+
   position: relative;
   background-color: $color-neutral-medium;
 
@@ -235,7 +279,7 @@ function setElementsTransition (elements, duration, animation) {
     position: relative;
     cursor: pointer;
     width: 100%;
-    height: 125px;
+    height: 100px;
     object-fit: cover;
 
     @include breakpoint(lg) {
@@ -281,17 +325,15 @@ function setElementsTransition (elements, duration, animation) {
   &__carousel-container {
     position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
     box-sizing: border-box;
     width: 100%;
     max-width: $max-content-width;
     margin: 0 auto;
-    padding: $spacer $spacer*3;
+    padding: $spacer $spacer*5;
 
     @include breakpoint(lg) {
-      padding: $spacer*1.5 $spacer*9.6785;
+      padding: $spacer*1.5 0;
     }
   }
 
@@ -310,12 +352,45 @@ function setElementsTransition (elements, duration, animation) {
     }
   }
 
+  &__buttonset-wrapper {
+    background-color: $color-neutral-white;
+  }
+
   &__buttonset {
     display: flex;
     gap: $spacer;
-    width: 100%;
-    max-width: $max-content-width;
-    margin: 0 auto;
+    box-sizing: border-box;
+    padding: $spacer*1.5;
+
+    @include breakpoint(lg) {
+      max-width: $max-content-width;
+      width: 100%;
+      margin: 0 auto;
+      padding: $spacer*1.5 $spacer*9.6785;
+    }
+  }
+
+  &__button {
+    background: transparent;
+    border: $border-weight-hairline solid $color-neutral-dark;
+    padding: $spacer-half;
+    font-size: ms(1);
+    cursor: pointer;
+
+    &:not(#{$parent}__button--active) {
+      @media(hover: hover) {
+        &:hover {
+          border: $border-weight-hairline solid $color-primary;
+          color: $color-primary;
+        }
+      }
+    }
+
+    &--active {
+      border: $border-weight-hairline solid $color-neutral-white;
+      background-color: $color-primary;
+      color: $color-neutral-white;
+    }
   }
 
   &__investee-logo-wrapper {
@@ -336,10 +411,9 @@ function setElementsTransition (elements, duration, animation) {
 
   &__investee-logo {
     height: fit-content;
-    max-height: 100px;
-    width: 60%;
+    max-height: 125px;
+    width: 100%;
     object-fit: contain;
-    margin: 0 auto;
 
     @include breakpoint(lg) {
       cursor: pointer;
@@ -350,6 +424,7 @@ function setElementsTransition (elements, duration, animation) {
       width: 150px;
       min-height: 64px;
       max-height: 150px;
+      margin: 0 auto;
 
       @include breakpoint(lg) {
         width: 225px;
@@ -391,25 +466,49 @@ function setElementsTransition (elements, duration, animation) {
       opacity: 0.4;
     }
 
-    &:nth-child(2) {
-      right: $spacer*1.5;
-      top: 50%;
-      transform: translateY(-50%);
+    &:nth-child(1) {
       z-index: z-number(overbase);
+      top: 50%;
+      left: $spacer*1.5;
+      transform: translateY(-50%);
+      padding: $spacer;
+      padding-left: 0;
+
+      @include breakpoint(xl) {
+        left: calc(9.6785rem + $spacer*1.5);
+      }
+    }
+
+    &:nth-child(2) {
+      z-index: z-number(overbase);
+      top: 50%;
+      right: $spacer*1.5;
+      transform: translateY(-50%);
+      padding: $spacer;
+      padding-right: 0;
 
       @include breakpoint(xl) {
         right: calc(9.6785rem + $spacer*1.5);
       }
     }
+  }
 
-    &:nth-child(3) {
-      left: $spacer*1.5;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: z-number(overbase);
+  &__modal-title {
+    position: relative;
+    font-size: ms(2);
+    font-weight: $font-weight-bold;
+    font-family: $font-family-highlight;
 
-      @include breakpoint(xl) {
-        left: calc(9.6785rem + $spacer*1.5);
+    &:first-of-type {
+      padding-top: $spacer;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        width: 100%;
+        height: $border-weight-hairline;
+        background-color: $color-neutral-dark;
       }
     }
   }
@@ -419,19 +518,9 @@ function setElementsTransition (elements, duration, animation) {
     display: flex;
     flex-direction: column;
     gap: $spacer;
-    padding-top: $spacer;
     font-family: $font-family-highlight;
     line-height: $font-lineheight-extra-large;
     overflow: auto;
-
-    &::before {
-      position: absolute;
-      content: '';
-      top: 0;
-      width: 100%;
-      height: $border-weight-hairline;
-      background-color: $color-neutral-dark;
-    }
 
     &::-webkit-scrollbar {
       width: 5px;

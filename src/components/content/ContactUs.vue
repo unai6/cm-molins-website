@@ -52,6 +52,7 @@
   &__details-wrapper {
     display: flex;
     align-items: center;
+    padding: $spacer*3 $spacer*1.5;
     background: $color-neutral-dark;
 
     @include breakpoint(lg) {
@@ -64,7 +65,6 @@
     flex-direction: column;
     gap: $spacer-double;
     box-sizing: border-box;
-    padding: $spacer*3 $spacer*1.5;
     width: 100%;
 
     @include breakpoint(lg) {

@@ -9,6 +9,7 @@
   "appHeader.label.investeeCompanies": "Empresas participadas",
   "appHeader.label.contact": "Contacto",
   "investeeCompanies.label.investedAt": "Año de inversión {year}",
+  "investeeCompanies.label.disinvestedAt": "Año de deinversión {year}",
   "investeeCompanies.label.startup": "Startups Tecnológicas",
   "investeeCompanies.label.realState": "Inmobiliarias",
   "investeeCompanies.label.finance": "Financieras",
