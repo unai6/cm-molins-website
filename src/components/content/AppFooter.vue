@@ -19,10 +19,12 @@
 
     &::after {
       position: absolute;
-      content: '|';
+      content: '';
+      top: 0;
       right: -$spacer*1.5;
       height: 100%;
-      width: 2px;
+      width: 1.5px;
+      background-color: $color-neutral-black;
     }
   }
 
