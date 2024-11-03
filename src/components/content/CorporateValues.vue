@@ -230,10 +230,13 @@ onMounted(() => {
 
   &__item-description {
     color: $color-neutral-black;
-    font-size: ms(-1);
     line-height: $font-lineheight-large;
     font-family: $font-family-highlight;
     font-weight: $font-weight-regular;
+
+    @include breakpoint(lg) {
+      font-size: ms(-1);
+    }
   }
 
   &__item-circle-container-mobile {
