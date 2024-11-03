@@ -33,7 +33,7 @@ useSwipe(carouselRef, {
 })
 
 const companiesByType = computed(() => {
-  let filteredCompanies = investeeCompanies;
+  let filteredCompanies = investeeCompanies
 
   if (state.selectedCompanyType) {
     filteredCompanies = filteredCompanies.filter((company) => {
@@ -44,8 +44,9 @@ const companiesByType = computed(() => {
           return !company.disinvestedAt
         }
       }
+
       return state.selectedCompanyType === company.type
-    });
+    })
   }
 
   return filteredCompanies.sort((a, b) => a.order - b.order)
