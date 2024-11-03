@@ -9,16 +9,15 @@ const { y } = useWindowScroll({ behavior: 'smooth' })
 
 <template>
   <div class="default-layout">
-    {{ y }}
     <AppHeader />
     <main>
       <slot />
       <Transition name="fade">
         <BaseIcon
-        v-if="y > 200"
-        class="default-layout__arrow"
-        icon="arrow-tail-up"
-        @click="y = 0"
+          v-if="y > 0 && y > 200"
+          class="default-layout__arrow"
+          icon="arrow-tail-up"
+          @click="y = 0"
         />
         </Transition>
     </main>
