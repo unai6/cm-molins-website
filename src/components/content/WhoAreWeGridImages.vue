@@ -9,7 +9,7 @@ const state = reactive({
 })
 
 function getTemplateIdx (idx) {
-  return `item-${idx}`
+  return `item${idx}`
 }
 
 const carouselDotsConfig = {
