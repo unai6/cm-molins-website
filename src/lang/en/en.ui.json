@@ -9,6 +9,7 @@
   "appHeader.label.socialResponsability": "Corporate social responsibility",
   "appHeader.label.contact": "Contact",
   "investeeCompanies.label.investedAt": "Year of Investment {year}",
+  "investeeCompanies.label.disinvestedAt": "Year of Disinvestment {year}",
   "investeeCompanies.label.startup": "Tech Startups",
   "investeeCompanies.label.realState": "Real Estate",
   "investeeCompanies.label.finance": "Financial",

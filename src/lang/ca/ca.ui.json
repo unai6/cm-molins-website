@@ -9,6 +9,7 @@
   "appHeader.label.organsOfGovernment": "Òrgans de govern",
   "appHeader.label.socialResponsability": "Responsabilitat social corporativa",
   "investeeCompanies.label.investedAt": "Any d'inversió {year}",
+  "investeeCompanies.label.disinvestedAt": "Any de desinversió {year}",
   "investeeCompanies.label.startup": "Startups Tecnològiques",
   "investeeCompanies.label.realState": "Immobiliàries",
   "investeeCompanies.label.finance": "Financeres",
