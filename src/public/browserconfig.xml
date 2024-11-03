@@ -2,10 +2,9 @@
 <browserconfig>
   <msapplication>
     <tile>
-      <square70x70logo src="/logos/logo-tile-70.png"/>
-      <square150x150logo src="/logos/logo-tile-150.png"/>
-      <square310x310logo src="/logos/logo-tile-310.png"/>
-      <wide310x150logo src="/logos/logo-tile-310-wide.png"/>
+      <square70x70logo src="/logos/cartera-cm-logo-tile-70.png"/>
+      <square150x150logo src="/logos/cartera-cm-logo-tile-150.png"/>
+      <square310x310logo src="/logos/cartera-cm-logo-tile-310.png"/>
       <TileColor>#FFFFFF</TileColor>
     </tile>
   </msapplication>
