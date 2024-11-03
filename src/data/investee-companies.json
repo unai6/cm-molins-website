@@ -53,7 +53,7 @@
     "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605713270/company-logos/ttcxh1zwvosaclt2qaio.webp",
     "headquarters": "Barcelona",
     "description": {
-      "es": " Mondo es una insurtech especializada en seguros de viaje. Diseñamos una experiencia 100% digital aportando al viajero una solución rápida, fácil y transparente durante todo el proceso, desde la búsqueda del seguro que mejor se adapte a su viaje hasta la prestación de la asistencia mediante una app innovadora y disruptiva.",
+      "es": "Mondo es una insurtech especializada en seguros de viaje. Diseñamos una experiencia 100% digital aportando al viajero una solución rápida, fácil y transparente durante todo el proceso, desde la búsqueda del seguro que mejor se adapte a su viaje hasta la prestación de la asistencia mediante una app innovadora y disruptiva.",
       "en": "Mondo is an insurtech specialized in travel insurance. We design a 100% digital experience providing travelers with a quick, easy and transparent solution throughout the process, from finding the insurance that best suits their trip to providing assistance through an innovative and disruptive app.",
       "ca": "Mondo és una insurtech especialitzada en assegurances de viatge.\nDissenyem una experiència 100% digital aportant al viatger una\nsolució ràpida, fàcil i transparent durant tot el procés, des de la cerca de\nl'assegurança que millor s'adapti al seu viatge fins a la prestació de\nl'assistència mitjançant una app innovadora i disruptiva."
     }
@@ -99,7 +99,7 @@
     "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605866376/company-logos/vvxjak2dwxy5aslrzn2i.webp",
     "headquarters": "Barcelona",
     "description": {
-      "es": " Ofrece sistemas de entretenimiento a bordo de los aviones mediante la utilización de una red Wifi interna “intranet”.",
+      "es": "Ofrece sistemas de entretenimiento a bordo de los aviones mediante la utilización de una red Wifi interna “intranet”.",
       "en": "It offers entertainment systems on board the aircraft through the use of an internal Wi-Fi network \"intranet\".",
       "ca": "Ofereix sistemes d’entreteniment a bord dels avions mitjançant la utilització\nd’una xarxa wifi interna “intranet”."
     }
@@ -115,7 +115,7 @@
     "headquarters": "",
     "description": {
       "es": "Ecommerce. Tienda on-line para cubrir las necesidades propias del bebé, donde se ofrece una gran variedad de primeras marcas a buen precio y servicio de entrega.",
-      "en": " Ecommerce. On-line store to cover baby'sneeds, where a wide variety of top brands are offered at a good price and delivery service.",
+      "en": "Ecommerce. On-line store to cover baby'sneeds, where a wide variety of top brands are offered at a good price and delivery service.",
       "ca": "ecommerce. Botiga on-line per cobrir les necessitats pròpies del bebè, on\ns’ofereix una gran varietat de primeres marques a bon preu i amb servei\nd’entrega."
     }
   },
@@ -145,7 +145,7 @@
     "headquarters": "undefined",
     "description": {
       "es": "Sociedad de Inversión de capital variable.",
-      "en": " Variable Capital Investment Company.",
+      "en": "Variable Capital Investment Company.",
       "ca": "Societat d’Inversió de capital variable."
     }
   },
@@ -182,12 +182,12 @@
     "type": "realState",
     "investedAt": "1991",
     "category": "Inversiones Inmobiliarias",
-    "websiteUrl": "http://www.profitex.es",
+    "websiteUrl": "https://www.profitex.es",
     "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1605873861/company-logos/jrl5wjn17e8rccvxqu9i.webp",
     "headquarters": "Terrassa(Barcelona)",
     "description": {
       "es": "Gestión y alquiler de naves industriales en Terrassa.",
-      "en": " Management and rental of industrial buildings in Terrassa.",
+      "en": "Management and rental of industrial buildings in Terrassa.",
       "ca": "Gestió i lloguer de naus industrials a Terrassa."
     }
   },
@@ -200,7 +200,7 @@
     "headquarters": "Barcelona",
     "description": {
       "es": "Tenencia y alquiler de inmuebles (oficinas). Es propietaria de unos 3.000 m2 de oficinas, principalmente 8 plantas de su propiedad del edificio sito en Rambla Catalunya, 38, Barcelona",
-      "en": " Ownership and rental of real estate (offices). It owns about 3,000 m2 of offices, mainly on 8 floors of its property in the building located at Rambla Catalunya, 38, Barcelona",
+      "en": "Ownership and rental of real estate (offices). It owns about 3,000 m2 of offices, mainly on 8 floors of its property in the building located at Rambla Catalunya, 38, Barcelona",
       "ca": "Tinença i lloguer d'immobles (oficines). És propietària d'uns\n3.000 m² d'oficines, principalment 8 plantes de la seva propietat de l'edifici\nsituat a Rambla Catalunya, 38, Barcelona."
     }
   },
@@ -213,7 +213,7 @@
     "headquarters": "undefined",
     "description": {
       "es": "Tenencia y alquiler de inmuebles. Es la sociedad del grupo que aglutina las inversiones inmobiliarias. Entre sus inmuebles más representativos figura el edificio ubicado en Paseo de la Bonanova 64 y unas oficinas ubicadas en Paseo de Gracia, 76, ambos de Barcelona.",
-      "en": " Ownership and rental of real estate. It is the group company that brings together real estate investments. Its most representative properties include the building located at Paseo de la Bonanova 64 and some offices located at Paseo de Gracia, 76, both in Barcelona.",
+      "en": "Ownership and rental of real estate. It is the group company that brings together real estate investments. Its most representative properties include the building located at Paseo de la Bonanova 64 and some offices located at Paseo de Gracia, 76, both in Barcelona.",
       "ca": "Tinença i lloguer d’immobles. És la societat del grup que aglutina les\ninversions immobiliàries. Entre els seus immobles més representatius\nfigura l’edifici ubicat al Passeig de la Bonanova, 64, i unes oficines\nubicades a Passeig de Gràcia, 76, ambdós de Barcelona."
     }
   },
@@ -241,7 +241,7 @@
     "logoUrl": "https://res.cloudinary.com/webmolins/image/upload/v1622743564/company-logos/LogoMESbook_ALTA_aiqfnt.png",
     "description": {
       "es": "Sistema de gestión de fábricas en tiempo real estandarizado para cualquier industria: controla, comunica, aprende y predice para fabricar MÁS, MEJOR y MÁS BARATO.",
-      "en": " Standardized real-time factory management system for any industry: control, communicate, learn and predict to manufacture MORE, BETTER and CHEAPER.",
+      "en": "Standardized real-time factory management system for any industry: control, communicate, learn and predict to manufacture MORE, BETTER and CHEAPER.",
       "ca": "Sistema de gestió de fàbriques en temps real estandarditzat per a\nqualsevol indústria: controla, comunica, aprèn i prediu per a fabricar MÉS,\nMILLOR I MÉS BARAT."
     }
   },
