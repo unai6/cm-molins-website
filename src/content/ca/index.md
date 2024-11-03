@@ -3,6 +3,20 @@ title: CM.Molins Family Office Web
 ---
 
 ::carousel-home
+#item1
+  Experiència i compromís, en el procés de creixement de persones i negocis.
+#item2
+  Un somni és simplement un somni. Un objectiu és un somni, amb un pla i una data límit.
+
+  [HARVEY MACKAY]
+#item3
+  El secret d'avançar és començar.
+
+  [MARK TWAIN]
+#item4
+  Les oportunitats no apareixen, les crees.
+
+  [CHRIS GROSSER]
 ::
 
 ::who-are-we

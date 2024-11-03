@@ -10,7 +10,7 @@
   display: flex;
   gap: $spacer*3;
   justify-content: center;
-  padding: $spacer $spacer*1.25;
+  padding: $spacer $spacer*1.5;
   font-size: ms(1);
   font-family: $font-family-highlight;
 

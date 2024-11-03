@@ -3,6 +3,21 @@ title: CM.Molins Family Office Web
 ---
 
 ::carousel-home
+#item1
+  Experiencia y compromiso, en el proceso de crecimiento de personas y negocios.
+#item2
+  Un sueño es simplemente un sueño. Una meta es un sueño, con un plan y un vencimiento.
+
+  [HARVEY MACKAY]
+#item3
+  El secreto de ir hacia delante es empezar.
+
+  [MARK TWAIN]
+
+#item4
+  Las oportunidades no aparecen, las creas.
+
+  [CHRIS GROSSER]
 ::
 
 ::who-are-we

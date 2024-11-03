@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 import { onClickOutside, useBreakpoints } from '@vueuse/core'
 
 import AppLocaleSwitcher from '@/components/content/AppLocaleSwitcher.vue'
@@ -45,6 +45,9 @@ function navigateToElement (id) {
       behavior: 'smooth',
     })
   }, 500)
+
+  state.isMenuVisible = false
+  state.visibleDropdown = null
 }
 </script>
 
@@ -115,12 +118,16 @@ function navigateToElement (id) {
 
 <style lang="scss">
 .app-header {
+  $parent: &;
+
   background-color: $color-neutral-medium;
   z-index: z-number(header);
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
+  height: 100%;
+  transition: height .2s linear;
 
   @include breakpoint(lg) {
     height: $app-header-height;
@@ -137,7 +144,6 @@ function navigateToElement (id) {
     flex-direction: column;
     flex-wrap: wrap;
     gap: $spacer*1.5;
-    justify-content: space-evenly;
     box-sizing: border-box;
     padding: $spacer*1.5;
     padding-bottom: $spacer;
@@ -148,8 +154,9 @@ function navigateToElement (id) {
     font-weight: $font-weight-regular;
 
     @include breakpoint(lg) {
-      flex-direction: row;
       align-items: center;
+      flex-direction: row;
+      justify-content: space-evenly;
       gap: $spacer-half;
       padding: 0 $spacer;
       box-sizing: border-box;
@@ -182,7 +189,7 @@ function navigateToElement (id) {
       display: flex;
       flex-direction: column;
       gap: $spacer;
-      padding: $spacer-double $spacer $spacer 0;
+      padding: $spacer $spacer $spacer 0;
       padding-left: $spacer-half;
       font-size: ms(0);
       line-height: $font-lineheight-long;
@@ -197,13 +204,16 @@ function navigateToElement (id) {
         background-color: $color-neutral-white;
       }
 
-      & > .router-link-active {
+      & > #{$parent}__link {
         border-bottom: $border-weight-hairline solid $color-neutral-black;
         color: $color-neutral-black;
         text-decoration: none;
+        padding-bottom: $spacer*0.25;
+        width: fit-content;
 
         @include breakpoint(lg) {
           border-bottom: unset;
+          padding-bottom: 0;
         }
       }
     }

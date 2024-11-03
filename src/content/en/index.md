@@ -3,6 +3,20 @@ title: CM.Molins Family Office Web
 ---
 
 ::carousel-home
+#item1
+  Experience and commitment in the growth process of people and businesses.
+#item2
+  A dream is simply a dream. A goal is a dream with a plan and a deadline.
+
+  [HARVEY MACKAY]
+#item3
+  The secret to getting ahead is getting started.
+
+  [MARK TWAIN]
+#item4
+  Opportunities don’t happen, you create them.
+
+  [CHRIS GROSSER]
 ::
 
 ::who-are-we

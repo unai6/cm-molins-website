@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, onUnmounted } from 'vue'
+import { reactive, onUnmounted, useSlots } from 'vue'
 
 import BaseCarousel from '@/components/content/base/BaseCarousel.vue'
 
@@ -32,7 +32,7 @@ const carouselDotsConfig = {
     bottom: '-80px',
     lg: {
       position: 'absolute',
-      bottom: '24px',
+      bottom: '96px',
       transform: 'translate(-50%, -50%)',
       left: '50%',
     }
@@ -46,18 +46,20 @@ const carouselNavConfig = {
   }
 }
 
-// state.interval = setInterval(() => {
-//   state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
-// }, 6000)
+state.interval = setInterval(() => {
+  state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
+}, 6000)
 
 
 function getTemplateIdx (idx) {
-  return `item-${idx}`
+  return `item${idx}`
 }
 
 onUnmounted(() => {
   clearInterval(state.interval)
 })
+
+const slots = useSlots()
 </script>
 
 <template>
@@ -77,7 +79,10 @@ onUnmounted(() => {
         />
       </div>
       <div class="carousel-home__quotes">
-        <p v-html="$t(`carouselHome.message.item${state.activeImage}`)" />
+        <ContentSlot v-if="state.activeImage === 1" :use="$slots.item1" unwrap="p" />
+        <ContentSlot v-if="state.activeImage === 2" :use="$slots.item2" unwrap="p" />
+        <ContentSlot v-if="state.activeImage === 3" :use="$slots.item3" unwrap="p" />
+        <ContentSlot v-if="state.activeImage === 4" :use="$slots.item4" unwrap="p" />
       </div>
     </template>
   </BaseCarousel>
@@ -98,7 +103,7 @@ onUnmounted(() => {
     overflow: hidden;
 
     @include breakpoint(lg) {
-      height: calc(100dvh - 64px);
+      height: calc(100dvh - $app-header-height - $spacer-double);
     }
   }
 
@@ -114,11 +119,14 @@ onUnmounted(() => {
     bottom: -24px;
     left: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: $spacer;
     justify-content: center;
     box-sizing: border-box;
     z-index: z-number(dropdown);
     width: 80%;
+    max-width: 300px;
     height: 300px;
     padding: $spacer-double;
     font-size: ms(2);
@@ -128,6 +136,7 @@ onUnmounted(() => {
 
     & span {
       font-size: ms(1);
+      align-self: flex-start;
     }
 
     @include breakpoint(md) {
@@ -135,7 +144,7 @@ onUnmounted(() => {
     }
 
     @include breakpoint(lg) {
-      bottom: -32px;
+      bottom: 48px;
       left: 155px;
       width: 336px;
     }

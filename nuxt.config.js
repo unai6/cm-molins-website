@@ -93,6 +93,7 @@ export default defineNuxtConfig({
     customRoutes: 'config',
     pages: i18nPages,
     vueI18n: './src/lang/i18n.config.js',
+    warnHtmlMessage: false, // disable warning HTML in message.
   },
   compatibilityDate: '2024-09-20',
 })

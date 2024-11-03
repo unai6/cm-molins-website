@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: column;
     gap: $spacer*1.5;
-    padding: $spacer*1.5;
+    padding: $spacer*3 $spacer*1.5;
     max-width: $max-content-width;
     margin: 0 auto;
 
@@ -67,6 +67,11 @@
   &__description {
     text-align: justify;
     text-wrap: pretty;
+
+    & > a {
+      text-decoration: none;
+      color: $color-primary;
+    }
   }
 
   &__corp-logo {

@@ -59,13 +59,13 @@ const carouselNavConfig = {
   },
 }
 
-// state.interval = setInterval(() => {
-//   state.activeItem = state.activeItem >= itemsLength ? 1 : state.activeItem + 1
-// }, 6000)
+state.interval = setInterval(() => {
+  state.activeItem = state.activeItem >= itemsLength ? 1 : state.activeItem + 1
+}, 6000)
 
 
 function getTemplateIdx (idx) {
-  return `item-${idx}`
+  return `item${idx}`
 }
 
 onUnmounted(() => {

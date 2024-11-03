@@ -163,7 +163,7 @@ function setElementsTransition (elements, duration, animation) {
     flex-direction: column;
     gap: $spacer*1.5;
     max-width: $max-content-width;
-    padding: $spacer*3 0;
+    padding: $spacer*3 $spacer*1.5;
 
     @include breakpoint(lg) {
       gap: $spacer*3;
@@ -185,7 +185,6 @@ function setElementsTransition (elements, duration, animation) {
     gap: $spacer-half;
     justify-content: center;
     box-sizing: border-box;
-    padding: 0 $spacer*1.5;
     width: 100%;
 
     @include breakpoint(lg) {

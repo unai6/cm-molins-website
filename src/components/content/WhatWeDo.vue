@@ -42,6 +42,7 @@
     gap: $spacer*1.5;
     padding: $spacer*1.5 0;
     padding-top: $spacer*6;
+    padding-bottom: 0;
     max-width: $max-content-width;
     margin: 0 auto;
 
@@ -82,6 +83,7 @@
 
     @include breakpoint(lg) {
       gap: $spacer*3;
+      padding: 0;
     }
   }
 

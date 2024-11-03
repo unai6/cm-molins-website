@@ -52,8 +52,11 @@
   &__details-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
     background: $color-neutral-dark;
+
+    @include breakpoint(lg) {
+      justify-content: center;
+    }
   }
 
   &__details {
@@ -62,6 +65,11 @@
     gap: $spacer-double;
     box-sizing: border-box;
     padding: $spacer*3 $spacer*1.5;
+    width: 100%;
+
+    @include breakpoint(lg) {
+      width: unset;
+    }
   }
 
   &__title {

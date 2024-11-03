@@ -32,7 +32,7 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
 
   @include breakpoint(lg) {
     gap: $spacer*3;
-    padding: $spacer*6 $spacer*9.6785;
+    padding: $spacer*3 $spacer*9.6785;
   }
 
   &__title {
@@ -67,7 +67,6 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
 
   &__float {
     color: $color-primary;
-    font-size: ms(1);
     font-family: $font-family-base;
     display: inline-block;
 
@@ -76,13 +75,14 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
       padding: 0 $spacer-double;
       padding-left: 0;
       width: 30%;
-      line-height: 2.5rem;
+      font-size: ms(1);
+      line-height: $font-lineheight-largest;
       text-wrap: pretty;
     }
   }
 
   &__text {
-    line-height: 2.5rem;
+    line-height: $font-lineheight-largest;
     font-family: $font-family-highlight;
     text-align: justify;
     text-wrap: pretty;

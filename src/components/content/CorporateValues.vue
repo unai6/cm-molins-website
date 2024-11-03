@@ -241,7 +241,7 @@ onMounted(() => {
     align-items: center;
     flex-direction: column;
     gap: $spacer;
-    padding: 0 $spacer-double;
+    padding: 0;
     box-sizing: border-box;
     text-align: center;
   }

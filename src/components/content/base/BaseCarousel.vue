@@ -112,7 +112,7 @@ function getNavConfig () {
           v-for="item in props.itemsLength"
           :key="item"
           class="base-carousel__dot"
-          :class="{ 'base-carousel__dot--active': `item-${item}` === name }"
+          :class="{ 'base-carousel__dot--active': `item${item}` === name }"
           @click="modelValue = item"
         />
       </div>

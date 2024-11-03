@@ -36,7 +36,7 @@ const props = defineProps({
     display: flex;
     flex-direction: column;
     gap: $spacer*1.5;
-    padding: $spacer*1.5;
+    padding: $spacer*3 $spacer*1.5;
     max-width: $max-content-width;
     margin: 0 auto;
 
