@@ -83,10 +83,17 @@ import WhoAreWeGridImages from '@/components/content/WhoAreWeGridImages.vue'
   }
 
   &__text {
+    display: flex;
+    flex-direction: column;
+    gap: $spacer;
     line-height: $font-lineheight-largest;
     font-family: $font-family-highlight;
-    text-align: justify;
-    text-wrap: pretty;
+    text-align: left;
+
+    @include breakpoint(lg) {
+      display: block;
+      text-align: justify;
+    }
   }
 }
 </style>
