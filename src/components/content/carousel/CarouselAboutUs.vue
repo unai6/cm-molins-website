@@ -39,7 +39,7 @@ const carouselDotsConfig = {
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
     left: '50%',
-    bottom: '10px',
+    bottom: '16px',
     lg: {
       position: 'relative',
       transform: 'unset',
