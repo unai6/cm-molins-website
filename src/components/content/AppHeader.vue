@@ -157,7 +157,7 @@ function navigateToElement (id) {
       align-items: center;
       flex-direction: row;
       justify-content: space-evenly;
-      gap: $spacer-half;
+      gap: $spacer;
       padding: 0 $spacer;
       box-sizing: border-box;
       height: 100%;
@@ -189,8 +189,8 @@ function navigateToElement (id) {
       display: flex;
       flex-direction: column;
       gap: $spacer;
-      padding: $spacer $spacer $spacer 0;
-      padding-left: $spacer-half;
+      padding: $spacer $spacer 0 $spacer-half;
+      padding-right: 0;
       font-size: ms(0);
       line-height: $font-lineheight-long;
       color: $color-opacities-darkest;
@@ -200,6 +200,7 @@ function navigateToElement (id) {
         cursor: pointer;
         width: 240px;
         padding-left: $spacer;
+        padding-bottom: $spacer;
         line-height: $font-lineheight-long;
         background-color: $color-neutral-white;
       }
@@ -221,7 +222,7 @@ function navigateToElement (id) {
 
   &__title {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     font-family: Cinzel, serif;
     font-size: ms(1);
     line-height: $font-lineheight-long;
