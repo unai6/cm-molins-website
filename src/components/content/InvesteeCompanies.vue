@@ -458,6 +458,8 @@ function setElementsTransition (elements, duration, animation) {
     color: $color-neutral-medium;
     width: 32px;
     height: 32px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     @include breakpoint(lg) {
       height: 72px;
