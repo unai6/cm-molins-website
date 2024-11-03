@@ -23,7 +23,7 @@ title: CM.Molins Family Office Web
 #title
   ## QUI SOM?
 #subtitle
-  [CARTERA D'INVERSIONS C.M. S.A, FAMILY OFFICE]{.who-are-we__subtitle}
+  [CARTERA DE INVERSIONES C.M. S.A, FAMILY OFFICE]{.who-are-we__subtitle}
 #float
   Societat holding que neix l'any 1988, per iniciativa de Joaquín Molins per aglutinar i organitzar la gestió del patrimoni familiar.
 #text
@@ -107,7 +107,7 @@ corporateValuesItems:
 #title
   ## Responsabilitat Social Corporativa
 #description
-  **CARTERA D'INVERSIONS CM, S.A.** és plenament conscient de les conseqüències i l’impacte que les seves accions i inversions tenen en la societat. Per aquest motiu, a més de contribuir en l’àmbit socioeconòmic, mediambiental i sociocultural, col·labora i finança activitats de mecenatge a través de la [Fundació Joaquim Molins Figueras.](http://www.joaquimmolinsfigueras.org/)
+  **CARTERA DE INVERSIONES CM, S.A.** és plenament conscient de les conseqüències i l’impacte que les seves accions i inversions tenen en la societat. Per aquest motiu, a més de contribuir en l’àmbit socioeconòmic, mediambiental i sociocultural, col·labora i finança activitats de mecenatge a través de la [Fundació Joaquim Molins Figueras.](http://www.joaquimmolinsfigueras.org/)
 ::
 
 ::investee-companies
@@ -119,7 +119,7 @@ corporateValuesItems:
 #title
   CONTACTE
 #subtitle
-  CARTERA D'INVERSIONS **C.M.**
+  CARTERA DE INVERSIONES **C.M.**
 #phone
   :base-icon{icon="contact-phone"} [T. 934 876 666](tel:+34934121300)
 #mail
