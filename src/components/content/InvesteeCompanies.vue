@@ -52,7 +52,7 @@ function handleButtonNavigation (direction) {
   const totalDistanceToTranslate = childrenWidth * (children.length - elementsToDisplay.value)
   distanceToTranslate.value = direction === 'right' ? distanceToTranslate.value - childrenWidth : distanceToTranslate.value + childrenWidth
 
-  state.canSlide = distanceToTranslate.value >= -totalDistanceToTranslate && distanceToTranslate.value <= 0
+  state.canSlide = distanceToTranslate.value > -totalDistanceToTranslate && distanceToTranslate.value < 0
   distanceToTranslate.value = Math.max(Math.min(distanceToTranslate.value, 0), -totalDistanceToTranslate)
 
   setElementsTransition(children, '0.3s', 'linear')

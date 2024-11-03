@@ -35,7 +35,7 @@ const { y } = useWindowScroll({ behavior: 'smooth' })
 
   &__arrow {
     position: fixed;
-    z-index: z-number(overall);
+    z-index: z-number(header);
     bottom: $spacer;
     right: $spacer;
     width: 48px;
