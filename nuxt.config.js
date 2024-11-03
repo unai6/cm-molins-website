@@ -64,9 +64,13 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxtjs/i18n',
+    'nuxt-schema-org'
   ],
   runtimeConfig: {
     version,
+    app: {
+      baseAppUrl: process.env.BASE_APP_URL,
+    },
   },
   content: {
     documentDriven: false,
@@ -92,6 +96,9 @@ export default defineNuxtConfig({
     customRoutes: 'config',
     pages: i18nPages,
     vueI18n: './src/lang/i18n.config.js',
+  },
+  site: {
+    host: process.env.BASE_APP_URL || 'https://carteracm.com',
   },
   compatibilityDate: '2024-09-20',
 })

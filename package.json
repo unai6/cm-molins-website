@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "nuxt": "^3.13.0",
+    "nuxt-schema-org": "^3.4.1",
     "vue": "latest",
     "vue-router": "latest"
   },
