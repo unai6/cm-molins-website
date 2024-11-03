@@ -330,10 +330,12 @@ function setElementsTransition (elements, duration, animation) {
     box-sizing: border-box;
     width: 100%;
     max-width: $max-content-width;
+    height: 150px;
     margin: 0 auto;
     padding: $spacer $spacer*5;
 
     @include breakpoint(lg) {
+      height: unset;
       padding: $spacer*1.5 0;
     }
   }
@@ -458,8 +460,8 @@ function setElementsTransition (elements, duration, animation) {
     height: 32px;
 
     @include breakpoint(lg) {
-      height: 64px;
-      width: 64px;
+      height: 72px;
+      width: 72px;
     }
 
     &--disabled {
