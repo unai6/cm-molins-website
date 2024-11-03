@@ -480,7 +480,7 @@ function setElementsTransition (elements, duration, animation) {
       padding-left: 0;
 
       @include breakpoint(xl) {
-        left: calc(9.6785rem + $spacer*1.5);
+        left: $spacer*9.6785;
       }
     }
 
@@ -493,7 +493,7 @@ function setElementsTransition (elements, duration, animation) {
       padding-right: 0;
 
       @include breakpoint(xl) {
-        right: calc(9.6785rem + $spacer*1.5);
+        right: $spacer*9.6785;
       }
     }
   }

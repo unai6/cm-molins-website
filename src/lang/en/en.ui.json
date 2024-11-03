@@ -12,5 +12,7 @@
   "investeeCompanies.label.startup": "Tech Startups",
   "investeeCompanies.label.realState": "Real Estate",
   "investeeCompanies.label.finance": "Financial",
-  "investeeCompanies.label.industry": "Industrial"
+  "investeeCompanies.label.industry": "Industrial",
+  "common.label.legal": "Legal warning",
+  "common.label.privacy": "Privacy policy"
 }

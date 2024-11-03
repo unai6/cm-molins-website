@@ -1,5 +1,5 @@
 ---
-title: CM.Molins Family Office Web
+title: Home | CM.Molins Family Office Web
 ---
 
 ::carousel-home
