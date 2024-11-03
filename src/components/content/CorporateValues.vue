@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { useElementSize, useBreakpoints } from '@vueuse/core'
 
 import { debounce } from '@/utils'
+import config from '@/config'
 
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
@@ -13,11 +14,7 @@ const props = defineProps({
   },
 })
 
-const breakpoints = useBreakpoints({
-  md: 768,
-  lg: 1024,
-  xl: 1366,
-})
+const breakpoints = useBreakpoints(config.breakpoints)
 
 const isMobile = ref(breakpoints.smaller('lg'))
 

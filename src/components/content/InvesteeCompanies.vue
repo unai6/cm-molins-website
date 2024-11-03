@@ -2,15 +2,14 @@
 import { reactive, ref, computed } from 'vue'
 import { useBreakpoints, useSwipe } from '@vueuse/core'
 
-import BaseModal from '@/components/content/base/BaseModal.vue';
+import BaseModal from '@/components/content/base/BaseModal.vue'
+
+import config from '@/config'
 
 import investeeCompanies from '@/data/investee-companies'
 
-const breakpoints = useBreakpoints({
-  md: 768,
-  lg: 1024,
-  xl: 1366,
-})
+const breakpoints = useBreakpoints(config.breakpoints)
+
 
 const state = reactive({
   selectedCompanyType: null,

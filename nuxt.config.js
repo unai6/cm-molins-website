@@ -16,7 +16,6 @@ console.info('=> Starting build with ENV', currentEnv)
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-
   app: {
     head: {
       title: 'CM.Molins Family Office Web',
@@ -93,7 +92,6 @@ export default defineNuxtConfig({
     customRoutes: 'config',
     pages: i18nPages,
     vueI18n: './src/lang/i18n.config.js',
-    warnHtmlMessage: false, // disable warning HTML in message.
   },
   compatibilityDate: '2024-09-20',
 })
