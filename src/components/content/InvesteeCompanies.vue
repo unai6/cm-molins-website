@@ -37,7 +37,7 @@ const companiesByType = computed(() => {
 
   if (state.selectedCompanyType) {
     filteredCompanies = filteredCompanies.filter((company) => {
-      if (state.selectedCompanyType === 'startup') {
+      if (state.selectedCompanyType === 'startup' && company.type === 'startup') {
         if (state.startupInvestmentStatus === 'disinvested') {
           return !!company.disinvestedAt
         } else if (state.startupInvestmentStatus === 'invested') {
