@@ -5,6 +5,10 @@ import AppHeader from '@/components/content/AppHeader.vue'
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
 const { y } = useWindowScroll({ behavior: 'smooth' })
+
+function resetScroll () {
+  y.value = 0
+}
 </script>
 
 <template>
@@ -17,7 +21,7 @@ const { y } = useWindowScroll({ behavior: 'smooth' })
           v-if="y > 0 && y > 200"
           class="default-layout__arrow"
           icon="arrow-tail-up"
-          @click="y = 0"
+          @click="resetScroll"
         />
         </Transition>
     </main>
