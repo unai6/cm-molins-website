@@ -335,7 +335,6 @@ function setElementsTransition (elements, duration, animation) {
     padding: $spacer $spacer*5;
 
     @include breakpoint(lg) {
-      height: unset;
       padding: $spacer*1.5 0;
     }
   }
