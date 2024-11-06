@@ -13,6 +13,7 @@ function resetScroll () {
 
 <template>
   <div class="default-layout">
+    {{y}}
     <AppHeader />
     <main>
       <slot />
