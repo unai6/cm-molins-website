@@ -1,14 +1,21 @@
 <script setup>
-import { useWindowScroll } from '@vueuse/core'
+import { ref } from 'vue'
+import { useWindowScroll, onMounted } from '@vueuse/core'
 
 import AppHeader from '@/components/content/AppHeader.vue'
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
 const { y } = useWindowScroll({ behavior: 'smooth' })
 
+const yRef = ref(0)
+
 function resetScroll () {
-  y.value = 0
+  yRef.value = 0
 }
+
+onMounted(() => {
+  yRef.value = y.value
+})
 </script>
 
 <template>
@@ -19,7 +26,7 @@ function resetScroll () {
       <slot />
       <Transition name="fade">
         <BaseIcon
-          v-if="y > 0 && y > 200"
+          v-if="yRef > 0 && yRef > 200"
           class="default-layout__arrow"
           icon="arrow-tail-up"
           @click="resetScroll"
