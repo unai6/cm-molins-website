@@ -20,7 +20,6 @@ onMounted(() => {
 
 <template>
   <div class="default-layout">
-    {{y}} {{ y > 0 && y > 200 }} {{ y !== 0 && y > 200 }}
     <AppHeader />
     <main>
       <slot />
