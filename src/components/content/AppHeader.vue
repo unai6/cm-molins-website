@@ -35,16 +35,22 @@ function openDropdown (id) {
   state.visibleDropdown = id
 }
 
-function navigateToElement (id) {
-  // setTimeout is needed to wait for the DOM to update after navigating from external page routes.
-  setTimeout(() => {
+function navigateToElement(id) {
+  const observer = new MutationObserver((mutations, obs) => {
     const element = document.getElementById(id)
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 96,
+        behavior: 'smooth',
+      });
+      obs.disconnect();
+    }
+  });
 
-    window.scrollTo({
-      top: element.offsetTop - 96,
-      behavior: 'smooth',
-    })
-  }, 500)
+  observer.observe(document, {
+    childList: true,
+    subtree: true,
+  });
 
   state.isMenuVisible = false
   state.visibleDropdown = null
@@ -56,7 +62,7 @@ function navigateToElement (id) {
     <div class="app-header__container">
       <div class="app-header__mobile-menu mobile-only">
         <NuxtLink class="app-header__title" :to="localePath('/', $i18n.locale)" @click="navigateToElement('top')">
-          CARTERA DE<br>INVERSIONES&nbsp;<span>C.M.</span>
+          CARTERA DE<br>INVERSIONES&nbsp<span>C.M.</span>
         </NuxtLink>
         <AppBurger v-model="state.isMenuVisible" mobile-only />
       </div>

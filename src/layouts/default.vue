@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue'
-import { useWindowScroll, onMounted } from '@vueuse/core'
+import { ref, onMounted } from 'vue'
+import { useWindowScroll } from '@vueuse/core'
 
 import AppHeader from '@/components/content/AppHeader.vue'
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
