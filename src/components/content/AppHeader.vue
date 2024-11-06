@@ -10,6 +10,8 @@ import config from '@/config'
 
 const breakpoints = useBreakpoints(config.breakpoints)
 
+const localePath = useLocalePath()
+
 const state = reactive({
   visibleDropdown: null,
   isMenuVisible: false,
@@ -35,22 +37,33 @@ function openDropdown (id) {
   state.visibleDropdown = id
 }
 
-function navigateToElement(id) {
+async function navigateToElement(id) {
+  await navigateTo(localePath({ path: '/', hash: `#${id}` }))
+
   const observer = new MutationObserver((mutations, obs) => {
     const element = document.getElementById(id)
+
     if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 96,
-        behavior: 'smooth',
-      });
-      obs.disconnect();
+      // Leave breath for the browser to update the DOM.
+      new Promise((resolve) => setTimeout(resolve, 0)).then(() => {
+
+        window.scrollTo({
+          top: element.offsetTop - 96,
+          behavior: 'smooth',
+        })
+
+        obs.disconnect()
+
+        // Clean the hash
+        history.replaceState(null, null, ' ')
+      })
     }
-  });
+  })
 
   observer.observe(document, {
     childList: true,
     subtree: true,
-  });
+  })
 
   state.isMenuVisible = false
   state.visibleDropdown = null
@@ -164,11 +177,16 @@ function navigateToElement(id) {
       flex-direction: row;
       justify-content: space-evenly;
       gap: $spacer;
-      padding: 0 $spacer;
+      padding: 0 $spacer*9.6785;
       box-sizing: border-box;
       height: 100%;
       max-width: $max-content-width;
       margin: 0 auto;
+    }
+
+    @include breakpoint(xxl) {
+      justify-content: space-between;
+      padding: 0;
     }
   }
 
