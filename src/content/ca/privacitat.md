@@ -5,7 +5,7 @@ title: Política de privacitat | CM.Molins Family Office Web
 # POLÍTICA DE PRIVACITAT
 
 ## INTRODUCCIÓ
-La vostra privadesa és important per a nosaltres, així que mitjançant aquest document, explicarem quines dades recopilem dels nostres usuaris, com les utilitzem i per què, entre altres directrius. Aquells que tinguin més de 14 anys poden registrar-se com a usuaris sense el consentiment previ dels seus pares, tutors o representants legals. En el cas de nens menors de 14 anys o identificats com a "legalment incompetents", sempre necessitarem el consentiment dels seus pares, tutors o representants legals.
+La vostra privacitat és important per a nosaltres, així que mitjançant aquest document, explicarem quines dades recopilem dels nostres usuaris, com les utilitzem i per què, entre altres directrius. Aquells que tinguin més de 14 anys poden registrar-se com a usuaris sense el consentiment previ dels seus pares, tutors o representants legals. En el cas de nens menors de 14 anys o identificats com a "legalment incompetents", sempre necessitarem el consentiment dels seus pares, tutors o representants legals.
 
 Per a la vostra informació, mai no demanarem més detalls dels que realment necessitarem per als serveis requerits; mai no les compartirem amb tercers, excepte per obligació legal o amb la vostra autorització prèvia; i mai no utilitzarem les vostres dades per a cap finalitat no especificada prèviament.
 

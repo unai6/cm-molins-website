@@ -134,5 +134,5 @@ corporateValuesItems:
 #legal
   [Avís legal](/ca/legal)
 #termsAndConditions
-  [Política de privadesa](/ca/privacitat)
+  [Política de privacitat](/ca/privacitat)
 ::

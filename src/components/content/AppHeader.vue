@@ -199,8 +199,7 @@ function navigateToElement (id) {
         position: absolute;
         cursor: pointer;
         width: 240px;
-        padding-left: $spacer;
-        padding-bottom: $spacer;
+        padding: $spacer;
         line-height: $font-lineheight-long;
         background-color: $color-neutral-white;
       }
