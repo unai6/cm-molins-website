@@ -40,6 +40,7 @@
     display: flex;
     flex-direction: column;
     gap: $spacer*1.5;
+    box-sizing: border-box;
     padding: $spacer*1.5 0;
     padding-top: $spacer*6;
     padding-bottom: 0;
@@ -47,19 +48,19 @@
     margin: 0 auto;
 
     @include breakpoint(lg) {
-      padding: $spacer*3 $spacer*9.6785;
+      padding: $spacer*3 $spacer*7.5;
+      padding-top: calc(100px + $spacer*3);
     }
 
     @include breakpoint(xl) {
       flex-direction: row;
       gap: $spacer*3;
-      padding-top: calc(100px + $spacer*3);
       padding-right: 0;
     }
 
     @include breakpoint(xxl) {
       padding-right: unset;
-      padding: $spacer*3 $spacer*9.6785;
+      padding: $spacer*3 $spacer*7.5;
       padding-top: calc(100px + $spacer*3);
     }
   }

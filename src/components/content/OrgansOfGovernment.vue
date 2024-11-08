@@ -36,13 +36,14 @@ const props = defineProps({
     display: flex;
     flex-direction: column;
     gap: $spacer*1.5;
+    box-sizing: border-box;
     padding: $spacer*3 $spacer*1.5;
     max-width: $max-content-width;
     margin: 0 auto;
 
     @include breakpoint(lg) {
       padding: $spacer*3;
-      padding-inline: $spacer*9.6785;
+      padding-inline: $spacer*7.5;
     }
   }
 

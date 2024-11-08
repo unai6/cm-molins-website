@@ -55,13 +55,14 @@ const carouselNavConfig = {
     margin: '0'
   },
   lg: {
-    width: 'calc(100%  - 155px * 2)',
+    maxWidth: 'calc(1440px  - 136px * 2)',
+    width: 'calc(100% - 136px * 2)'
   },
 }
 
-state.interval = setInterval(() => {
-  state.activeItem = state.activeItem >= itemsLength ? 1 : state.activeItem + 1
-}, 6000)
+// state.interval = setInterval(() => {
+//   state.activeItem = state.activeItem >= itemsLength ? 1 : state.activeItem + 1
+// }, 6000)
 
 
 function getTemplateIdx (idx) {
@@ -116,7 +117,7 @@ onUnmounted(() => {
   box-sizing: border-box;
 
   @include breakpoint(lg) {
-    padding: $spacer*3 $spacer*9.6785;
+    padding: $spacer*3 $spacer*7.5;
   }
 
   &--primary {
@@ -154,14 +155,21 @@ onUnmounted(() => {
 
   &__content {
     line-height: $font-lineheight-largest;
-    text-align: left;
+    text-align: center;
     text-wrap: balance;
 
     @include breakpoint(lg) {
-      text-align: center;
       text-wrap: unset;
       font-size: ms(1);
-      padding: 0 $spacer*7;
+      padding: 0 $spacer*8;
+    }
+
+    @include breakpoint(xl) {
+      padding: 0 $spacer*14;
+    }
+
+    @include breakpoint(xxl) {
+      padding: 0 $spacer*17;
     }
   }
 }

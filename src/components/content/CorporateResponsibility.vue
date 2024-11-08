@@ -26,13 +26,14 @@
     display: flex;
     flex-direction: column;
     gap: $spacer*1.5;
+    box-sizing: border-box;
     padding: $spacer*3 $spacer*1.5;
     max-width: $max-content-width;
     margin: 0 auto;
 
     @include breakpoint(lg) {
       flex-direction: row;
-      padding: $spacer*3 $spacer*9.6785;
+      padding: $spacer*3 $spacer*7.5;
       gap: $spacer*3;
     }
 

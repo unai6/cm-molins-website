@@ -216,7 +216,7 @@ function setElementsTransition (elements, duration, animation) {
 
     @include breakpoint(lg) {
       gap: $spacer*3;
-      padding: $spacer*3 $spacer*9.6785;
+      padding: $spacer*3 $spacer*7.5;
       margin: 0 auto;
     }
   }
@@ -368,7 +368,7 @@ function setElementsTransition (elements, duration, animation) {
       max-width: $max-content-width;
       width: 100%;
       margin: 0 auto;
-      padding: $spacer*1.5 $spacer*9.6785;
+      padding: $spacer*1.5 $spacer*7.5;
     }
   }
 
@@ -418,8 +418,15 @@ function setElementsTransition (elements, duration, animation) {
     object-fit: contain;
 
     @include breakpoint(lg) {
+      filter: grayscale(1);
       cursor: pointer;
       width: 178px;
+    }
+
+    @media(hover: hover) {
+      &:hover {
+        filter: none;
+      }
     }
 
     &--large {
@@ -427,6 +434,7 @@ function setElementsTransition (elements, duration, animation) {
       min-height: 64px;
       max-height: 150px;
       margin: 0 auto;
+      filter: none;
 
       @include breakpoint(lg) {
         width: 225px;
@@ -479,7 +487,7 @@ function setElementsTransition (elements, duration, animation) {
       padding-left: 0;
 
       @include breakpoint(xl) {
-        left: $spacer*9.6785;
+        left: $spacer*7.5;
       }
     }
 
@@ -492,7 +500,7 @@ function setElementsTransition (elements, duration, animation) {
       padding-right: 0;
 
       @include breakpoint(xl) {
-        right: $spacer*9.6785;
+        right: $spacer*7.5;
       }
     }
   }

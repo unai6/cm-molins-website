@@ -189,9 +189,9 @@ async function navigateToElement(id) {
     @include breakpoint(lg) {
       align-items: center;
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: space-between;
       gap: $spacer;
-      padding: 0 $spacer*9.6785;
+      padding: 0 $spacer*7.5;
       box-sizing: border-box;
       height: 100%;
       max-width: $max-content-width;
@@ -199,8 +199,7 @@ async function navigateToElement(id) {
     }
 
     @include breakpoint(xxl) {
-      justify-content: space-between;
-      padding: 0;
+      padding: 0 $spacer*7.5;
     }
   }
 
