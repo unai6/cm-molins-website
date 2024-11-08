@@ -134,11 +134,6 @@ const slots = useSlots()
     color: $color-neutral-white;
     animation: fadeIn 1s linear;
 
-    & span {
-      font-size: ms(0);
-      align-self: flex-start;
-    }
-
     @include breakpoint(md) {
       width: 350px
     }
@@ -149,6 +144,15 @@ const slots = useSlots()
       width: 336px;
     }
 
+    @include breakpoint(xxl) {
+      bottom: 48px;
+      left: 155px;
+      max-width: 600px;
+      width: 500px;
+      height: 500px;
+      font-size: ms(3);
+    }
+
     &::after {
       position: absolute;
       content: '';
@@ -157,6 +161,15 @@ const slots = useSlots()
       height: 100%;
       width: 100%;
       opacity: 0.6;
+    }
+
+    & span {
+      font-size: ms(0);
+      align-self: flex-start;
+
+      @include breakpoint(xxl) {
+        font-size: ms(1);
+      }
     }
   }
 }

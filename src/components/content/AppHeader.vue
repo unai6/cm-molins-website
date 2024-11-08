@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
-import { onClickOutside, useBreakpoints } from '@vueuse/core'
+import { onClickOutside, useBreakpoints, useWindowScroll } from '@vueuse/core'
 
 import AppLocaleSwitcher from '@/components/content/AppLocaleSwitcher.vue'
 import AppBurger from '@/components/content/AppBurger.vue'
@@ -9,6 +9,8 @@ import BaseIcon from '@/components/content/base/BaseIcon.vue'
 import config from '@/config'
 
 const breakpoints = useBreakpoints(config.breakpoints)
+
+const { y: windowScrollY } = useWindowScroll()
 
 const localePath = useLocalePath()
 
@@ -54,7 +56,7 @@ async function navigateToElement(id) {
 
         obs.disconnect()
 
-        // Clean the hash
+        // Clean the hash.
         history.replaceState(null, null, ' ')
       })
     }
@@ -71,11 +73,19 @@ async function navigateToElement(id) {
 </script>
 
 <template>
-  <div id="top" ref="appHeaderRef" class="app-header" :class="{ 'app-header--collapsed': !state.isMenuVisible }">
+  <div
+    id="top"
+    ref="appHeaderRef"
+    class="app-header"
+    :class="{
+      'app-header--collapsed': !state.isMenuVisible && state.isMobile,
+      'app-header--shadowed': windowScrollY > 0,
+    }"
+  >
     <div class="app-header__container">
       <div class="app-header__mobile-menu mobile-only">
         <NuxtLink class="app-header__title" :to="localePath('/', $i18n.locale)" @click="navigateToElement('top')">
-          CARTERA DE<br>INVERSIONES&nbsp<span>C.M.</span>
+          CARTERA DE<br>INVERSIONES&nbsp;<b>C.M.</b>
         </NuxtLink>
         <AppBurger v-model="state.isMenuVisible" mobile-only />
       </div>
@@ -113,7 +123,7 @@ async function navigateToElement(id) {
           </div>
         </div>
         <NuxtLink :to="localePath('/', $i18n.locale)" class="app-header__title desktop-only" @click="navigateToElement('top')">
-          CARTERA DE INVERSIONES&nbsp;<span>C.M.</span>
+          CARTERA DE INVERSIONES&nbsp;<b>C.M.</b>
         </NuxtLink>
         <NuxtLink
           :to="localePath('/', $i18n.locale)"
@@ -155,6 +165,10 @@ async function navigateToElement(id) {
 
   &--collapsed {
     height: $app-header-height;
+  }
+
+  &--shadowed {
+    box-shadow: 0 2px 4px rgba($color-neutral-black, 0.1);
   }
 
   &__container {
@@ -257,7 +271,7 @@ async function navigateToElement(id) {
       line-height: $font-lineheight-base;
     }
 
-    & > span {
+    & > b {
       font-family: Arial, Helvetica, sans-serif;
       font-weight: $font-weight-bold;
       font-size: 21px; // Force this font-size as per design request.
