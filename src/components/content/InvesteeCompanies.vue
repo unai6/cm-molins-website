@@ -216,7 +216,7 @@ function setElementsTransition (elements, duration, animation) {
 
     @include breakpoint(lg) {
       gap: $spacer*3;
-      padding: $spacer*3 $spacer*7.5;
+      padding: $spacer*3 $spacer*6.25;
       margin: 0 auto;
     }
   }
@@ -368,7 +368,7 @@ function setElementsTransition (elements, duration, animation) {
       max-width: $max-content-width;
       width: 100%;
       margin: 0 auto;
-      padding: $spacer*1.5 $spacer*7.5;
+      padding: $spacer*1.5 $spacer*6.25;
     }
   }
 
@@ -430,9 +430,9 @@ function setElementsTransition (elements, duration, animation) {
     }
 
     &--large {
-      width: 150px;
+      width: 200px;
       min-height: 64px;
-      max-height: 150px;
+      max-height: 125px;
       margin: 0 auto;
       filter: none;
 
@@ -487,7 +487,7 @@ function setElementsTransition (elements, duration, animation) {
       padding-left: 0;
 
       @include breakpoint(xl) {
-        left: $spacer*7.5;
+        left: $spacer*6.25;
       }
     }
 
@@ -500,7 +500,7 @@ function setElementsTransition (elements, duration, animation) {
       padding-right: 0;
 
       @include breakpoint(xl) {
-        right: $spacer*7.5;
+        right: $spacer*6.25;
       }
     }
   }
@@ -532,7 +532,6 @@ function setElementsTransition (elements, duration, animation) {
     gap: $spacer;
     font-family: $font-family-highlight;
     line-height: $font-lineheight-extra-large;
-    overflow: auto;
 
     &::-webkit-scrollbar {
       width: 5px;

@@ -105,7 +105,7 @@ onMounted(() => {
   padding: $spacer*3 $spacer*1.5;
 
   @include breakpoint(lg) {
-    padding: $spacer*3 $spacer*7.5;
+    padding: $spacer*3 $spacer*6.25;
   }
 
   &__content {

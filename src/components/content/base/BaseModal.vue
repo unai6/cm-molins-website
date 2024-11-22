@@ -23,9 +23,11 @@ watch(isOpen, value=> {
 </script>
 
 <template>
-  <Transition name="fade" mode="out-in">
+  <Transition name="fade">
+    <div v-if="isOpen" class="base-modal__overlay" />
+  </Transition>
+  <Transition name="move-up" mode="out-in">
     <div v-if="isOpen" class="base-modal">
-      <div class="base-modal__overlay" />
       <div class="base-modal__container" ref="modalRefContainer" >
         <BaseIcon
           class="base-modal__x-mark"
@@ -63,7 +65,9 @@ watch(isOpen, value=> {
   }
 
   &__overlay {
-    position: absolute;
+    position: fixed;
+    bottom: 0;
+    z-index: z-number(modal);
     width: 100%;
     height: 100%;
     background-color: $color-opacities-darkest;
@@ -80,6 +84,7 @@ watch(isOpen, value=> {
     padding: $spacer*1.5;
     width: 100%;
     height: fit-content;
+    max-height: calc(100% - $app-header-height);
     background-color: $color-neutral-white;
 
     @include breakpoint(lg) {
@@ -95,6 +100,7 @@ watch(isOpen, value=> {
     display: flex;
     flex-direction: column;
     gap: $spacer;
+    overflow: scroll;
   }
 
   &__x-mark {

@@ -48,7 +48,7 @@
     margin: 0 auto;
 
     @include breakpoint(lg) {
-      padding: $spacer*3 $spacer*7.5;
+      padding: $spacer*3 $spacer*6.25;
       padding-top: calc(100px + $spacer*3);
     }
 
@@ -60,7 +60,7 @@
 
     @include breakpoint(xxl) {
       padding-right: unset;
-      padding: $spacer*3 $spacer*7.5;
+      padding: $spacer*3 $spacer*6.25;
       padding-top: calc(100px + $spacer*3);
     }
   }

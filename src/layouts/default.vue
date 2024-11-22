@@ -2,18 +2,17 @@
 import { ref, onMounted } from 'vue'
 
 import AppHeader from '@/components/content/AppHeader.vue'
-import AppFooter from '@/components/content/AppFooter.vue'
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
 const yRef = ref(0)
 
 function resetScroll () {
-  yRef.value = 0
-
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
   })
+
+  yRef.value = 0
 }
 
 onMounted(() => {
@@ -30,12 +29,12 @@ onMounted(() => {
       <slot />
       <Transition name="fade">
         <BaseIcon
-          v-if="yRef > 0 && yRef > 200"
-          class="default-layout__arrow"
-          icon="arrow-tail-up"
-          @click="resetScroll"
+        v-if="yRef > 200"
+        class="default-layout__arrow"
+        icon="arrow-tail-up"
+        @click="resetScroll"
         />
-        </Transition>
+      </Transition>
     </main>
   </div>
 </template>

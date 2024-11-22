@@ -135,18 +135,22 @@ const slots = useSlots()
     animation: fadeIn 1s linear;
 
     @include breakpoint(md) {
+      max-width: unset;
+      height: 350px;
       width: 350px
     }
 
     @include breakpoint(lg) {
-      bottom: 48px;
+      bottom: -16px;
       left: 155px;
+      height: 336px;
       width: 336px;
+      font-size: ms(2);
     }
 
     @include breakpoint(xxl) {
-      bottom: 48px;
-      left: 155px;
+      bottom: -24px;
+      left: 255px;
       max-width: 600px;
       width: 500px;
       height: 500px;

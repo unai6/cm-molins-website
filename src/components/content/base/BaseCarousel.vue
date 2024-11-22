@@ -130,6 +130,7 @@ function getNavConfig () {
   }
 
   &__item {
+    position: relative;
     height: 100%;
 
     @include breakpoint(lg) {

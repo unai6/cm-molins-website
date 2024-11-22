@@ -39,7 +39,7 @@ const carouselDotsConfig = {
     position: 'absolute',
     transform: 'translate(-50%, -50%)',
     left: '50%',
-    bottom: '16px',
+    bottom: '-48px',
     lg: {
       position: 'relative',
       transform: 'unset',
@@ -55,14 +55,14 @@ const carouselNavConfig = {
     margin: '0'
   },
   lg: {
-    maxWidth: 'calc(1440px  - 136px * 2)',
-    width: 'calc(100% - 136px * 2)'
+    maxWidth: 'calc(1440px  - 200px)',
+    width: 'calc(100% - 200px)'
   },
 }
 
-// state.interval = setInterval(() => {
-//   state.activeItem = state.activeItem >= itemsLength ? 1 : state.activeItem + 1
-// }, 6000)
+state.interval = setInterval(() => {
+  state.activeItem = state.activeItem >= itemsLength ? 1 : state.activeItem + 1
+}, 6000)
 
 
 function getTemplateIdx (idx) {
@@ -117,7 +117,7 @@ onUnmounted(() => {
   box-sizing: border-box;
 
   @include breakpoint(lg) {
-    padding: $spacer*3 $spacer*7.5;
+    padding: $spacer*3 $spacer;
   }
 
   &--primary {
@@ -161,10 +161,6 @@ onUnmounted(() => {
     @include breakpoint(lg) {
       text-wrap: unset;
       font-size: ms(1);
-      padding: 0 $spacer*8;
-    }
-
-    @include breakpoint(xl) {
       padding: 0 $spacer*14;
     }
 

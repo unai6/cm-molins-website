@@ -43,7 +43,7 @@ const props = defineProps({
 
     @include breakpoint(lg) {
       padding: $spacer*3;
-      padding-inline: $spacer*7.5;
+      padding-inline: $spacer*6.25;
     }
   }
 
