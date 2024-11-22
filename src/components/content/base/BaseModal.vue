@@ -23,7 +23,7 @@ watch(isOpen, value=> {
 </script>
 
 <template>
-  <Transition name="fade">
+  <Transition name="fade" mode="out-in">
     <div v-if="isOpen" class="base-modal__overlay" />
   </Transition>
   <Transition name="move-up" mode="out-in">
@@ -70,7 +70,7 @@ watch(isOpen, value=> {
     z-index: z-number(modal);
     width: 100%;
     height: 100%;
-    background-color: $color-opacities-darkest;
+    background-color: $color-opacities-medium;
   }
 
   &__container {
