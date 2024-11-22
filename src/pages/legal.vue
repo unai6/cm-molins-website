@@ -18,7 +18,7 @@ const contentPath = locale.value === defaultLocale ? `/${locale.value}${path}` :
   margin: 0 auto;
 
   @include breakpoint(lg) {
-    padding: $spacer*3 $spacer*7.5;
+    padding: $spacer*3 $spacer*6.25;
   }
 
   & > div {
