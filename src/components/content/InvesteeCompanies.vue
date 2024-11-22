@@ -216,7 +216,7 @@ function setElementsTransition (elements, duration, animation) {
 
     @include breakpoint(lg) {
       gap: $spacer*3;
-      padding: $spacer*3 $spacer*6.25;
+      padding: $spacer*3 $spacer*7.5;
       margin: 0 auto;
     }
   }
@@ -368,7 +368,7 @@ function setElementsTransition (elements, duration, animation) {
       max-width: $max-content-width;
       width: 100%;
       margin: 0 auto;
-      padding: $spacer*1.5 $spacer*6.25;
+      padding: $spacer*1.5 $spacer*7.5;
     }
   }
 
@@ -487,7 +487,7 @@ function setElementsTransition (elements, duration, animation) {
       padding-left: 0;
 
       @include breakpoint(xl) {
-        left: $spacer*6.25;
+        left: $spacer*7.5;
       }
     }
 
@@ -500,7 +500,7 @@ function setElementsTransition (elements, duration, animation) {
       padding-right: 0;
 
       @include breakpoint(xl) {
-        right: $spacer*6.25;
+        right: $spacer*7.5;
       }
     }
   }

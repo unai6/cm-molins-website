@@ -191,7 +191,7 @@ async function navigateToElement(id) {
       flex-direction: row;
       justify-content: space-between;
       gap: $spacer;
-      padding: 0 $spacer*6.25;
+      padding: 0 $spacer*7.5;
       box-sizing: border-box;
       height: 100%;
       max-width: $max-content-width;
@@ -199,7 +199,7 @@ async function navigateToElement(id) {
     }
 
     @include breakpoint(xxl) {
-      padding: 0 $spacer*6.25;
+      padding: 0 $spacer*7.5;
     }
   }
 

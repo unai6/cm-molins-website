@@ -33,7 +33,7 @@
 
     @include breakpoint(lg) {
       flex-direction: row;
-      padding: $spacer*3 $spacer*6.25;
+      padding: $spacer*3 $spacer*7.5;
       gap: $spacer*3;
     }
 
