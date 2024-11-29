@@ -32,7 +32,7 @@ const carouselDotsConfig = {
     bottom: '-80px',
     lg: {
       position: 'absolute',
-      bottom: '96px',
+      bottom: '40px',
       transform: 'translate(-50%, -50%)',
       left: '50%',
     }
