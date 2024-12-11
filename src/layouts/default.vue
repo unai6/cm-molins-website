@@ -1,25 +1,26 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
+import { useWindowScroll } from '@vueuse/core'
 
 import AppHeader from '@/components/content/AppHeader.vue'
 import BaseIcon from '@/components/content/base/BaseIcon.vue'
 
 const yRef = ref(0)
 
+const { y } = useWindowScroll()
+
 function resetScroll () {
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
   })
-
-  yRef.value = 0
 }
 
-onMounted(() => {
-  window.addEventListener('scroll', () => {
-    yRef.value = window.scrollY
-  })
+
+watch(y, value => {
+  yRef.value = value
 })
+
 </script>
 
 <template>
