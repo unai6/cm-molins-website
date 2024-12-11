@@ -18,7 +18,7 @@ const state = reactive({
   direction: 'left',
   canSlide: false,
   isModalOpen: false,
-  isMobile: breakpoints.smaller('lg'),
+  isMobile: breakpoints.smaller('md'),
 })
 
 const investeeCompaniesType = ['industry', 'startup', 'finance', 'realState']

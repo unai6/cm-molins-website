@@ -2,20 +2,13 @@
 const emit = defineEmits(['update:isActive'])
 
 const modelValue = defineModel({ type: Boolean, required: true })
-
-const props = defineProps({
-  mobileOnly: {
-    type: Boolean,
-    default: false,
-  },
-})
 </script>
 <template>
   <div
     role="button"
     aria-label="menu"
     class="app-burger"
-    :class="{ 'app-burger--active': !!modelValue, 'mobile-only': props.mobileOnly }"
+    :class="{ 'app-burger--active': !!modelValue }"
     @click="modelValue = !modelValue"
   >
     <div v-for="i in 3" :key="i" class="app-burger__line" />

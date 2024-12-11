@@ -17,6 +17,12 @@
   }
 }
 
+.hidden-large-desktop {
+  @media (min-width: $xl-breakpoint) {
+    display: none !important;
+  }
+}
+
 .mobile-only {
   @include breakpoint(lg) {
     display: none !important;

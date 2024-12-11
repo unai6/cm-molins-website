@@ -35,7 +35,7 @@ const carouselDotsConfig = {
       bottom: '40px',
       transform: 'translate(-50%, -50%)',
       left: '50%',
-    }
+    },
   },
   size: '16px',
 }
@@ -142,7 +142,7 @@ const slots = useSlots()
 
     @include breakpoint(lg) {
       bottom: -16px;
-      left: 155px;
+      left: 105px;
       height: 336px;
       width: 336px;
       font-size: ms(2);

@@ -16,7 +16,7 @@ const props = defineProps({
 
 const breakpoints = useBreakpoints(config.breakpoints)
 
-const isMobile = ref(breakpoints.smaller('lg'))
+const isMobile = ref(breakpoints.smaller('md'))
 
 const doublePi = 2 * Math.PI
 const alphaOffset = doublePi / props.corporateValuesItems.length

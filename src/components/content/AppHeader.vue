@@ -17,7 +17,7 @@ const localePath = useLocalePath()
 const state = reactive({
   visibleDropdown: null,
   isMenuVisible: false,
-  isMobile: breakpoints.smaller('lg'),
+  isLaptop: breakpoints.smaller('xl'),
 })
 
 const appHeaderRef = useTemplateRef('appHeaderRef')
@@ -48,7 +48,6 @@ async function navigateToElement(id) {
     if (element) {
       // Leave breath for the browser to update the DOM.
       new Promise((resolve) => setTimeout(resolve, 0)).then(() => {
-
         window.scrollTo({
           top: element.offsetTop - 96,
           behavior: 'smooth',
@@ -78,18 +77,18 @@ async function navigateToElement(id) {
     ref="appHeaderRef"
     class="app-header"
     :class="{
-      'app-header--collapsed': !state.isMenuVisible && state.isMobile,
+      'app-header--collapsed': !state.isMenuVisible && state.isLaptop,
       'app-header--shadowed': windowScrollY > 0,
     }"
   >
     <div class="app-header__container">
-      <div class="app-header__mobile-menu mobile-only">
+      <div class="app-header__mobile-menu hidden-large-desktop">
         <NuxtLink class="app-header__title" :to="localePath('/', $i18n.locale)" @click="navigateToElement('top')">
           CARTERA DE<br>INVERSIONES&nbsp;<b>C.M.</b>
         </NuxtLink>
-        <AppBurger v-model="state.isMenuVisible" mobile-only />
+        <AppBurger v-model="state.isMenuVisible" />
       </div>
-      <template v-if="state.isMenuVisible || !state.isMobile">
+      <template v-if="state.isMenuVisible || !state.isLaptop">
         <div class="app-header__block">
           <p class="app-header__dropdown-title" @click="openDropdown('aboutUs')">
             {{ $t('appHeader.label.aboutUs') }} &nbsp;<BaseIcon icon="chevron-down"/>
@@ -158,7 +157,7 @@ async function navigateToElement(id) {
   height: 100%;
   transition: height .2s linear;
 
-  @include breakpoint(lg) {
+  @include breakpoint(xl) {
     height: $app-header-height;
     background-color: $color-neutral-white;
   }
@@ -186,7 +185,7 @@ async function navigateToElement(id) {
     font-family: $font-family-highlight;
     font-weight: $font-weight-regular;
 
-    @include breakpoint(lg) {
+    @include breakpoint(xl) {
       align-items: center;
       flex-direction: row;
       justify-content: space-between;
@@ -232,7 +231,7 @@ async function navigateToElement(id) {
       line-height: $font-lineheight-long;
       color: $color-opacities-darkest;
 
-      @include breakpoint(lg) {
+      @include breakpoint(xl) {
         position: absolute;
         cursor: pointer;
         width: 240px;
@@ -248,7 +247,7 @@ async function navigateToElement(id) {
         padding-bottom: $spacer*0.25;
         width: fit-content;
 
-        @include breakpoint(lg) {
+        @include breakpoint(xl) {
           border-bottom: unset;
           padding-bottom: 0;
         }
@@ -266,7 +265,7 @@ async function navigateToElement(id) {
     color: $color-opacities-darkest;
     text-decoration: none;
 
-    @include breakpoint(lg) {
+    @include breakpoint(xl) {
       line-height: $font-lineheight-base;
     }
 
@@ -280,7 +279,7 @@ async function navigateToElement(id) {
   &__locale-switcher {
     margin-top: $spacer;
 
-    @include breakpoint(lg) {
+    @include breakpoint(xl) {
       margin-top: unset;
     }
   }
