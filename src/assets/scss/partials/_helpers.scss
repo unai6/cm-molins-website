@@ -36,3 +36,11 @@
     display: inherit !important;
   }
 }
+
+.large-desktop-only {
+  display: none !important;
+
+  @include breakpoint(xl) {
+    display: inherit !important;
+  }
+}

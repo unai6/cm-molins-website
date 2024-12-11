@@ -121,7 +121,7 @@ async function navigateToElement(id) {
             </NuxtLink>
           </div>
         </div>
-        <NuxtLink :to="localePath('/', $i18n.locale)" class="app-header__title desktop-only" @click="navigateToElement('top')">
+        <NuxtLink :to="localePath('/', $i18n.locale)" class="app-header__title large-desktop-only" @click="navigateToElement('top')">
           CARTERA DE INVERSIONES&nbsp;<b>C.M.</b>
         </NuxtLink>
         <NuxtLink
