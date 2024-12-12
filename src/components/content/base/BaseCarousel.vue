@@ -84,7 +84,7 @@ function handleButtonNavigation (direction) {
 
 getNavConfig()
 
-function getNavConfig () {
+async function getNavConfig () {
   if (props.navConfig) {
     state.navConfig = deepMerge({ ...defaultNavConfigStyling }, props.navConfig)
   } else {

@@ -10,6 +10,15 @@ const state = reactive({
 
 const imagesLength = 4
 
+
+// const carouselNavConfig = {
+//   lg: {
+//     position: 'absolute',
+//     maxWidth: 'unset',
+//   }
+// }
+
+
 const carouselDotsConfig = {
   background: {
     color: '#6C6C6C',
@@ -31,24 +40,28 @@ const carouselDotsConfig = {
     left: '50%',
     bottom: '-80px',
     lg: {
-      position: 'absolute',
-      bottom: '40px',
+      position: 'relative',
       transform: 'translate(-50%, -50%)',
+      bottom: '40px',
       left: '50%',
-    },
+    }
   },
   size: '16px',
 }
 
 const carouselNavConfig = {
   lg: {
+    position: 'absolute',
     maxWidth: 'unset',
-  }
+    width: '100%',
+    top:'50%',
+    transform: 'translate(-50%, -50%)',
+  },
 }
 
-state.interval = setInterval(() => {
-  state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
-}, 6000)
+// state.interval = setInterval(() => {
+//   state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
+// }, 6000)
 
 
 function getTemplateIdx (idx) {
@@ -58,34 +71,34 @@ function getTemplateIdx (idx) {
 onUnmounted(() => {
   clearInterval(state.interval)
 })
-
-const slots = useSlots()
 </script>
 
 <template>
-  <BaseCarousel
-    v-model="state.activeImage"
-    :dots-config="carouselDotsConfig"
-    :nav-config="carouselNavConfig"
-    :items-length="imagesLength"
-    class="carousel-home"
-  >
-    <template #[getTemplateIdx(state.activeImage)]>
-      <div class="carousel-home__image-wrapper">
-        <img
-          :src="`/images/carousel-home-${state.activeImage}.jpg`"
-          :alt="`carousel-image-${state.activeImage}`"
-          class="carousel-home__image"
-        />
-      </div>
-      <div class="carousel-home__quotes">
-        <ContentSlot v-if="state.activeImage === 1" :use="$slots.item1" unwrap="p" />
-        <ContentSlot v-if="state.activeImage === 2" :use="$slots.item2" unwrap="p" />
-        <ContentSlot v-if="state.activeImage === 3" :use="$slots.item3" unwrap="p" />
-        <ContentSlot v-if="state.activeImage === 4" :use="$slots.item4" unwrap="p" />
-      </div>
-    </template>
-  </BaseCarousel>
+  <div>
+    <BaseCarousel
+      v-model="state.activeImage"
+      :dots-config="carouselDotsConfig"
+      :nav-config="carouselNavConfig"
+      :items-length="imagesLength"
+      class="carousel-home"
+    >
+      <template #[getTemplateIdx(state.activeImage)]>
+        <div class="carousel-home__image-wrapper">
+          <img
+            :src="`/images/carousel-home-${state.activeImage}.jpg`"
+            :alt="`carousel-image-${state.activeImage}`"
+            class="carousel-home__image"
+          />
+        </div>
+      </template>
+    </BaseCarousel>
+    <div class="carousel-home__quotes">
+      <ContentSlot v-if="state.activeImage === 1" :use="$slots.item1" unwrap="p" />
+      <ContentSlot v-if="state.activeImage === 2" :use="$slots.item2" unwrap="p" />
+      <ContentSlot v-if="state.activeImage === 3" :use="$slots.item3" unwrap="p" />
+      <ContentSlot v-if="state.activeImage === 4" :use="$slots.item4" unwrap="p" />
+    </div>
+  </div>
 </template>
 
 
@@ -116,7 +129,7 @@ const slots = useSlots()
 
   &__quotes {
     position: absolute;
-    bottom: -24px;
+    bottom: 80px;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -126,8 +139,8 @@ const slots = useSlots()
     box-sizing: border-box;
     z-index: z-number(dropdown);
     width: 80%;
-    max-width: 250px;
-    height: 250px;
+    max-width: 200px;
+    height: 200px;
     padding: $spacer-double;
     font-size: ms(1);
     line-height: $font-lineheight-long;
@@ -141,7 +154,7 @@ const slots = useSlots()
     }
 
     @include breakpoint(lg) {
-      bottom: -16px;
+      bottom: 8px;
       left: 105px;
       height: 336px;
       width: 336px;
