@@ -84,7 +84,7 @@ function handleButtonNavigation (direction) {
 
 getNavConfig()
 
-async function getNavConfig () {
+function getNavConfig () {
   if (props.navConfig) {
     state.navConfig = deepMerge({ ...defaultNavConfigStyling }, props.navConfig)
   } else {
@@ -95,18 +95,18 @@ async function getNavConfig () {
 
 <template>
   <div class="base-carousel">
+    <div class="base-carousel__nav">
+      <BaseIcon
+        v-for="direction in ['left', 'right']"
+        :key="direction"
+        :icon="`arrow-${direction}`"
+        size="large"
+        class="base-carousel__nav-button"
+        @click="handleButtonNavigation(direction)"
+      />
+    </div>
     <div class="base-carousel__item" v-for="name in Object.keys(slots)" :key="name">
       <slot :name="name" />
-      <div class="base-carousel__nav">
-        <BaseIcon
-          v-for="direction in ['left', 'right']"
-          :key="direction"
-          :icon="`arrow-${direction}`"
-          size="large"
-          class="base-carousel__nav-button"
-          @click="handleButtonNavigation(direction)"
-        />
-      </div>
       <div class="base-carousel__dots">
         <div
           v-for="item in props.itemsLength"
@@ -146,7 +146,8 @@ async function getNavConfig () {
     display: none;
 
     @include breakpoint(lg) {
-      position: v-bind('state.navConfig.positions?.lg?.position');
+      position: absolute;
+      z-index: z-number(overbase);
       top: v-bind('state.navConfig.positions?.lg?.top');
       left: v-bind('state.navConfig.positions?.lg?.left');
       transform: v-bind('state.navConfig.positions?.lg?.transform');
@@ -165,6 +166,7 @@ async function getNavConfig () {
     margin: v-bind('state.navConfig.buttons?.margin');
     padding: $spacer*0.75;
     cursor: pointer;
+    flex-shrink: 0;
   }
 
   &__dots {

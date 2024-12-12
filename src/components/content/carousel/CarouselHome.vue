@@ -11,14 +11,6 @@ const state = reactive({
 const imagesLength = 4
 
 
-// const carouselNavConfig = {
-//   lg: {
-//     position: 'absolute',
-//     maxWidth: 'unset',
-//   }
-// }
-
-
 const carouselDotsConfig = {
   background: {
     color: '#6C6C6C',
@@ -50,18 +42,18 @@ const carouselDotsConfig = {
 }
 
 const carouselNavConfig = {
+  buttons: {
+    margin: '0'
+  },
   lg: {
-    position: 'absolute',
-    maxWidth: 'unset',
-    width: '100%',
-    top:'50%',
-    transform: 'translate(-50%, -50%)',
+    maxWidth: '1440px',
+    width: 'calc(100% - 100px)'
   },
 }
 
-// state.interval = setInterval(() => {
-//   state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
-// }, 6000)
+state.interval = setInterval(() => {
+  state.activeImage = state.activeImage >= imagesLength ? 1 : state.activeImage + 1
+}, 6000)
 
 
 function getTemplateIdx (idx) {
@@ -105,6 +97,7 @@ onUnmounted(() => {
 <style lang="scss">
 .carousel-home {
   position: relative;
+  box-sizing: border-box;
 
   @include breakpoint(lg) {
     height: calc(100dvh - 64px);
@@ -112,6 +105,7 @@ onUnmounted(() => {
   }
 
   &__image-wrapper {
+    display: flex;
     height: calc(100dvh - 208px);
     overflow: hidden;
 
@@ -156,6 +150,14 @@ onUnmounted(() => {
     @include breakpoint(lg) {
       bottom: 8px;
       left: 105px;
+      height: 336px;
+      width: 336px;
+      font-size: ms(2);
+    }
+
+    @include breakpoint(xl) {
+      bottom: 8px;
+      left: 175px;
       height: 336px;
       width: 336px;
       font-size: ms(2);
