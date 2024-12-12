@@ -15,5 +15,6 @@
   "investeeCompanies.label.finance": "Financieras",
   "investeeCompanies.label.industry": "Industriales",
   "common.label.legal": "Aviso legal",
-  "common.label.privacy": "Política de privacidad"
+  "common.label.privacy": "Política de privacidad",
+  "error.label.pageNotFound": "Página no encontrada"
 }
