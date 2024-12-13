@@ -28,10 +28,6 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-  isButtonNavCircular: {
-    type: Boolean,
-    default: true,
-  },
 })
 
 const slots = useSlots()
