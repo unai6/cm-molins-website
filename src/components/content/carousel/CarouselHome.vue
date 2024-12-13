@@ -133,8 +133,8 @@ onUnmounted(() => {
     box-sizing: border-box;
     z-index: z-number(dropdown);
     width: 80%;
-    max-width: 200px;
-    height: 200px;
+    max-width: 250px;
+    height: 250px;
     padding: $spacer-double;
     font-size: ms(1);
     line-height: $font-lineheight-long;
@@ -143,8 +143,8 @@ onUnmounted(() => {
 
     @include breakpoint(md) {
       max-width: unset;
-      height: 350px;
-      width: 350px
+      height: 300px;
+      width: 300px
     }
 
     @include breakpoint(lg) {

@@ -14,6 +14,8 @@ function resetScroll () {
     top: 0,
     behavior: 'smooth'
   })
+
+  y.value = 0
 }
 
 
@@ -30,10 +32,10 @@ watch(y, value => {
       <slot />
       <Transition name="fade">
         <BaseIcon
-        v-if="yRef > 200"
-        class="default-layout__arrow"
-        icon="arrow-tail-up"
-        @click="resetScroll"
+          v-if="yRef > 200"
+          class="default-layout__arrow"
+          icon="arrow-tail-up"
+          @click="resetScroll"
         />
       </Transition>
     </main>
