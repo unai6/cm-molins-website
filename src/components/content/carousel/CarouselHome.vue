@@ -46,7 +46,7 @@ const carouselNavConfig = {
     margin: '0'
   },
   lg: {
-    maxWidth: '1440px',
+    maxWidth: '100%',
     width: 'calc(100% - 100px)'
   },
 }
