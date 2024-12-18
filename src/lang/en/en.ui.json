@@ -16,5 +16,8 @@
   "investeeCompanies.label.industry": "Industrial",
   "common.label.legal": "Legal warning",
   "common.label.privacy": "Privacy policy",
-  "error.label.pageNotFound": "Page not found"
+  "error.label.pageNotFound": "Page not found",
+  "investeeCompanies.label.disinvestments": "Disinvestment",
+  "investeeCompanies.label.portfolio": "Portfolio"
+
 }

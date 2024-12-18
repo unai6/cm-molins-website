@@ -156,14 +156,14 @@ function setElementsTransition (elements, duration, animation) {
           :class="{ 'investee-companies__button--active': state.startupInvestmentStatus === 'invested' }"
           @click="selectCompanyType('startup', 'invested')"
         >
-          Portfolio
+          {{ $t('investeeCompanies.label.portfolio') }}
         </button>
         <button
           class="investee-companies__button"
           :class="{ 'investee-companies__button--active': state.startupInvestmentStatus === 'disinvested' }"
           @click="selectCompanyType('startup', 'disinvested')"
         >
-          Desinversiones
+          {{ $t('investeeCompanies.label.disinvestments') }}
         </button>
       </div>
     </div>

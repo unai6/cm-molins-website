@@ -101,6 +101,10 @@ watch(isOpen, value=> {
     flex-direction: column;
     gap: $spacer;
     overflow: scroll;
+
+    @include breakpoint(lg) {
+      overflow: hidden;
+    }
   }
 
   &__x-mark {

@@ -43,10 +43,17 @@
   }
 
   &__title {
-    color: $color-primary;
-    font-size: ms(3);
-    line-height: $font-lineheight-long;
-    text-align: center;
+    h2 {
+      color: $color-primary;
+      font-size: ms(3);
+      line-height: $font-lineheight-long;
+      font-family: $font-family-base;
+      text-align: center;
+
+      @include breakpoint(lg) {
+        text-align: left;
+      }
+    }
   }
 
   &__content {

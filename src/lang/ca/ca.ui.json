@@ -16,5 +16,7 @@
   "investeeCompanies.label.industry": "Industrials",
   "common.label.legal": "Avís legal",
   "common.label.privacy": "Política de privacitat",
-  "error.label.pageNotFound": "Pàgina no trobada"
+  "error.label.pageNotFound": "Pàgina no trobada",
+  "investeeCompanies.label.disinvestments": "Desinversions",
+  "investeeCompanies.label.portfolio": "Portfoli"
 }

@@ -119,7 +119,7 @@ corporateValuesItems:
 #title
   CONTACT
 #subtitle
-  INVESTMENT PORTFOLIO **C.M.**
+  CARTERA DE INVERSIONES **C.M.**
 #phone
   :base-icon{icon="contact-phone"} [T. 934 876 666](tel:+34934121300)
 #mail

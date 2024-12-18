@@ -10,10 +10,12 @@
   "appHeader.label.contact": "Contacto",
   "investeeCompanies.label.investedAt": "Año de inversión {year}",
   "investeeCompanies.label.disinvestedAt": "Año de desinversión {year}",
+  "investeeCompanies.label.disinvestments": "Desinversiones",
   "investeeCompanies.label.startup": "Startups Tecnológicas",
   "investeeCompanies.label.realState": "Inmobiliarias",
   "investeeCompanies.label.finance": "Financieras",
   "investeeCompanies.label.industry": "Industriales",
+  "investeeCompanies.label.portfolio": "Portfolio",
   "common.label.legal": "Aviso legal",
   "common.label.privacy": "Política de privacidad",
   "error.label.pageNotFound": "Página no encontrada"
