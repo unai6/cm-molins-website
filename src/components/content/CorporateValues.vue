@@ -231,7 +231,12 @@ onMounted(() => {
     font-family: $font-family-highlight;
     font-weight: $font-weight-regular;
 
+    @include breakpoint(md) {
+      display: none;
+    }
+
     @include breakpoint(lg) {
+      display: block;
       font-size: ms(-1);
     }
   }
